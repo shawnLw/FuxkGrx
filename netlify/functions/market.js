@@ -19,8 +19,8 @@ exports.handler = async function handler() {
   }
 
   try {
-    const symbols = ["^GSPC", "^IXIC", "^DJI"];
-    const url = `https://financialmodelingprep.com/api/v3/quote/${symbols.join(",")}?apikey=${apiKey}`;
+    const symbols = ["^GSPC", "^IXIC", "^DJI", "^HSI", "^N225", "^GDAXI", "^FTSE"];
+    const url = `https://financialmodelingprep.com/stable/batch-quote?symbols=${encodeURIComponent(symbols.join(","))}&apikey=${apiKey}`;
     const response = await fetch(url);
 
     if (!response.ok) {
@@ -32,11 +32,11 @@ exports.handler = async function handler() {
       updatedAt: new Date().toISOString(),
       source: "Financial Modeling Prep",
       markets: rows.map((row) => ({
-        region: "美股",
+        region: inferRegion(row.symbol),
         index: row.name || row.symbol,
         symbol: row.symbol,
         price: row.price,
-        changePct: row.changesPercentage,
+        changePct: row.changesPercentage ?? row.changePercentage ?? row.changePercent ?? 0,
       })),
     });
   } catch (error) {
@@ -53,4 +53,12 @@ function json(body, statusCode = 200) {
     },
     body: JSON.stringify(body),
   };
+}
+
+function inferRegion(symbol = "") {
+  if (["^GSPC", "^IXIC", "^DJI"].includes(symbol)) return "美股";
+  if (symbol === "^HSI") return "港股";
+  if (symbol === "^N225") return "日本";
+  if (["^GDAXI", "^FTSE"].includes(symbol)) return "欧洲";
+  return "全球";
 }

@@ -227,6 +227,7 @@ let industryPage = 0;
 let selectedBook = bookData[0].name;
 let bookPage = 0;
 let liveIndexOverrides = {};
+let liveMarketSource = "";
 
 const formatPct = (value) => `${value > 0 ? "+" : ""}${Number(value).toFixed(2)}%`;
 const formatPrice = (value) => Number(value).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -305,7 +306,7 @@ function renderBars(container, rows, activePeriod) {
 function renderIndexStrip(indexes) {
   document.getElementById("index-strip").innerHTML = indexes.map((item) => `
     <article class="glass-panel index-card">
-      <span>${item.name} · 演示</span>
+      <span>${item.name} · ${item.live ? "FMP" : "演示"}</span>
       <strong>${formatPrice(item.price)}</strong>
       <small class="${item.day >= 0 ? "up" : "down"}">${formatPct(item.day)} · ${item.symbol}</small>
     </article>
@@ -361,7 +362,28 @@ function renderMarket() {
   renderMacroCalendar();
   renderNews(document.getElementById("fundamental-news"), newsLibrary[selectedMarket].fundamental);
   renderNews(document.getElementById("policy-news"), newsLibrary[selectedMarket].policy);
-  document.getElementById("market-source").textContent = `数据源：${data.source}`;
+  document.getElementById("market-source").textContent = `数据源：${liveMarketSource || data.source}`;
+}
+
+async function fetchMarketFromBackend() {
+  try {
+    const response = await fetch("/.netlify/functions/market");
+    if (!response.ok) return;
+    const payload = await response.json();
+    liveMarketSource = payload.source === "Financial Modeling Prep"
+      ? `Financial Modeling Prep，更新时间：${payload.updatedAt}`
+      : `${payload.source || "fallback"}；${payload.note || "当前未启用 FMP_API_KEY"}`;
+    (payload.markets || []).forEach((row) => {
+      if (!row.symbol || row.price == null) return;
+      liveIndexOverrides[row.symbol] = {
+        price: row.price,
+        day: row.changePct || 0,
+      };
+    });
+    renderMarket();
+  } catch (error) {
+    liveMarketSource = "本地静态预览无法调用 Netlify Function；部署后可自动请求 FMP。";
+  }
 }
 
 function renderIndustry() {
@@ -464,6 +486,7 @@ function init() {
   renderMarket();
   renderIndustry();
   renderBook();
+  fetchMarketFromBackend();
 }
 
 init();
