@@ -157,8 +157,8 @@ button {
   grid-template-columns: minmax(0, 720px) auto;
   gap: 24px;
   align-items: end;
-  min-height: 190px;
-  padding: 34px 0 24px;
+  min-height: 128px;
+  padding: 18px 0 18px;
 }
 
 .eyebrow {
@@ -180,8 +180,8 @@ p {
 h1 {
   max-width: 860px;
   margin-bottom: 12px;
-  font-size: clamp(30px, 4.4vw, 58px);
-  line-height: 1.02;
+  font-size: clamp(24px, 3.2vw, 42px);
+  line-height: 1.08;
   letter-spacing: 0;
 }
 
@@ -189,8 +189,8 @@ h1 {
   max-width: 620px;
   margin-bottom: 0;
   color: var(--muted);
-  font-size: 15px;
-  line-height: 1.8;
+  font-size: 13px;
+  line-height: 1.55;
 }
 
 h2 {
@@ -667,9 +667,9 @@ h3 {
 .feature-page {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1.45fr);
+  grid-template-columns: minmax(190px, 0.42fr) minmax(0, 1.58fr);
   gap: 24px;
-  min-height: 700px;
+  min-height: 760px;
   overflow: hidden;
   padding: 28px;
 }
@@ -735,7 +735,7 @@ h3 {
 
 .feature-body {
   align-self: stretch;
-  padding: 26px;
+  padding: 30px;
   border: 1px solid var(--line);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.06);

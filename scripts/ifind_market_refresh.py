@@ -179,6 +179,7 @@ def build_latest_snapshot(rows: list[dict[str, Any]]) -> dict[str, Any]:
 
 def build_history_snapshot(rows: list[dict[str, Any]]) -> dict[str, Any]:
     by_date: dict[str, list[dict[str, Any]]] = {}
+    by_symbol: dict[str, list[dict[str, Any]]] = {}
     meta_by_symbol = {item["symbol"].upper(): item for item in INDEXES}
 
     for row in rows:
@@ -190,13 +191,23 @@ def build_history_snapshot(rows: list[dict[str, Any]]) -> dict[str, Any]:
         close = to_float(find_value(row, ["close", "收盘价"]))
         if not date or close is None:
             continue
-        by_date.setdefault(date, []).append(
-            {
-                **meta,
-                "price": close,
-                "changePct": to_float(find_value(row, ["changeRatio", "涨跌幅"])),
-            }
-        )
+        item = {
+            **meta,
+            "date": date,
+            "price": close,
+            "changePct": to_float(find_value(row, ["changeRatio", "涨跌幅"])),
+        }
+        by_symbol.setdefault(symbol, []).append(item)
+
+    for symbol_rows in by_symbol.values():
+        symbol_rows.sort(key=lambda item: item["date"])
+        ytd_base = next((item["price"] for item in symbol_rows if item["date"][:4] == symbol_rows[-1]["date"][:4]), None)
+        for index, item in enumerate(symbol_rows):
+            week_base = symbol_rows[max(0, index - 5)]["price"]
+            item["weekPct"] = ((item["price"] - week_base) / week_base) * 100 if week_base else None
+            item["ytdPct"] = ((item["price"] - ytd_base) / ytd_base) * 100 if ytd_base else None
+            clean_item = {key: value for key, value in item.items() if key != "date"}
+            by_date.setdefault(item["date"], []).append(clean_item)
 
     return {
         "updatedAt": datetime.now(timezone(timedelta(hours=8))).isoformat(timespec="seconds"),

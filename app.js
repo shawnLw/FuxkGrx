@@ -234,12 +234,53 @@ const activeMarketKeys = ["cn", "hk"];
 
 const formatPct = (value) => `${value > 0 ? "+" : ""}${Number(value).toFixed(2)}%`;
 const formatPrice = (value) => Number(value).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const dateToISO = (date) => {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
 const symbolAliases = {
   "000001.SH": "000001.SS",
   "000688.SH": "000688.SS",
   "HSI.HK": "^HSI",
   "HSTECH.HK": "3033.HK",
 };
+
+const curatedNews = {
+  cn: {
+    fundamental: [
+      { title: "A股缩量调整，半导体产业链和游戏股相对活跃", source: "每日经济新闻", date: "2026-07-08", url: "https://www.nbd.com.cn/articles/2026-07-07/4459883.html" },
+      { title: "东方财富大盘分析持续跟踪A股市场主线与板块轮动", source: "东方财富", date: "2026-07-08", url: "https://stock.eastmoney.com/a/cdpfx.html" },
+      { title: "国家统计局数据栏目：PMI、工业企业利润、生产资料价格等官方数据", source: "国家统计局", date: "官方数据", url: "https://www.stats.gov.cn/sj/" },
+    ],
+    policy: [
+      { title: "7月9日国家统计局将公布6月CPI、PPI数据", source: "财联社", date: "2026-07-06", url: "https://www.cls.cn/detail/2417395" },
+      { title: "国家统计局最新统计信息发布日程", source: "国家统计局", date: "官方日程", url: "https://www.stats.gov.cn/sj/fbrc/" },
+      { title: "国家统计局解读5月份CPI和PPI数据，作为6月数据跟踪基准", source: "国家统计局", date: "2026-06-10", url: "https://www.stats.gov.cn/sj/sjjd/202606/t20260610_1963924.html" },
+    ],
+  },
+  hk: {
+    fundamental: [
+      { title: "港股高开：科技硬件领涨，半导体新股首日表现亮眼", source: "证券时报", date: "2026-07-08", url: "https://www.stcn.com/article/detail/4005615.html" },
+      { title: "港股三大指数持续上涨，恒生科技指数涨幅扩大", source: "新浪财经", date: "2026-07-08", url: "https://finance.sina.com.cn/stock/hkstock/2026-07-08/doc-inihaiea8215514.shtml" },
+      { title: "港股高开高走，恒生科技指数涨逾3%", source: "中国基金报", date: "2026-07-08", url: "https://www.chnfund.com/article/95ac2774-c3df-35ef-7fb1-3a2251e1e50d" },
+    ],
+    policy: [
+      { title: "国家统计局数据栏目：宏观数据发布与经济运行信息", source: "国家统计局", date: "官方数据", url: "https://www.stats.gov.cn/sj/" },
+      { title: "最新统计信息发布日程，跟踪CPI、PPI、PMI等公布时间", source: "国家统计局", date: "官方日程", url: "https://www.stats.gov.cn/sj/fbrc/" },
+      { title: "港股速报：核心指数上涨，科技硬件与PCB方向活跃", source: "每日经济新闻", date: "2026-07-08", url: "https://www.nbd.com.cn/articles/2026-07-08/4460233.html" },
+    ],
+  },
+};
+
+industryData[0].pages = [
+  ...industryData[0].pages,
+  { title: "第九页：需求底层逻辑", bullets: ["半导体需求不是单一终端驱动，而是云端AI训练、AI推理、智能汽车、工业控制、消费电子换机和国产替代共同叠加。研究时要把需求拆成算力、存储、模拟、功率、射频、传感器等不同赛道。", "AI服务器对先进制程、HBM、先进封装、高速互连和电源管理提出更高要求；汽车电子更重视可靠性、认证周期和长生命周期；消费电子则更受库存周期和新品周期影响。", "判断景气度时不要只看某一家公司订单，而要同时看晶圆厂稼动率、设备招标、封测排产、存储价格、渠道库存和终端出货。"], stats: [["核心变量", "需求扩散"], ["跟踪频率", "月度/季度"], ["风险", "库存反复"]] },
+  { title: "第十页：产业链与利润分配", bullets: ["设计公司轻资产、弹性大，但产品迭代快、客户集中度和价格竞争会影响利润率；制造环节资本开支重，核心看制程能力、良率、产能利用率和客户结构。", "设备和材料环节具备更强国产替代逻辑，但验证周期长，短期收入确认可能滞后于订单；封测环节更贴近下游需求，先进封装是观察AI链条的重要窗口。", "利润并不平均分布。高壁垒环节通常体现在技术、客户认证、工艺经验、良率数据和供应稳定性，而不是简单的市场规模大。"], stats: [["高壁垒", "设备/材料/制造"], ["高弹性", "设计/封测"], ["关键指标", "良率"]] },
+  { title: "第十一页：估值框架", bullets: ["周期底部适合看PB、重置成本和资产利用率；景气上行期更适合看PE、PEG和订单增速；主题扩散期还要警惕估值先行透支。", "设计类公司要看新品放量、客户拓展和毛利率趋势；设备材料类公司要看订单、在手订单、国产化率和验证节点；制造封测类公司要看产能利用率和资本开支节奏。", "估值要与周期位置匹配。若价格、库存、稼动率尚未改善，而股价已充分反映强复苏预期，安全边际会下降。"], stats: [["周期底部", "PB/稼动率"], ["上行阶段", "PE/订单"], ["主题阶段", "预期差"]] },
+  { title: "第十二页：政策与国产替代", bullets: ["国产替代的核心不是简单替代进口，而是在供应安全、工艺验证、客户导入、规模化量产之间形成闭环。能进入核心客户供应链并持续迭代的公司更值得跟踪。", "政策支持会改善长期资本开支预期，但公司兑现仍取决于产品性能、良率、交付稳定性和成本曲线。政策是方向，订单和财务数据才是验证。", "外部限制可能带来国产链条机会，也可能造成先进设备、EDA、IP和高端材料瓶颈。研究时要同时看受益和约束两面。"], stats: [["政策主线", "自主可控"], ["验证方式", "订单/良率"], ["约束", "高端环节"]] },
+];
 
 function setLiveIndexOverride(row) {
   if (!row.symbol || row.price == null) return;
@@ -368,7 +409,7 @@ function renderMacroCalendar() {
     return date;
   });
   document.getElementById("calendar-days").innerHTML = days.map((date) => {
-    const iso = date.toISOString().slice(0, 10);
+    const iso = dateToISO(date);
     return `<button class="calendar-day ${iso === selectedMacroDate ? "active" : ""}" data-date="${iso}" type="button"><strong>${date.getDate()}</strong><span>${["周日", "周一", "周二", "周三", "周四", "周五", "周六"][date.getDay()]}</span></button>`;
   }).join("");
   document.querySelectorAll(".calendar-day").forEach((button) => {
@@ -379,7 +420,7 @@ function renderMacroCalendar() {
     });
   });
   const relevant = macroEvents
-    .filter((item) => item.date >= selectedMacroDate)
+    .filter((item) => item.date === selectedMacroDate)
     .filter((item) => selectedMacroCountry === "all" || item.country === selectedMacroCountry)
     .slice(0, 6);
   document.getElementById("macro-list").innerHTML = relevant.map((item) => `
@@ -409,8 +450,8 @@ function renderMarket() {
   renderBars(document.getElementById("index-chart"), data.indexes, selectedPeriods.index);
   renderBars(document.getElementById("sector-chart"), data.sectors, selectedPeriods.sector);
   renderMacroCalendar();
-  renderNews(document.getElementById("fundamental-news"), newsLibrary[selectedMarket].fundamental);
-  renderNews(document.getElementById("policy-news"), newsLibrary[selectedMarket].policy);
+  renderNews(document.getElementById("fundamental-news"), (curatedNews[selectedMarket] || newsLibrary[selectedMarket]).fundamental);
+  renderNews(document.getElementById("policy-news"), (curatedNews[selectedMarket] || newsLibrary[selectedMarket]).policy);
   document.getElementById("market-source").textContent = `数据源：${liveMarketSource || data.source}`;
 }
 
@@ -537,6 +578,8 @@ function init() {
   });
   document.getElementById("report-date").addEventListener("change", (event) => {
     selectedDate = event.target.value;
+    selectedMacroDate = selectedDate;
+    document.getElementById("macro-date").value = selectedMacroDate;
     renderMarket();
   });
   document.getElementById("macro-date").addEventListener("change", (event) => {
