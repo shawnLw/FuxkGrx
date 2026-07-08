@@ -1,95 +1,110 @@
-const marketData = {
+const marketBase = {
   cn: {
     name: "A股",
     subtitle: "沪深市场",
-    risk: "中性偏暖",
-    volume: "温和放量",
-    style: "成长占优",
+    risk: ["中性偏暖", "震荡修复", "风险偏好回升", "短线分歧"],
+    volume: ["温和放量", "缩量整理", "结构活跃", "资金回流"],
+    style: ["成长占优", "红利防守", "科技领涨", "周期轮动"],
     indexes: [
-      ["沪深300", 0.84],
-      ["上证指数", 0.42],
-      ["创业板指", 1.36],
-      ["科创50", 1.08],
-      ["中证1000", -0.18],
+      ["沪深300", 0.84, 1.72, 6.4],
+      ["上证指数", 0.42, 1.08, 4.9],
+      ["创业板指", 1.36, 2.86, 8.7],
+      ["科创50", 1.08, 3.24, 12.6],
+      ["中证1000", -0.18, 0.46, 3.1],
     ],
     sectors: [
-      ["半导体", 2.48],
-      ["通信", 1.72],
-      ["医药", 0.92],
-      ["煤炭", -0.64],
-      ["地产", -1.18],
-    ],
-    fundamental: [
-      "AI 服务器和先进封装需求延续高景气，带动电子板块估值修复。",
-      "消费复苏斜率仍需观察，白酒和免税链条资金分歧加大。",
-      "部分周期品价格企稳，资源板块短线波动收敛。",
-    ],
-    policy: [
-      "资本市场改革继续聚焦长期资金入市和上市公司质量提升。",
-      "新质生产力相关政策预期升温，科技成长方向关注度提高。",
-      "地方稳地产政策继续落地，但市场更关注销售端实际改善。",
+      ["半导体", 2.48, 5.82, 28.6],
+      ["通信", 1.72, 4.28, 22.4],
+      ["医药", 0.92, 1.66, 15.8],
+      ["煤炭", -0.64, -1.24, 7.6],
+      ["地产", -1.18, -2.86, -12.3],
     ],
   },
   us: {
     name: "美股",
     subtitle: "美国市场",
-    risk: "偏积极",
-    volume: "结构活跃",
-    style: "科技领涨",
+    risk: ["偏积极", "高位震荡", "风险偏好较强", "等待数据"],
+    volume: ["结构活跃", "温和放量", "科技集中", "小盘偏弱"],
+    style: ["科技领涨", "AI 主线", "大盘成长", "质量风格"],
     indexes: [
-      ["纳斯达克", 1.12],
-      ["标普500", 0.68],
-      ["道琼斯", 0.21],
-      ["罗素2000", -0.36],
-      ["费城半导体", 1.94],
+      ["纳斯达克", 1.12, 2.48, 18.5],
+      ["标普500", 0.68, 1.74, 13.2],
+      ["道琼斯", 0.21, 0.62, 6.8],
+      ["罗素2000", -0.36, -0.92, 2.4],
+      ["费城半导体", 1.94, 4.36, 26.2],
     ],
     sectors: [
-      ["科技", 1.56],
-      ["可选消费", 0.88],
-      ["金融", 0.34],
-      ["能源", -0.72],
-      ["公用事业", -0.44],
-    ],
-    fundamental: [
-      "大型科技公司盈利韧性仍是指数核心支撑。",
-      "市场继续评估企业资本开支对 AI 产业链的传导。",
-      "小盘股对利率预期更敏感，表现弱于大盘成长。",
-    ],
-    policy: [
-      "投资者继续关注通胀数据对降息路径的影响。",
-      "财政支出与产业补贴议题对制造业板块形成边际支撑。",
-      "监管层对大型平台公司的竞争政策仍是潜在扰动。",
+      ["科技", 1.56, 3.42, 21.4],
+      ["可选消费", 0.88, 1.96, 10.5],
+      ["金融", 0.34, 0.74, 8.8],
+      ["能源", -0.72, -1.12, 4.6],
+      ["公用事业", -0.44, 0.18, 3.3],
     ],
   },
   hk: {
     name: "港股",
     subtitle: "香港市场",
-    risk: "震荡修复",
-    volume: "低位回升",
-    style: "互联网反弹",
+    risk: ["震荡修复", "低位反弹", "情绪回暖", "资金分歧"],
+    volume: ["低位回升", "南向活跃", "成交改善", "缩量等待"],
+    style: ["互联网反弹", "高股息托底", "汽车活跃", "内房承压"],
     indexes: [
-      ["恒生指数", 0.76],
-      ["恒生科技", 1.68],
-      ["国企指数", 0.94],
-      ["红筹指数", 0.28],
-      ["地产分类", -0.82],
+      ["恒生指数", 0.76, 1.84, 5.7],
+      ["恒生科技", 1.68, 4.26, 14.8],
+      ["国企指数", 0.94, 2.38, 7.9],
+      ["红筹指数", 0.28, 0.86, 4.2],
+      ["地产分类", -0.82, -2.14, -9.6],
     ],
     sectors: [
-      ["互联网", 2.12],
-      ["汽车", 1.24],
-      ["生物科技", 0.66],
-      ["内房", -1.36],
-      ["银行", -0.22],
+      ["互联网", 2.12, 5.16, 16.9],
+      ["汽车", 1.24, 2.42, 11.2],
+      ["生物科技", 0.66, 1.28, 6.5],
+      ["内房", -1.36, -3.48, -18.4],
+      ["银行", -0.22, 0.52, 5.1],
     ],
+  },
+};
+
+const newsLibrary = {
+  cn: {
+    fundamental: [
+      "AI 服务器和先进封装需求延续高景气，电子板块资金关注度提升。",
+      "消费复苏斜率仍需观察，白酒、免税和可选消费走势分化。",
+      "部分周期品价格企稳，资源板块短线波动收敛。",
+      "成长板块成交占比提高，资金更关注业绩兑现和订单能见度。",
+    ],
+    policy: [
+      "资本市场改革继续聚焦长期资金入市和上市公司质量提升。",
+      "新质生产力相关政策预期升温，科技成长方向关注度提高。",
+      "地方稳地产政策继续落地，但市场更关注销售端实际改善。",
+      "产业政策继续强调自主可控，半导体设备和材料链条受益。",
+    ],
+  },
+  us: {
+    fundamental: [
+      "大型科技公司盈利韧性仍是指数核心支撑。",
+      "市场继续评估企业资本开支对 AI 产业链的传导。",
+      "小盘股对利率预期更敏感，表现弱于大盘成长。",
+      "云计算和芯片订单仍是投资者观察利润弹性的关键。",
+    ],
+    policy: [
+      "投资者继续关注通胀数据对降息路径的影响。",
+      "财政支出与产业补贴议题对制造业板块形成边际支撑。",
+      "监管层对大型平台公司的竞争政策仍是潜在扰动。",
+      "市场等待美联储官员表态，以确认利率预期是否继续下修。",
+    ],
+  },
+  hk: {
     fundamental: [
       "平台经济盈利改善和回购力度提升，支撑互联网龙头情绪。",
       "南向资金延续净流入，对高股息资产形成托底。",
       "地产链条仍受销售恢复节奏制约，估值弹性有限。",
+      "汽车和生物科技板块交易活跃，但波动仍高于大盘。",
     ],
     policy: [
       "互联互通机制优化预期提升港股流动性关注度。",
       "内地稳增长政策对顺周期和消费板块形成预期支撑。",
       "海外利率变化仍影响港股估值修复空间。",
+      "市场继续关注平台经济监管边际变化和分红回购政策。",
     ],
   },
 };
@@ -158,28 +173,123 @@ const books = [
   },
 ];
 
+const periodLabels = {
+  day: "单日",
+  week: "较上周",
+  ytd: "较年初",
+};
+
 let selectedMarket = "cn";
 let selectedIndustry = industries[0].name;
 let selectedBook = books[0].name;
+let selectedDate = document.getElementById("report-date").value;
+let selectedPeriods = {
+  index: "day",
+  sector: "day",
+  industry: "ytd",
+};
 
 const formatPct = (value) => `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
 
-function renderBars(container, rows) {
-  const max = Math.max(...rows.map(([, value]) => Math.abs(value)), 1);
+function hashString(value) {
+  let hash = 0;
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash * 31 + value.charCodeAt(index)) % 100000;
+  }
+  return hash;
+}
+
+function dateVariation(key, scale) {
+  const hash = hashString(`${selectedDate}-${selectedMarket}-${key}`);
+  return ((hash % 200) - 100) / 100 * scale;
+}
+
+function buildRows(rows) {
+  return rows.map(([name, day, week, ytd]) => ({
+    name,
+    day: Number((day + dateVariation(`${name}-day`, 0.55)).toFixed(2)),
+    week: Number((week + dateVariation(`${name}-week`, 1.15)).toFixed(2)),
+    ytd: Number((ytd + dateVariation(`${name}-ytd`, 3.4)).toFixed(2)),
+  }));
+}
+
+function getMarketData() {
+  const base = marketBase[selectedMarket];
+  const shift = hashString(`${selectedDate}-${selectedMarket}`);
+  return {
+    ...base,
+    risk: base.risk[shift % base.risk.length],
+    volume: base.volume[(shift + 1) % base.volume.length],
+    style: base.style[(shift + 2) % base.style.length],
+    indexes: buildRows(base.indexes),
+    sectors: buildRows(base.sectors),
+    fundamental: pickNews(newsLibrary[selectedMarket].fundamental, shift),
+    policy: pickNews(newsLibrary[selectedMarket].policy, shift + 3),
+  };
+}
+
+function pickNews(news, seed) {
+  return [0, 1, 2].map((offset) => news[(seed + offset) % news.length]);
+}
+
+function renderBars(container, rows, activePeriod) {
+  const max = Math.max(...rows.map((row) => Math.abs(row[activePeriod])), 1);
   container.innerHTML = rows
-    .map(([name, value]) => {
+    .map((row) => {
+      const value = row[activePeriod];
       const width = Math.max((Math.abs(value) / max) * 50, 3);
       const direction = value >= 0 ? "positive" : "negative";
-      const style = value >= 0 ? `left: 50%; width: ${width}%;` : `left: 50%; width: ${width}%;`;
       return `
         <div class="bar-row">
-          <span class="bar-name">${name}</span>
-          <span class="track"><span class="bar ${direction}" style="${style}"></span></span>
-          <span class="bar-value">${formatPct(value)}</span>
+          <span class="bar-name">${row.name}</span>
+          <span class="track">
+            <span class="bar ${direction}" data-width="${width}" style="width: 0%;"></span>
+          </span>
+          <span class="bar-values">
+            ${Object.keys(periodLabels)
+              .map((period) => {
+                const chipDirection = row[period] >= 0 ? "positive" : "negative";
+                return `<span class="pct-chip ${period === activePeriod ? `active ${chipDirection}` : ""}">${periodLabels[period]} ${formatPct(row[period])}</span>`;
+              })
+              .join("")}
+          </span>
         </div>
       `;
     })
     .join("");
+
+  requestAnimationFrame(() => {
+    container.querySelectorAll(".bar").forEach((bar) => {
+      bar.style.width = `${bar.dataset.width}%`;
+    });
+  });
+}
+
+function renderSimpleBars(container, rows) {
+  const max = Math.max(...rows.map((row) => Math.abs(row.ytd)), 1);
+  container.innerHTML = rows
+    .map((row) => {
+      const width = Math.max((Math.abs(row.ytd) / max) * 50, 3);
+      const direction = row.ytd >= 0 ? "positive" : "negative";
+      return `
+        <div class="bar-row">
+          <span class="bar-name">${row.name}</span>
+          <span class="track">
+            <span class="bar ${direction}" data-width="${width}" style="width: 0%;"></span>
+          </span>
+          <span class="bar-values">
+            <span class="pct-chip active ${direction}">${formatPct(row.ytd)}</span>
+          </span>
+        </div>
+      `;
+    })
+    .join("");
+
+  requestAnimationFrame(() => {
+    container.querySelectorAll(".bar").forEach((bar) => {
+      bar.style.width = `${bar.dataset.width}%`;
+    });
+  });
 }
 
 function renderList(container, items, activeName, onClick) {
@@ -203,9 +313,8 @@ function renderNews(container, rows) {
   container.innerHTML = rows.map((item) => `<li>${item}</li>`).join("");
 }
 
-function renderMarket() {
-  const data = marketData[selectedMarket];
-  const markets = Object.entries(marketData).map(([key, value]) => ({ key, ...value }));
+function renderMarketList() {
+  const markets = Object.entries(marketBase).map(([key, value]) => ({ key, ...value }));
   const marketList = document.getElementById("market-list");
   marketList.innerHTML = markets
     .map(
@@ -217,19 +326,24 @@ function renderMarket() {
       `
     )
     .join("");
+
   marketList.querySelectorAll(".select-card").forEach((button) => {
     button.addEventListener("click", () => {
       selectedMarket = button.dataset.key;
       renderMarket();
     });
   });
+}
 
-  document.getElementById("market-name").textContent = data.name;
+function renderMarket() {
+  const data = getMarketData();
+  renderMarketList();
+  document.getElementById("market-name").textContent = `${data.name} · ${selectedDate}`;
   document.getElementById("risk-label").textContent = data.risk;
   document.getElementById("volume-label").textContent = data.volume;
   document.getElementById("style-label").textContent = data.style;
-  renderBars(document.getElementById("index-chart"), data.indexes);
-  renderBars(document.getElementById("sector-chart"), data.sectors);
+  renderBars(document.getElementById("index-chart"), data.indexes, selectedPeriods.index);
+  renderBars(document.getElementById("sector-chart"), data.sectors, selectedPeriods.sector);
   renderNews(document.getElementById("fundamental-news"), data.fundamental);
   renderNews(document.getElementById("policy-news"), data.policy);
 }
@@ -243,10 +357,7 @@ function renderIndustry() {
 
   document.getElementById("industry-title").textContent = industry.name;
   document.getElementById("industry-summary").textContent = industry.summary;
-  renderBars(
-    document.getElementById("industry-chart"),
-    industries.map((item) => [item.name, item.ytd])
-  );
+  renderSimpleBars(document.getElementById("industry-chart"), industries);
   renderNews(document.getElementById("industry-points"), industry.points);
 }
 
@@ -271,7 +382,7 @@ function switchPanel(panelName) {
   };
 
   document.getElementById("page-title").textContent = titleMap[panelName];
-  document.querySelectorAll(".nav-item").forEach((item) => {
+  document.querySelectorAll(".note-tab").forEach((item) => {
     item.classList.toggle("active", item.dataset.panel === panelName);
   });
   document.querySelectorAll(".panel-grid").forEach((panel) => {
@@ -279,11 +390,30 @@ function switchPanel(panelName) {
   });
 }
 
+function bindPeriodTabs() {
+  document.querySelectorAll(".period-tab").forEach((button) => {
+    button.addEventListener("click", () => {
+      const chart = button.dataset.chart;
+      selectedPeriods[chart] = button.dataset.period;
+      document.querySelectorAll(`.period-tab[data-chart="${chart}"]`).forEach((item) => {
+        item.classList.toggle("active", item === button);
+      });
+      renderMarket();
+    });
+  });
+}
+
 function init() {
-  document.querySelectorAll(".nav-item").forEach((button) => {
+  document.querySelectorAll(".note-tab").forEach((button) => {
     button.addEventListener("click", () => switchPanel(button.dataset.panel));
   });
 
+  document.getElementById("report-date").addEventListener("change", (event) => {
+    selectedDate = event.target.value;
+    renderMarket();
+  });
+
+  bindPeriodTabs();
   renderMarket();
   renderIndustry();
   renderBook();
