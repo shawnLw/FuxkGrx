@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>投资研究工作台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="main-nav" aria-label="主要板块">
+        <div class="brand">
+          <span class="brand-mark">I</span>
+          <div>
+            <strong>投资研究</strong>
+            <span>Market Desk</span>
+          </div>
+        </div>
+
+        <nav class="nav-sections">
+          <button class="nav-item active" data-panel="market">
+            <span>每日市场回顾</span>
+          </button>
+          <button class="nav-item" data-panel="industry">
+            <span>每日了解一个行业</span>
+          </button>
+          <button class="nav-item" data-panel="learning">
+            <span>投资知识精进</span>
+          </button>
+        </nav>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Daily Investment Brief</p>
+            <h1 id="page-title">每日市场回顾</h1>
+          </div>
+          <div class="top-actions">
+            <label class="date-field">
+              <span>日期</span>
+              <input id="report-date" type="date" value="2026-07-08" />
+            </label>
+          </div>
+        </header>
+
+        <section class="panel-grid panel-visible" id="market-panel">
+          <aside class="selector-column">
+            <div class="section-title">
+              <span>市场</span>
+              <small>Global</small>
+            </div>
+            <div class="market-list" id="market-list"></div>
+          </aside>
+
+          <section class="content-area">
+            <div class="summary-row">
+              <article class="metric-card">
+                <span>风险偏好</span>
+                <strong id="risk-label">中性偏暖</strong>
+              </article>
+              <article class="metric-card">
+                <span>成交活跃度</span>
+                <strong id="volume-label">温和放量</strong>
+              </article>
+              <article class="metric-card">
+                <span>主线风格</span>
+                <strong id="style-label">成长占优</strong>
+              </article>
+            </div>
+
+            <div class="two-column">
+              <section class="chart-block">
+                <div class="block-header">
+                  <h2>指数涨跌幅</h2>
+                  <span id="market-name">A股</span>
+                </div>
+                <div class="bar-chart" id="index-chart"></div>
+              </section>
+
+              <section class="chart-block">
+                <div class="block-header">
+                  <h2>行业涨跌幅</h2>
+                  <span>Top movers</span>
+                </div>
+                <div class="bar-chart compact" id="sector-chart"></div>
+              </section>
+            </div>
+
+            <div class="news-grid">
+              <section class="news-block">
+                <div class="block-header">
+                  <h2>基本面新闻</h2>
+                  <span>Fundamental</span>
+                </div>
+                <ul id="fundamental-news"></ul>
+              </section>
+
+              <section class="news-block">
+                <div class="block-header">
+                  <h2>政策面新闻</h2>
+                  <span>Policy</span>
+                </div>
+                <ul id="policy-news"></ul>
+              </section>
+            </div>
+          </section>
+        </section>
+
+        <section class="panel-grid" id="industry-panel">
+          <aside class="selector-column">
+            <div class="section-title">
+              <span>行业排序</span>
+              <small>YTD</small>
+            </div>
+            <div class="industry-list" id="industry-list"></div>
+          </aside>
+
+          <section class="content-area">
+            <section class="detail-hero">
+              <p class="eyebrow">Industry Lens</p>
+              <h2 id="industry-title">半导体</h2>
+              <p id="industry-summary">受益于 AI 算力需求扩张、国产替代推进与库存周期改善，行业年内表现领先。</p>
+            </section>
+
+            <div class="two-column">
+              <section class="chart-block">
+                <div class="block-header">
+                  <h2>今年以来涨跌幅</h2>
+                  <span>YTD ranking</span>
+                </div>
+                <div class="bar-chart ranking" id="industry-chart"></div>
+              </section>
+
+              <section class="news-block">
+                <div class="block-header">
+                  <h2>观察要点</h2>
+                  <span>Checklist</span>
+                </div>
+                <ul id="industry-points"></ul>
+              </section>
+            </div>
+          </section>
+        </section>
+
+        <section class="panel-grid" id="learning-panel">
+          <aside class="selector-column">
+            <div class="section-title">
+              <span>热门书籍</span>
+              <small>Books</small>
+            </div>
+            <div class="book-list" id="book-list"></div>
+          </aside>
+
+          <section class="content-area">
+            <section class="detail-hero">
+              <p class="eyebrow">Investment Learning</p>
+              <h2 id="book-title">聪明的投资者</h2>
+              <p id="book-summary">价值投资的经典入口，重点建立安全边际、市场先生和企业所有权视角。</p>
+            </section>
+
+            <div class="learning-layout">
+              <section class="news-block">
+                <div class="block-header">
+                  <h2>今日精读</h2>
+                  <span>Notes</span>
+                </div>
+                <ul id="book-notes"></ul>
+              </section>
+              <section class="news-block">
+                <div class="block-header">
+                  <h2>可实践问题</h2>
+                  <span>Prompts</span>
+                </div>
+                <ul id="book-prompts"></ul>
+              </section>
+            </div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
