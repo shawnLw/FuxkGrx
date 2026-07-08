@@ -1,0 +1,2680 @@
+{
+  "updatedAt": "2026-07-08T15:13:39+08:00",
+  "source": "同花顺 iFinD THS_HD 本机脚本生成",
+  "dates": {
+    "2026-04-09": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 3966.1712,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 13996.2652,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3323.2989,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1343.9462,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25752.4,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4821.67,
+        "changePct": null
+      }
+    ],
+    "2026-04-10": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 3986.2247,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14309.4718,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3448.787,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1364.4946,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25893.54,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4860.26,
+        "changePct": null
+      }
+    ],
+    "2026-04-13": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 3988.558,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14407.8639,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3476.4396,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1375.2873,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25660.85,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4822.01,
+        "changePct": null
+      }
+    ],
+    "2026-04-14": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4026.6256,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14639.9522,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3558.5273,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1405.0723,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25872.32,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4851.96,
+        "changePct": null
+      }
+    ],
+    "2026-04-15": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4027.2095,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14498.4546,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3514.9604,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1406.3224,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25947.32,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4911.79,
+        "changePct": null
+      }
+    ],
+    "2026-04-16": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4055.5468,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14796.3345,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3626.271,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1422.2276,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26394.26,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5092.08,
+        "changePct": null
+      }
+    ],
+    "2026-04-17": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4051.4254,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14885.4159,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3678.2934,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1423.3512,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26160.33,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5042.68,
+        "changePct": null
+      }
+    ],
+    "2026-04-20": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4082.1271,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14966.7468,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3677.5758,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1450.5209,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26361.07,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5065.63,
+        "changePct": null
+      }
+    ],
+    "2026-04-21": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4085.0766,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14982.1397,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3688.9372,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1426.6766,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26487.48,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5061.5,
+        "changePct": null
+      }
+    ],
+    "2026-04-22": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4106.2581,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15177.2862,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3752.7591,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1451.1386,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26163.24,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4963.94,
+        "changePct": null
+      }
+    ],
+    "2026-04-23": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4093.2501,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15043.4494,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3720.2474,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1432.5924,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25915.2,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4865.52,
+        "changePct": null
+      }
+    ],
+    "2026-04-24": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4079.9004,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14940.3003,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3667.7851,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1453.6854,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25978.07,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4902.2,
+        "changePct": null
+      }
+    ],
+    "2026-04-27": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4086.3442,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14995.7483,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3648.788,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1508.3848,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25925.65,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4939.84,
+        "changePct": null
+      }
+    ],
+    "2026-04-28": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4078.6374,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14830.4552,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3596.7118,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1488.6607,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25679.78,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4827.19,
+        "changePct": null
+      }
+    ],
+    "2026-04-29": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4107.5144,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15120.9227,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3687.1681,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1493.5045,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26111.84,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4910.02,
+        "changePct": null
+      }
+    ],
+    "2026-04-30": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4112.1593,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15107.5532,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3677.1485,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1571.0652,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25776.53,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4871.32,
+        "changePct": null
+      }
+    ],
+    "2026-05-06": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4160.1737,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15459.6166,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3778.1595,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1656.946,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26213.78,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4969.2,
+        "changePct": null
+      }
+    ],
+    "2026-05-07": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4180.0922,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15641.8855,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3833.0572,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1678.8872,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26626.28,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5121.1,
+        "changePct": null
+      }
+    ],
+    "2026-05-08": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4179.9524,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15563.7971,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3796.1283,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1640.4603,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26393.71,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5102.79,
+        "changePct": null
+      }
+    ],
+    "2026-05-11": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4225.0207,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15899.302,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3928.9739,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1716.6914,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26406.84,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5106.4,
+        "changePct": null
+      }
+    ],
+    "2026-05-12": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4214.4891,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15824.9211,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3934.882,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1723.7836,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26347.91,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5070.61,
+        "changePct": null
+      }
+    ],
+    "2026-05-13": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4242.572,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 16089.7491,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4038.3327,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1770.1471,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26388.44,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5093.85,
+        "changePct": null
+      }
+    ],
+    "2026-05-14": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4177.9175,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15745.736,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3951.1404,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1725.0932,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26389.04,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5076.2,
+        "changePct": null
+      }
+    ],
+    "2026-05-15": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4135.3894,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15561.372,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3929.0642,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1696.2612,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25962.73,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4941.14,
+        "changePct": null
+      }
+    ],
+    "2026-05-18": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4131.5276,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15530.2295,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3914.8753,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1709.9627,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25675.18,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4844.94,
+        "changePct": null
+      }
+    ],
+    "2026-05-19": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4169.5378,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15569.9072,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3908.4374,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1775.1345,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25797.85,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4857.46,
+        "changePct": null
+      }
+    ],
+    "2026-05-20": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4162.1845,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15569.979,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3921.7894,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1832.022,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25651.12,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4873.82,
+        "changePct": null
+      }
+    ],
+    "2026-05-21": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4077.2765,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15247.2702,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3829.7786,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1764.1744,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25386.52,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4768.9,
+        "changePct": null
+      }
+    ],
+    "2026-05-22": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4112.8996,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15597.2969,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3938.502,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1790.771,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25606.03,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4869.57,
+        "changePct": null
+      }
+    ],
+    "2026-05-25": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4152.5686,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15856.6102,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4021.1602,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1896.0369,
+        "changePct": null
+      }
+    ],
+    "2026-05-26": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4145.373,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15876.1628,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4043.0658,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1867.7088,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25599.45,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4946.88,
+        "changePct": null
+      }
+    ],
+    "2026-05-27": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4093.7266,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15736.4688,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4045.7731,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1815.4513,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25328.23,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4907.57,
+        "changePct": null
+      }
+    ],
+    "2026-05-28": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4098.6358,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15861.891,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4125.0749,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1844.2493,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25006.16,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4888.58,
+        "changePct": null
+      }
+    ],
+    "2026-05-29": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4068.5691,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15575.1338,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4037.951,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1751.3234,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25182.39,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4884.23,
+        "changePct": null
+      }
+    ],
+    "2026-06-01": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4057.74,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15340.3562,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3950.9432,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1663.6935,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25398.18,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4964.92,
+        "changePct": null
+      }
+    ],
+    "2026-06-02": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4075.1016,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15591.1282,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4055.8709,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1690.558,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26038.32,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5199.28,
+        "changePct": null
+      }
+    ],
+    "2026-06-03": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4083.974,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15704.7108,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4122.987,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1726.1806,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25633.21,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 5056.97,
+        "changePct": null
+      }
+    ],
+    "2026-06-04": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4057.7811,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15661.574,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4088.884,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1738.0589,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25253.4,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4975.36,
+        "changePct": null
+      }
+    ],
+    "2026-06-05": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4027.7362,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15314.7002,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3957.935,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1668.3291,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 24961.95,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4888.39,
+        "changePct": null
+      }
+    ],
+    "2026-06-08": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 3959.3378,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14821.1861,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3811.7854,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1596.5656,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 24657.06,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4755.91,
+        "changePct": null
+      }
+    ],
+    "2026-06-09": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4010.0307,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15268.7147,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3961.7493,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1663.1089,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 24565.9,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4769.61,
+        "changePct": null
+      }
+    ],
+    "2026-06-10": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 3993.2258,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14954.1008,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3854.7935,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1652.2241,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 24407.96,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4724.79,
+        "changePct": null
+      }
+    ],
+    "2026-06-11": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 3987.0147,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14851.9751,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3811.246,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1662.436,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 24249.29,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4655.74,
+        "changePct": null
+      }
+    ],
+    "2026-06-12": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4031.5129,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14963.4073,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3830.353,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1663.2213,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 24718.1,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4705.2,
+        "changePct": null
+      }
+    ],
+    "2026-06-15": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4096.4717,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15531.1095,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4033.5349,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1748.3264,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 24842.67,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4765.58,
+        "changePct": null
+      }
+    ],
+    "2026-06-16": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4091.8917,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15675.2457,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4102.9421,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1758.4244,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 24493.95,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4658.65,
+        "changePct": null
+      }
+    ],
+    "2026-06-17": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4108.0762,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15880.9507,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4167.0478,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1840.8211,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 24312.16,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4669.07,
+        "changePct": null
+      }
+    ],
+    "2026-06-18": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4090.4813,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 16030.7024,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4252.3903,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1911.5132,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 23924.81,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4604.35,
+        "changePct": null
+      }
+    ],
+    "2026-06-22": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4163.0965,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 16372.4987,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4359.392,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1948.9281,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 23768.52,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4549.41,
+        "changePct": null
+      }
+    ],
+    "2026-06-23": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4106.2517,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15854.1963,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4192.1945,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1916.2123,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 23336.28,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4399.22,
+        "changePct": null
+      }
+    ],
+    "2026-06-24": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4110.8134,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 16051.3193,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4251.4244,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1989.4257,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 23412.18,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4479.02,
+        "changePct": null
+      }
+    ],
+    "2026-06-25": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4120.2806,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 16344.0829,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4371.9891,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 2066.3309,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 23076.91,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4405.92,
+        "changePct": null
+      }
+    ],
+    "2026-06-26": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4027.2648,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15782.2229,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4194.2089,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 2032.2842,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 22671.86,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4255.59,
+        "changePct": null
+      }
+    ],
+    "2026-06-29": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4073.9017,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15812.8707,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4216.6985,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 2126.0105,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 23026.68,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4393.01,
+        "changePct": null
+      }
+    ],
+    "2026-06-30": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4094.3972,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 16205.5565,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4342.7123,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 2207.8648,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 22881.02,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4472.23,
+        "changePct": null
+      }
+    ],
+    "2026-07-01": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4112.4453,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 16119.1683,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4260.7208,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 2153.0431,
+        "changePct": null
+      }
+    ],
+    "2026-07-02": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4028.9038,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15498.8101,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4017.2735,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1987.291,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 23055.03,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4454.28,
+        "changePct": null
+      }
+    ],
+    "2026-07-03": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4043.6432,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15597.5116,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 4019.9341,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1975.6001,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 23350.03,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4499.0,
+        "changePct": null
+      }
+    ],
+    "2026-07-06": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 4041.2382,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15416.804,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3948.86,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 1996.1029,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 23616.32,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4541.23,
+        "changePct": null
+      }
+    ],
+    "2026-07-07": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 3990.2353,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 15225.1136,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3911.9075,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 2001.5859,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 23496.89,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4507.04,
+        "changePct": null
+      }
+    ],
+    "2026-07-08": [
+      {
+        "region": "A股",
+        "index": "上证指数",
+        "symbol": "000001.SH",
+        "price": 3970.8797,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "深证成指",
+        "symbol": "399001.SZ",
+        "price": 14939.7268,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "创业板指",
+        "symbol": "399006.SZ",
+        "price": 3845.3513,
+        "changePct": null
+      },
+      {
+        "region": "A股",
+        "index": "科创50",
+        "symbol": "000688.SH",
+        "price": 2016.2327,
+        "changePct": null
+      }
+    ],
+    "2026-05-04": [
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 26095.88,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4976.7,
+        "changePct": null
+      }
+    ],
+    "2026-05-05": [
+      {
+        "region": "港股",
+        "index": "恒生指数",
+        "symbol": "HSI.HK",
+        "price": 25898.61,
+        "changePct": null
+      },
+      {
+        "region": "港股",
+        "index": "恒生科技",
+        "symbol": "HSTECH.HK",
+        "price": 4929.68,
+        "changePct": null
+      }
+    ]
+  }
+}

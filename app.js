@@ -228,6 +228,9 @@ let selectedBook = bookData[0].name;
 let bookPage = 0;
 let liveIndexOverrides = {};
 let liveMarketSource = "";
+let latestIfindDate = "";
+let historyMarketSnapshots = {};
+const activeMarketKeys = ["cn", "hk"];
 
 const formatPct = (value) => `${value > 0 ? "+" : ""}${Number(value).toFixed(2)}%`;
 const formatPrice = (value) => Number(value).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -272,7 +275,9 @@ function getMarketData() {
     volumeLabel: base.volume[(shift + 1) % base.volume.length],
     styleLabel: base.style[(shift + 2) % base.style.length],
     indexes: base.indexes.map((row) => {
-      const live = liveIndexOverrides[row.symbol] || liveIndexOverrides[row.proxySymbol];
+      const useHistory = selectedDate !== latestIfindDate;
+      const historical = useHistory ? historyMarketSnapshots[selectedDate]?.[row.symbol] || historyMarketSnapshots[selectedDate]?.[row.proxySymbol] : null;
+      const live = historical || liveIndexOverrides[row.symbol] || liveIndexOverrides[row.proxySymbol];
       return {
         ...row,
         price: live?.price ?? vary(row.price, `${row.name}-price`, row.price * 0.006),
@@ -335,7 +340,22 @@ function renderIndexStrip(indexes) {
 }
 
 function renderNews(container, rows) {
-  container.innerHTML = rows.map((item) => `<li>${item}</li>`).join("");
+  container.innerHTML = rows.map((item) => {
+    if (typeof item === "string") {
+      return `
+        <li>
+          <a href="https://www.baidu.com/s?wd=${encodeURIComponent(item)}" target="_blank" rel="noopener noreferrer">${item}</a>
+          <span class="news-source">公开信息检索 · 待接入新闻源 API</span>
+        </li>
+      `;
+    }
+    return `
+      <li>
+        <a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.title}</a>
+        <span class="news-source">${item.source || ""}${item.date ? ` · ${item.date}` : ""}</span>
+      </li>
+    `;
+  }).join("");
 }
 
 function renderMacroCalendar() {
@@ -349,8 +369,15 @@ function renderMacroCalendar() {
   });
   document.getElementById("calendar-days").innerHTML = days.map((date) => {
     const iso = date.toISOString().slice(0, 10);
-    return `<div class="calendar-day ${iso === selectedMacroDate ? "active" : ""}"><strong>${date.getDate()}</strong><span>${["周日", "周一", "周二", "周三", "周四", "周五", "周六"][date.getDay()]}</span></div>`;
+    return `<button class="calendar-day ${iso === selectedMacroDate ? "active" : ""}" data-date="${iso}" type="button"><strong>${date.getDate()}</strong><span>${["周日", "周一", "周二", "周三", "周四", "周五", "周六"][date.getDay()]}</span></button>`;
   }).join("");
+  document.querySelectorAll(".calendar-day").forEach((button) => {
+    button.addEventListener("click", () => {
+      selectedMacroDate = button.dataset.date;
+      document.getElementById("macro-date").value = selectedMacroDate;
+      renderMacroCalendar();
+    });
+  });
   const relevant = macroEvents
     .filter((item) => item.date >= selectedMacroDate)
     .filter((item) => selectedMacroCountry === "all" || item.country === selectedMacroCountry)
@@ -368,8 +395,9 @@ function renderMacroCalendar() {
 
 function renderMarket() {
   const data = getMarketData();
-  renderList(document.getElementById("market-list"), Object.entries(marketBase).map(([key, value]) => ({ key, ...value })), data.name, (name) => {
-    const found = Object.entries(marketBase).find(([, value]) => value.name === name);
+  const activeMarkets = activeMarketKeys.map((key) => ({ key, ...marketBase[key] }));
+  renderList(document.getElementById("market-list"), activeMarkets, data.name, (name) => {
+    const found = activeMarketKeys.map((key) => [key, marketBase[key]]).find(([, value]) => value.name === name);
     selectedMarket = found?.[0] || selectedMarket;
     renderMarket();
   });
@@ -406,6 +434,7 @@ async function fetchLocalIfindSnapshot() {
     const response = await fetch("/data/ifind-market.json", { cache: "no-store" });
     if (!response.ok) return false;
     const payload = await response.json();
+    latestIfindDate = (payload.updatedAt || "").slice(0, 10);
     liveMarketSource = `${payload.source || "同花顺 iFinD"}，更新时间：${payload.updatedAt || "--"}`;
     (payload.markets || []).forEach(setLiveIndexOverride);
     renderMarket();
@@ -413,6 +442,38 @@ async function fetchLocalIfindSnapshot() {
   } catch (error) {
     return false;
   }
+}
+
+async function fetchLocalIfindHistory() {
+  try {
+    const response = await fetch("/data/ifind-market-history.json", { cache: "no-store" });
+    if (!response.ok) return false;
+    const payload = await response.json();
+    historyMarketSnapshots = {};
+    Object.entries(payload.dates || {}).forEach(([date, rows]) => {
+      historyMarketSnapshots[date] = {};
+      (rows || []).forEach((row) => {
+        if (row.symbol && row.price != null) setHistoricalIndexOverride(date, row);
+      });
+    });
+    renderMarket();
+    return true;
+  } catch (error) {
+    return false;
+  }
+}
+
+function setHistoricalIndexOverride(date, row) {
+  const payload = {
+    symbol: row.symbol,
+    price: row.price,
+    day: row.changePct || 0,
+    week: row.weekPct,
+    ytd: row.ytdPct,
+  };
+  historyMarketSnapshots[date][row.symbol] = payload;
+  const alias = symbolAliases[row.symbol];
+  if (alias) historyMarketSnapshots[date][alias] = payload;
 }
 
 function renderIndustry() {
@@ -515,9 +576,14 @@ function init() {
   renderMarket();
   renderIndustry();
   renderBook();
+  fetchLocalIfindHistory();
   fetchLocalIfindSnapshot().then((hasIfindSnapshot) => {
     if (!hasIfindSnapshot) fetchMarketFromBackend();
   });
+  window.setInterval(() => {
+    fetchLocalIfindSnapshot();
+    fetchLocalIfindHistory();
+  }, 60000);
 }
 
 init();

@@ -75,7 +75,7 @@ button {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 24px 32px 12px;
+  padding: 14px 28px 8px;
 }
 
 .brand {
@@ -88,12 +88,12 @@ button {
 .brand-avatar,
 .brand-mark {
   display: grid;
-  width: 42px;
-  height: 42px;
+  width: 34px;
+  height: 34px;
   flex: 0 0 auto;
   place-items: center;
   border: 1px solid var(--line-strong);
-  border-radius: 12px;
+  border-radius: 10px;
   background: rgba(255, 255, 255, 0.1);
   font-size: 13px;
   font-weight: 800;
@@ -111,13 +111,13 @@ button {
 }
 
 .brand strong {
-  font-size: 15px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1.25;
 }
 
 .brand span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: 10px;
 }
 
 .top-nav {
@@ -149,7 +149,7 @@ button {
 }
 
 .workspace {
-  padding: 28px 32px 48px;
+  padding: 18px 28px 44px;
 }
 
 .hero-band {
@@ -157,8 +157,8 @@ button {
   grid-template-columns: minmax(0, 720px) auto;
   gap: 24px;
   align-items: end;
-  min-height: 300px;
-  padding: 72px 0 42px;
+  min-height: 190px;
+  padding: 34px 0 24px;
 }
 
 .eyebrow {
@@ -179,9 +179,9 @@ p {
 
 h1 {
   max-width: 860px;
-  margin-bottom: 18px;
-  font-size: clamp(42px, 6vw, 82px);
-  line-height: 0.98;
+  margin-bottom: 12px;
+  font-size: clamp(30px, 4.4vw, 58px);
+  line-height: 1.02;
   letter-spacing: 0;
 }
 
@@ -525,12 +525,22 @@ h3 {
 .calendar-day {
   display: grid;
   gap: 4px;
+  appearance: none;
+  cursor: pointer;
+  font: inherit;
   min-height: 62px;
   place-items: center;
   border: 1px solid var(--line);
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.05);
   color: var(--muted);
+  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+}
+
+.calendar-day:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  color: var(--text);
 }
 
 .calendar-day.active {
@@ -625,6 +635,22 @@ h3 {
   line-height: 1.65;
 }
 
+.news-block a {
+  color: rgba(244, 247, 244, 0.86);
+  text-decoration: none;
+}
+
+.news-block a:hover {
+  color: var(--green);
+}
+
+.news-source {
+  display: block;
+  margin-top: 5px;
+  color: var(--faint);
+  font-size: 12px;
+}
+
 .news-block li:last-child,
 .feature-body li:last-child,
 .book-page li:last-child {
@@ -641,9 +667,9 @@ h3 {
 .feature-page {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.15fr);
+  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1.45fr);
   gap: 24px;
-  min-height: 620px;
+  min-height: 700px;
   overflow: hidden;
   padding: 28px;
 }
@@ -671,13 +697,13 @@ h3 {
 }
 
 .feature-copy {
-  align-self: end;
+  align-self: start;
 }
 
 .feature-copy h2,
 .book-content h2 {
   margin-bottom: 14px;
-  font-size: clamp(34px, 5vw, 66px);
+  font-size: clamp(28px, 3.6vw, 48px);
   line-height: 1;
 }
 
@@ -708,11 +734,12 @@ h3 {
 }
 
 .feature-body {
-  align-self: end;
-  padding: 22px;
+  align-self: stretch;
+  padding: 26px;
   border: 1px solid var(--line);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.06);
+  overflow: auto;
 }
 
 .feature-body .mini-grid {
