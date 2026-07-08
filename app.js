@@ -79,11 +79,22 @@ const newsLibrary = {
   },
 };
 
+const globalMarkets = [
+  { name: "A股", indexes: ["上证指数", "深证成指", "创业板指"], day: 0.64, source: "同花顺/Choice/交易所待接入" },
+  { name: "美股", indexes: ["标普500", "纳斯达克", "道琼斯"], day: 0.79, source: "授权行情 API 待接入" },
+  { name: "港股", indexes: ["恒生指数", "恒生科技", "国企指数"], day: 0.92, source: "港交所/授权行情 API 待接入" },
+  { name: "欧洲", indexes: ["欧洲 Stoxx 50", "德国 DAX", "英国 FTSE"], day: -0.18, source: "授权行情 API 待接入" },
+  { name: "日本", indexes: ["日经225", "东证指数"], day: 0.36, source: "授权行情 API 待接入" },
+];
+
 const macroEvents = [
   { date: "2026-07-09", time: "09:30", country: "中国", title: "6月 CPI 同比", actual: "--", forecast: "1.1%", previous: "1.2%", source: "国家统计局/公开经济日历" },
   { date: "2026-07-09", time: "09:30", country: "中国", title: "6月 PPI 同比", actual: "--", forecast: "4.1%", previous: "3.9%", source: "国家统计局/公开经济日历" },
   { date: "2026-07-10", time: "20:30", country: "美国", title: "初请失业金人数", actual: "--", forecast: "22.8万", previous: "22.4万", source: "美国劳工部/公开经济日历" },
   { date: "2026-07-11", time: "待定", country: "中国", title: "6月 M0 货币供应同比", actual: "--", forecast: "--", previous: "11.9%", source: "中国人民银行/公开经济日历" },
+  { date: "2026-07-11", time: "07:50", country: "日本", title: "核心机械订单同比", actual: "--", forecast: "2.0%", previous: "1.8%", source: "日本内阁府/公开经济日历" },
+  { date: "2026-07-12", time: "17:00", country: "欧洲", title: "欧元区工业产出同比", actual: "--", forecast: "-0.5%", previous: "-1.1%", source: "Eurostat/公开经济日历" },
+  { date: "2026-07-12", time: "16:30", country: "中国香港", title: "外汇基金票据投标", actual: "--", forecast: "--", previous: "--", source: "香港金管局/公开经济日历" },
 ];
 
 const industryData = [
@@ -114,6 +125,42 @@ const industryData = [
       { title: "行业概括", bullets: ["研发周期长、失败率高，因此单一管线风险很大。", "BD 授权可以验证管线价值，也能改善现金流。", "估值既看未来空间，也看资金消耗速度。"], stats: [["年初至今", "+15.8%"], ["关键", "管线"], ["风险", "临床失败"]] },
     ],
   },
+  {
+    name: "新能源车",
+    ytd: 12.4,
+    summary: "新能源车不是单纯整车行业，而是电池、功率半导体、智能驾驶、渠道和海外市场共同决定的产业链。",
+    pages: [
+      { title: "行业概括", bullets: ["上游看锂、电解液、正负极材料，中游看电池和零部件，下游看整车品牌与渠道。", "价格战会压缩利润，但也会提升渗透率和行业集中度。", "智能驾驶和出海能力正在成为新的估值分水岭。"], stats: [["更新日期", "2026-07-08"], ["景气线索", "出海+智驾"], ["风险", "价格战"]] },
+      { title: "上市公司观察", bullets: ["电池龙头重点看装机量、单位盈利和海外客户结构。", "整车公司重点看交付、毛利率、库存和新车型周期。", "零部件公司重点看单车价值量和客户结构。"], stats: [["核心指标", "毛利率"], ["需求", "交付量"], ["壁垒", "供应链"]] },
+    ],
+  },
+  {
+    name: "银行",
+    ytd: 8.2,
+    summary: "银行股核心看净息差、资产质量、拨备覆盖、分红能力和宏观信用周期。",
+    pages: [
+      { title: "行业概括", bullets: ["银行是典型顺周期行业，盈利与利率、信贷需求和不良率高度相关。", "高股息属性使银行在低利率环境中具有防守价值。", "不同银行差异主要来自区域经济、客户结构和风控能力。"], stats: [["更新日期", "2026-07-08"], ["关注", "净息差"], ["属性", "高股息"]] },
+      { title: "研究框架", bullets: ["资产端看贷款投向、收益率和不良生成。", "负债端看存款成本和活期存款占比。", "估值上常用 PB、ROE 和分红率联动判断。"], stats: [["估值", "PB"], ["盈利", "ROE"], ["分红", "股息率"]] },
+    ],
+  },
+  {
+    name: "白酒",
+    ytd: -6.6,
+    summary: "白酒行业长期看品牌力、渠道库存和消费场景，短期看批价、动销和经销商信心。",
+    pages: [
+      { title: "行业概括", bullets: ["高端白酒更看品牌稀缺性和价格体系稳定。", "次高端弹性更强，但更受商务消费和库存周期影响。", "渠道库存和批价是观察景气度的关键前置指标。"], stats: [["更新日期", "2026-07-08"], ["核心", "批价"], ["风险", "库存"]] },
+      { title: "竞争力分析", bullets: ["强品牌能维持渠道利润和价格秩序。", "产品矩阵决定公司能否覆盖不同消费场景。", "现金流和预收款变化可以验证真实动销。"], stats: [["壁垒", "品牌"], ["指标", "批价"], ["验证", "动销"]] },
+    ],
+  },
+  {
+    name: "人工智能",
+    ytd: 31.5,
+    summary: "AI 行业横跨算力、模型、数据、应用和终端，投资研究要区分基础设施和应用兑现。",
+    pages: [
+      { title: "行业概括", bullets: ["算力层关注 GPU、服务器、光模块、液冷和数据中心。", "模型层关注参数规模、推理成本、商业化和生态。", "应用层关注能否提升效率并形成付费闭环。"], stats: [["更新日期", "2026-07-08"], ["主线", "算力"], ["难点", "兑现"]] },
+      { title: "投资逻辑", bullets: ["早期往往是基础设施先受益，随后才是应用收入兑现。", "估值需要和订单、收入、利润率匹配。", "警惕只讲故事、没有客户和现金流的公司。"], stats: [["先行", "算力"], ["验证", "订单"], ["风险", "泡沫"]] },
+    ],
+  },
 ];
 
 const bookData = [
@@ -134,6 +181,8 @@ const bookData = [
 const periodLabels = { day: "单日", week: "较上周", ytd: "较年初" };
 let selectedMarket = "cn";
 let selectedDate = document.getElementById("report-date").value;
+let selectedMacroDate = document.getElementById("macro-date").value;
+let selectedMacroCountry = "all";
 let selectedPeriods = { index: "day", sector: "day" };
 let selectedIndustry = industryData[0].name;
 let industryPage = 0;
@@ -225,12 +274,23 @@ function renderIndexStrip(indexes) {
   `).join("");
 }
 
+function renderGlobalStrip() {
+  document.getElementById("global-strip").innerHTML = globalMarkets.map((market) => `
+    <article class="glass-panel global-card">
+      <h3>${market.name}</h3>
+      <div class="global-line"><span>核心指数</span><strong>${market.indexes.join(" / ")}</strong></div>
+      <div class="global-line"><span>市场表现</span><strong class="${market.day >= 0 ? "up" : "down"}">${formatPct(market.day)}</strong></div>
+      <div class="global-line"><span>来源</span><strong>${market.source}</strong></div>
+    </article>
+  `).join("");
+}
+
 function renderNews(container, rows) {
   container.innerHTML = rows.map((item) => `<li>${item}</li>`).join("");
 }
 
 function renderMacroCalendar() {
-  const selected = new Date(`${selectedDate}T00:00:00`);
+  const selected = new Date(`${selectedMacroDate}T00:00:00`);
   const start = new Date(selected);
   start.setDate(selected.getDate() - selected.getDay());
   const days = Array.from({ length: 7 }, (_, index) => {
@@ -240,9 +300,12 @@ function renderMacroCalendar() {
   });
   document.getElementById("calendar-days").innerHTML = days.map((date) => {
     const iso = date.toISOString().slice(0, 10);
-    return `<div class="calendar-day ${iso === selectedDate ? "active" : ""}"><strong>${date.getDate()}</strong><span>${["周日", "周一", "周二", "周三", "周四", "周五", "周六"][date.getDay()]}</span></div>`;
+    return `<div class="calendar-day ${iso === selectedMacroDate ? "active" : ""}"><strong>${date.getDate()}</strong><span>${["周日", "周一", "周二", "周三", "周四", "周五", "周六"][date.getDay()]}</span></div>`;
   }).join("");
-  const relevant = macroEvents.filter((item) => item.date >= selectedDate).slice(0, 4);
+  const relevant = macroEvents
+    .filter((item) => item.date >= selectedMacroDate)
+    .filter((item) => selectedMacroCountry === "all" || item.country === selectedMacroCountry)
+    .slice(0, 6);
   document.getElementById("macro-list").innerHTML = relevant.map((item) => `
     <div class="macro-item">
       <span>${item.time}</span>
@@ -251,7 +314,7 @@ function renderMacroCalendar() {
       <span>预期 ${item.forecast}</span>
       <span>前值 ${item.previous}</span>
     </div>
-  `).join("");
+  `).join("") || `<div class="macro-item"><span>--</span><strong>当前筛选条件暂无数据</strong><span>可接入真实经济日历 API</span><span></span><span></span></div>`;
 }
 
 function renderMarket() {
@@ -265,6 +328,7 @@ function renderMarket() {
   document.getElementById("risk-label").textContent = data.riskLabel;
   document.getElementById("volume-label").textContent = data.volumeLabel;
   document.getElementById("style-label").textContent = data.styleLabel;
+  renderGlobalStrip();
   renderIndexStrip(data.indexes);
   renderBars(document.getElementById("index-chart"), data.indexes, selectedPeriods.index);
   renderBars(document.getElementById("sector-chart"), data.sectors, selectedPeriods.sector);
@@ -284,6 +348,7 @@ function renderIndustry() {
     renderIndustry();
   });
   document.getElementById("industry-title").textContent = industry.name;
+  document.getElementById("industry-updated").textContent = "数据更新：2026-07-08";
   document.getElementById("industry-summary").textContent = industry.summary;
   document.getElementById("industry-page-label").textContent = `${industryPage + 1} / ${industry.pages.length}`;
   document.getElementById("industry-page-body").innerHTML = `
@@ -335,6 +400,14 @@ function init() {
   document.getElementById("report-date").addEventListener("change", (event) => {
     selectedDate = event.target.value;
     renderMarket();
+  });
+  document.getElementById("macro-date").addEventListener("change", (event) => {
+    selectedMacroDate = event.target.value;
+    renderMacroCalendar();
+  });
+  document.getElementById("macro-country").addEventListener("change", (event) => {
+    selectedMacroCountry = event.target.value;
+    renderMacroCalendar();
   });
   document.getElementById("industry-prev").addEventListener("click", () => {
     industryPage = Math.max(0, industryPage - 1);
