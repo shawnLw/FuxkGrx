@@ -8,6 +8,7 @@ is an operational snapshot, not source code.
 from __future__ import annotations
 
 import json
+import os
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 from typing import Any
@@ -15,6 +16,7 @@ from typing import Any
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 OUTPUT_FILE = PROJECT_ROOT / "data" / "ifind-market.json"
+ENV_FILE = PROJECT_ROOT / ".env"
 
 INDEXES = [
     {"region": "A股", "index": "上证指数", "symbol": "000001.SH"},
@@ -58,13 +60,32 @@ def dataframe_to_records(df: Any) -> list[dict[str, Any]]:
     raise RuntimeError("iFinD returned an empty or unsupported dataframe.")
 
 
+def load_local_env() -> None:
+    if not ENV_FILE.exists():
+        return
+    for line in ENV_FILE.read_text(encoding="utf-8").splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
 def fetch_ifind_rows() -> list[dict[str, Any]]:
     try:
-        from iFinDPy import THS_RQ  # type: ignore
+        from iFinDPy import THS_RQ, THS_iFinDLogin  # type: ignore
     except ImportError as exc:
         raise RuntimeError(
             "没有找到 iFinDPy。请先安装/配置同花顺 iFinD Python SDK。"
         ) from exc
+
+    load_local_env()
+    username = os.getenv("IFIND_USERNAME")
+    password = os.getenv("IFIND_PASSWORD")
+    if username and password:
+        login_result = THS_iFinDLogin(username, password)
+        if str(login_result) not in ("0", "None"):
+            raise RuntimeError(f"iFinD 登录失败，返回值：{login_result}")
 
     symbols = ",".join(item["symbol"] for item in INDEXES)
     fields = ";".join(FIELDS)
@@ -76,6 +97,24 @@ def fetch_ifind_rows() -> list[dict[str, Any]]:
         if str(error_code) not in ("0", "None"):
             raise RuntimeError(f"iFinD 返回错误码：{error_code}")
         result = payload
+
+    error_code = getattr(result, "errorcode", None)
+    if error_code not in (None, 0, "0"):
+        message = getattr(result, "errmsg", "")
+        if str(error_code) == "-208":
+            raise RuntimeError("iFinD 尚未登录。请在项目 .env 中填写 IFIND_USERNAME 和 IFIND_PASSWORD。")
+        raise RuntimeError(f"iFinD 返回错误码：{error_code} {message}")
+
+    if getattr(result, "data", None) is not None:
+        rows = []
+        data = result.data
+        indicators = list(getattr(result, "indicators", []) or [])
+        codes = list(getattr(result, "thscode", []) or [])
+        if isinstance(data, list) and codes:
+            for index, code in enumerate(codes):
+                values = data[index] if index < len(data) and isinstance(data[index], list) else []
+                rows.append({"thscode": code, **dict(zip(indicators, values))})
+            return rows
 
     return dataframe_to_records(result)
 
