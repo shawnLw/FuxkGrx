@@ -122,13 +122,20 @@ const newsLibrary = {
 };
 
 const macroEvents = [
-  { date: "2026-07-09", time: "09:30", country: "中国", title: "6月 CPI 同比", actual: "--", forecast: "1.1%", previous: "1.2%", source: "国家统计局/公开经济日历" },
-  { date: "2026-07-09", time: "09:30", country: "中国", title: "6月 PPI 同比", actual: "--", forecast: "4.1%", previous: "3.9%", source: "国家统计局/公开经济日历" },
-  { date: "2026-07-10", time: "20:30", country: "美国", title: "初请失业金人数", actual: "--", forecast: "22.8万", previous: "22.4万", source: "美国劳工部/公开经济日历" },
-  { date: "2026-07-11", time: "待定", country: "中国", title: "6月 M0 货币供应同比", actual: "--", forecast: "--", previous: "11.9%", source: "中国人民银行/公开经济日历" },
-  { date: "2026-07-11", time: "07:50", country: "日本", title: "核心机械订单同比", actual: "--", forecast: "2.0%", previous: "1.8%", source: "日本内阁府/公开经济日历" },
-  { date: "2026-07-12", time: "17:00", country: "欧洲", title: "欧元区工业产出同比", actual: "--", forecast: "-0.5%", previous: "-1.1%", source: "Eurostat/公开经济日历" },
-  { date: "2026-07-12", time: "16:30", country: "中国香港", title: "外汇基金票据投标", actual: "--", forecast: "--", previous: "--", source: "香港金管局/公开经济日历" },
+  { date: "2026-06-30", time: "09:30", country: "中国", title: "6月官方制造业PMI", actual: "--", forecast: "--", previous: "49.5", source: "国家统计局", url: "https://www.stats.gov.cn/sj/" },
+  { date: "2026-06-30", time: "09:30", country: "中国", title: "6月官方非制造业商务活动指数", actual: "--", forecast: "--", previous: "50.3", source: "国家统计局", url: "https://www.stats.gov.cn/sj/" },
+  { date: "2026-07-01", time: "09:45", country: "中国", title: "6月财新制造业PMI", actual: "--", forecast: "--", previous: "50.6", source: "财新/公开报道", url: "https://www.caixin.com/" },
+  { date: "2026-07-03", time: "09:45", country: "中国", title: "6月财新服务业PMI", actual: "--", forecast: "--", previous: "51.1", source: "财新/公开报道", url: "https://www.caixin.com/" },
+  { date: "2026-07-07", time: "20:30", country: "美国", title: "6月非农就业人数", actual: "--", forecast: "--", previous: "--", source: "美国劳工统计局", url: "https://www.bls.gov/schedule/news_release/" },
+  { date: "2026-07-08", time: "待定", country: "中国香港", title: "外汇基金票据投标", actual: "--", forecast: "--", previous: "--", source: "香港金管局", url: "https://www.hkma.gov.hk/gb_chi/news-and-media/press-releases/" },
+  { date: "2026-07-09", time: "09:30", country: "中国", title: "6月CPI同比", actual: "--", forecast: "1.1%", previous: "1.2%", source: "国家统计局发布日程", url: "https://www.stats.gov.cn/sj/fbrc/" },
+  { date: "2026-07-09", time: "09:30", country: "中国", title: "6月PPI同比", actual: "--", forecast: "4.1%", previous: "3.9%", source: "国家统计局发布日程", url: "https://www.stats.gov.cn/sj/fbrc/" },
+  { date: "2026-07-10", time: "20:30", country: "美国", title: "初请失业金人数", actual: "--", forecast: "22.8万", previous: "22.4万", source: "美国劳工部", url: "https://www.dol.gov/ui/data.pdf" },
+  { date: "2026-07-11", time: "待定", country: "中国", title: "6月金融统计数据M2/社融/新增人民币贷款", actual: "--", forecast: "--", previous: "--", source: "中国人民银行", url: "https://www.pbc.gov.cn/diaochatongjisi/116219/index.html" },
+  { date: "2026-07-14", time: "待定", country: "中国", title: "6月进出口数据", actual: "--", forecast: "--", previous: "--", source: "海关总署", url: "http://www.customs.gov.cn/customs/302249/zfxxgk/2799825/302274/302277/index.html" },
+  { date: "2026-07-15", time: "09:30", country: "中国", title: "二季度GDP、6月工业增加值/社零/固定资产投资", actual: "--", forecast: "--", previous: "--", source: "国家统计局发布日程", url: "https://www.stats.gov.cn/sj/fbrc/" },
+  { date: "2026-07-21", time: "16:30", country: "中国香港", title: "6月综合CPI", actual: "--", forecast: "--", previous: "--", source: "香港政府统计处", url: "https://www.censtatd.gov.hk/en/press_release.html" },
+  { date: "2026-07-22", time: "16:30", country: "中国香港", title: "4-6月失业率", actual: "--", forecast: "--", previous: "--", source: "香港政府统计处", url: "https://www.censtatd.gov.hk/en/press_release.html" },
 ];
 
 const industryData = [
@@ -282,6 +289,77 @@ industryData[0].pages = [
   { title: "第十二页：政策与国产替代", bullets: ["国产替代的核心不是简单替代进口，而是在供应安全、工艺验证、客户导入、规模化量产之间形成闭环。能进入核心客户供应链并持续迭代的公司更值得跟踪。", "政策支持会改善长期资本开支预期，但公司兑现仍取决于产品性能、良率、交付稳定性和成本曲线。政策是方向，订单和财务数据才是验证。", "外部限制可能带来国产链条机会，也可能造成先进设备、EDA、IP和高端材料瓶颈。研究时要同时看受益和约束两面。"], stats: [["政策主线", "自主可控"], ["验证方式", "订单/良率"], ["约束", "高端环节"]] },
 ];
 
+industryData.unshift({
+  name: "光伏泛半导体",
+  ytd: 18.9,
+  summary: "参考国金证券光伏“泛半导体”专题的研究框架：底层材料与工艺同源，光伏设备及材料龙头通过半导体国产替代、先进封装和高端耗材打开第二成长曲线。",
+  pages: [
+    {
+      title: "第一页：核心投资逻辑",
+      bullets: [
+        "光伏行业经营承压超过两年后，部分设备和材料龙头开始寻找第二成长曲线。若光伏主业估值已经被压缩，而半导体相关业务进入产品突破、客户验证和订单兑现阶段，公司可能出现价值重估。",
+        "这不是简单跨界概念。光伏电池和半导体器件都围绕硅基材料、PN结构、载流子调控、洁净加工和精密制程展开，底层能力存在迁移基础。",
+        "研究抓手应从三个层面展开：第一性原理是否相通，材料和工艺是否能迁移，公司是否具备研发、客户验证和财务稳定性。",
+      ],
+      stats: [["研报框架", "产业迁移"], ["核心线索", "第二曲线"], ["验证阶段", "订单兑现"]],
+    },
+    {
+      title: "第二页：第一性原理同源",
+      bullets: [
+        "光伏电池的核心是PN结，光生电子-空穴对在内建电场下分离并形成电流；MOSFET等半导体器件同样依靠掺杂和PN结构实现导通与关断控制。",
+        "两类产品的目标不同，但都需要对硅材料、载流子、掺杂浓度、界面质量和电学性能进行精密控制。因此，光伏企业长期积累的晶体生长、清洗、镀膜、激光和检测能力具备横向延展基础。",
+        "从P型到N型、从PERC到TOPCon/BC，光伏高效化本质上不断提高对洁净度、低氧控制、薄膜质量和图形精度的要求，技术边界逐步靠近半导体。",
+      ],
+      stats: [["共性", "PN结构"], ["迁移能力", "载流子控制"], ["技术趋势", "高效化"]],
+    },
+    {
+      title: "第三页：底层材料同源",
+      bullets: [
+        "光伏与半导体都以高纯多晶硅、单晶硅棒和硅片加工为基础。不同之处在于半导体对纯度、氧碳含量、金属杂质、颗粒控制和表面平坦度要求更高。",
+        "半导体级多晶硅、石英坩埚、硅片、电子特气、光刻胶、空白掩膜版、PSPI等方向，是光伏材料企业延伸时更值得跟踪的细分。",
+        "材料端的验证周期长，客户认证门槛高，短期收入可能慢于市场预期；但一旦导入，粘性和壁垒通常强于普通周期品。",
+      ],
+      stats: [["材料基础", "硅链"], ["关键门槛", "纯度/颗粒"], ["商业特征", "长验证"]],
+    },
+    {
+      title: "第四页：工艺制程同源",
+      bullets: [
+        "高效光伏电池大量使用或接近半导体制程，包括CVD、PVD、ALD薄膜沉积，离子注入，激光图形化，湿法清洗与刻蚀等。",
+        "TOPCon、BC和先进封装相关工艺，都要求更高的膜厚均匀性、表面洁净度、图形精度和长期稳定性。这为光伏设备企业进入半导体前道、先进封装和检测设备提供切入点。",
+        "设备端研究要看产品是否真正进入半导体客户验证，而不是只看公司是否宣布布局。验证通过、重复订单和收入确认是三个递进信号。",
+      ],
+      stats: [["设备方向", "沉积/激光/湿法"], ["验证信号", "客户导入"], ["兑现", "收入确认"]],
+    },
+    {
+      title: "第五页：设备企业观察",
+      bullets: [
+        "研报梳理的设备端主线包括：迈为股份切入半导体前道设备，帝尔激光布局TGV玻璃基板工艺，奥特维光模块AOI检测设备放量，高测股份具备切、倒、磨一体化能力。",
+        "这类公司的核心问题是：现有光伏设备能力能否迁移到更高壁垒场景，半导体客户验证是否真实推进，半导体业务毛利率是否高于主业并逐步放量。",
+        "如果光伏主业仍承压，但半导体业务占比提升，市场可能从周期股估值切换到平台型设备公司估值。",
+      ],
+      stats: [["设备龙头", "平台化"], ["新业务", "前道/先进封装"], ["重估条件", "占比提升"]],
+    },
+    {
+      title: "第六页：材料企业观察",
+      bullets: [
+        "研报梳理的材料端主线包括：福斯特高端感光干膜，聚和材料空白掩膜版和光刻胶，奥来德PSPI材料，欧晶科技半导体坩埚，联泓新科电子特气，TCL中环半导体硅片。",
+        "材料企业的关键不是概念数量，而是产品认证、送样进度、批量供货、客户质量和单位价值量。越接近关键耗材和高端材料，验证越慢但壁垒越高。",
+        "投资上要警惕光伏主业盈利下行掩盖第二曲线进展，也要警惕第二曲线收入体量太小、短期难以支撑整体估值。",
+      ],
+      stats: [["材料方向", "干膜/特气/坩埚"], ["验证", "送样到批供"], ["风险", "体量偏小"]],
+    },
+    {
+      title: "第七页：研究清单",
+      bullets: [
+        "第一步：确认公司半导体业务对应的具体产品和工艺位置，是前道、封装、检测、材料还是耗材；不要只看泛半导体四个字。",
+        "第二步：确认客户验证阶段，区分研发样品、送样测试、小批量验证、批量供货和稳定复购。不同阶段对应的估值可靠性完全不同。",
+        "第三步：把半导体业务拆成收入占比、毛利率、资本开支、研发投入、客户集中度和订单可见度，再与光伏主业周期位置合并判断。",
+      ],
+      stats: [["清单1", "产品位置"], ["清单2", "验证阶段"], ["清单3", "财务拆分"]],
+    },
+  ],
+});
+
 function setLiveIndexOverride(row) {
   if (!row.symbol || row.price == null) return;
   const payload = {
@@ -430,6 +508,7 @@ function renderMacroCalendar() {
       <span>今值 ${item.actual}</span>
       <span>预期 ${item.forecast}</span>
       <span>前值 ${item.previous}</span>
+      <a href="${item.url}" target="_blank" rel="noopener noreferrer">${item.source}</a>
     </div>
   `).join("") || `<div class="macro-item"><span>--</span><strong>当前筛选条件暂无数据</strong><span>可接入真实经济日历 API</span><span></span><span></span></div>`;
 }

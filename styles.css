@@ -593,7 +593,7 @@ h3 {
 
 .macro-item {
   display: grid;
-  grid-template-columns: 70px minmax(0, 1fr) repeat(3, minmax(70px, 110px));
+  grid-template-columns: 70px minmax(0, 1fr) repeat(3, minmax(70px, 110px)) minmax(90px, 130px);
   gap: 10px;
   align-items: center;
   padding: 13px 0;
@@ -607,6 +607,16 @@ h3 {
 .macro-item span {
   color: var(--muted);
   font-size: 12px;
+}
+
+.macro-item a {
+  color: var(--green);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.macro-item a:hover {
+  color: var(--text);
 }
 
 .news-grid {

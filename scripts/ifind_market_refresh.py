@@ -203,6 +203,12 @@ def build_history_snapshot(rows: list[dict[str, Any]]) -> dict[str, Any]:
         symbol_rows.sort(key=lambda item: item["date"])
         ytd_base = next((item["price"] for item in symbol_rows if item["date"][:4] == symbol_rows[-1]["date"][:4]), None)
         for index, item in enumerate(symbol_rows):
+            previous_close = None
+            if index > 0:
+                previous_close = symbol_rows[index - 1]["price"]
+            previous_close = to_float(previous_close)
+            if item["changePct"] is None and previous_close:
+                item["changePct"] = ((item["price"] - previous_close) / previous_close) * 100
             week_base = symbol_rows[max(0, index - 5)]["price"]
             item["weekPct"] = ((item["price"] - week_base) / week_base) * 100 if week_base else None
             item["ytdPct"] = ((item["price"] - ytd_base) / ytd_base) * 100 if ytd_base else None

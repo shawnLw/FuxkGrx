@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-08T15:25:22+08:00",
+  "updatedAt": "2026-07-08T15:44:48+08:00",
   "source": "同花顺 iFinD THS_RQ 本机脚本生成",
   "markets": [
     {
@@ -9,7 +9,7 @@
       "price": 3970.88,
       "changePct": -0.4851838485905528,
       "tradeDate": "2026-07-08",
-      "tradeTime": "15:25:20"
+      "tradeTime": "15:44:20"
     },
     {
       "region": "A股",
@@ -18,7 +18,7 @@
       "price": 14939.727,
       "changePct": -1.874449018903891,
       "tradeDate": "2026-07-08",
-      "tradeTime": "15:24:30"
+      "tradeTime": "15:44:30"
     },
     {
       "region": "A股",
@@ -27,7 +27,7 @@
       "price": 3845.3513,
       "changePct": -1.70137458516082,
       "tradeDate": "2026-07-08",
-      "tradeTime": "15:24:45"
+      "tradeTime": "15:44:45"
     },
     {
       "region": "A股",
@@ -36,25 +36,25 @@
       "price": 2016.23,
       "changePct": 0.7314185222747965,
       "tradeDate": "2026-07-08",
-      "tradeTime": "15:25:21"
+      "tradeTime": "15:44:44"
     },
     {
       "region": "港股",
       "index": "恒生指数",
       "symbol": "HSI.HK",
-      "price": 24175.57,
-      "changePct": 2.88838224973603,
+      "price": 24204.56,
+      "changePct": 3.011760279764692,
       "tradeDate": "2026-07-08",
-      "tradeTime": "15:25:20"
+      "tradeTime": "15:44:46"
     },
     {
       "region": "港股",
       "index": "恒生科技",
       "symbol": "HSTECH.HK",
-      "price": 4728.59,
-      "changePct": 4.915643082821545,
+      "price": 4733.18,
+      "changePct": 5.017483758741887,
       "tradeDate": "2026-07-08",
-      "tradeTime": "15:25:21"
+      "tradeTime": "15:44:46"
     }
   ]
 }
