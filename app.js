@@ -231,6 +231,24 @@ let liveMarketSource = "";
 
 const formatPct = (value) => `${value > 0 ? "+" : ""}${Number(value).toFixed(2)}%`;
 const formatPrice = (value) => Number(value).toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+const symbolAliases = {
+  "000001.SH": "000001.SS",
+  "000688.SH": "000688.SS",
+};
+
+function setLiveIndexOverride(row) {
+  if (!row.symbol || row.price == null) return;
+  const payload = {
+    symbol: row.symbol,
+    price: row.price,
+    day: row.changePct || 0,
+    week: row.weekPct,
+    ytd: row.ytdPct,
+  };
+  liveIndexOverrides[row.symbol] = payload;
+  const alias = symbolAliases[row.symbol];
+  if (alias) liveIndexOverrides[alias] = payload;
+}
 
 function hashString(value) {
   let hash = 0;
@@ -374,16 +392,7 @@ async function fetchMarketFromBackend() {
     liveMarketSource = payload.source?.includes("Yahoo")
       ? `${payload.source}，更新时间：${payload.updatedAt}`
       : `${payload.source || "fallback"}；当前使用演示数据`;
-    (payload.markets || []).forEach((row) => {
-      if (!row.symbol || row.price == null) return;
-      liveIndexOverrides[row.symbol] = {
-        symbol: row.symbol,
-        price: row.price,
-        day: row.changePct || 0,
-        week: row.weekPct,
-        ytd: row.ytdPct,
-      };
-    });
+    (payload.markets || []).forEach(setLiveIndexOverride);
     renderMarket();
   } catch (error) {
     liveMarketSource = "本地静态预览无法调用 Netlify Function；部署后可自动请求 FMP。";
@@ -396,16 +405,7 @@ async function fetchLocalIfindSnapshot() {
     if (!response.ok) return false;
     const payload = await response.json();
     liveMarketSource = `${payload.source || "同花顺 iFinD"}，更新时间：${payload.updatedAt || "--"}`;
-    (payload.markets || []).forEach((row) => {
-      if (!row.symbol || row.price == null) return;
-      liveIndexOverrides[row.symbol] = {
-        symbol: row.symbol,
-        price: row.price,
-        day: row.changePct || 0,
-        week: row.weekPct,
-        ytd: row.ytdPct,
-      };
-    });
+    (payload.markets || []).forEach(setLiveIndexOverride);
     renderMarket();
     return true;
   } catch (error) {

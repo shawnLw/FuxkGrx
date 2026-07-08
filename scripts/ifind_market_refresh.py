@@ -87,9 +87,33 @@ def fetch_ifind_rows() -> list[dict[str, Any]]:
         if str(login_result) not in ("0", "None"):
             raise RuntimeError(f"iFinD 登录失败，返回值：{login_result}")
 
-    symbols = ",".join(item["symbol"] for item in INDEXES)
     fields = ";".join(FIELDS)
-    result = THS_RQ(symbols, fields)
+    rows = []
+    skipped = []
+    for item in INDEXES:
+        result = THS_RQ(item["symbol"], fields)
+        try:
+            rows.extend(normalize_ifind_result(result))
+        except RuntimeError as exc:
+            skipped.append(f"{item['symbol']} {item['index']}：{exc}")
+
+    if skipped:
+        print("以下指数暂时跳过：")
+        for item in skipped:
+            print(f"- {item}")
+
+    if rows:
+        return rows
+
+    raise RuntimeError("iFinD 没有返回任何可用指数数据。")
+
+
+def normalize_ifind_result(result: Any) -> list[dict[str, Any]]:
+    if isinstance(result, tuple):
+        error_code, payload = result[0], result[-1]
+        if str(error_code) not in ("0", "None"):
+            raise RuntimeError(f"iFinD 返回错误码：{error_code}")
+        result = payload
 
     if isinstance(result, tuple):
         # Some iFinD installs return (error_code, dataframe).
@@ -106,8 +130,10 @@ def fetch_ifind_rows() -> list[dict[str, Any]]:
         raise RuntimeError(f"iFinD 返回错误码：{error_code} {message}")
 
     if getattr(result, "data", None) is not None:
-        rows = []
         data = result.data
+        if hasattr(data, "to_dict"):
+            return data.to_dict(orient="records")
+        rows = []
         indicators = list(getattr(result, "indicators", []) or [])
         codes = list(getattr(result, "thscode", []) or [])
         if isinstance(data, list) and codes:

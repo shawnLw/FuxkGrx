@@ -1,0 +1,42 @@
+{
+  "updatedAt": "2026-07-08T14:44:43+08:00",
+  "source": "同花顺 iFinD THS_RQ 本机脚本生成",
+  "markets": [
+    {
+      "region": "A股",
+      "index": "上证指数",
+      "symbol": "000001.SH",
+      "price": 3980.34,
+      "changePct": -0.2481053771201641,
+      "weekPct": null,
+      "ytdPct": null
+    },
+    {
+      "region": "A股",
+      "index": "深证成指",
+      "symbol": "399001.SZ",
+      "price": 14985.491,
+      "changePct": -1.573866704709072,
+      "weekPct": null,
+      "ytdPct": null
+    },
+    {
+      "region": "A股",
+      "index": "创业板指",
+      "symbol": "399006.SZ",
+      "price": 3861.3094,
+      "changePct": -1.293438047806593,
+      "weekPct": null,
+      "ytdPct": null
+    },
+    {
+      "region": "A股",
+      "index": "科创50",
+      "symbol": "000688.SH",
+      "price": 2025.39,
+      "changePct": 1.189054701512307,
+      "weekPct": null,
+      "ytdPct": null
+    }
+  ]
+}
