@@ -234,6 +234,8 @@ const formatPrice = (value) => Number(value).toLocaleString("zh-CN", { minimumFr
 const symbolAliases = {
   "000001.SH": "000001.SS",
   "000688.SH": "000688.SS",
+  "HSI.HK": "^HSI",
+  "HSTECH.HK": "3033.HK",
 };
 
 function setLiveIndexOverride(row) {
