@@ -2,63 +2,64 @@ const fallback = {
   updatedAt: "2026-07-08",
   source: "fallback-demo",
   markets: [
-    { region: "A股", index: "上证指数", price: 3528.41, changePct: 0.42 },
-    { region: "美股", index: "标普500", price: 6327.18, changePct: 0.68 },
-    { region: "港股", index: "恒生指数", price: 24218.07, changePct: 0.76 },
+    { region: "A股", index: "上证指数", symbol: "000001.SS", price: 3528.41, changePct: 0.42 },
+    { region: "美股", index: "标普500", symbol: "^GSPC", price: 6327.18, changePct: 0.68 },
+    { region: "港股", index: "恒生指数", symbol: "^HSI", price: 24218.07, changePct: 0.76 },
   ],
 };
 
+const symbols = ["SPY", "QQQ", "DIA", "ASHR", "MCHI", "EWH", "EWJ", "FEZ"];
+
 exports.handler = async function handler() {
-  const apiKey = process.env.FMP_API_KEY;
-
-  if (!apiKey) {
-    return json({
-      ...fallback,
-      note: "Set FMP_API_KEY in Netlify environment variables to enable live data.",
-    });
-  }
-
   try {
-    const symbols = ["SPY", "QQQ", "DIA", "ASHR", "MCHI", "EWH", "EWJ", "FEZ"];
-    const url = `https://financialmodelingprep.com/api/v3/quote/${encodeURIComponent(symbols.join(","))}?apikey=${apiKey}`;
-    const response = await fetch(url);
+    const markets = await Promise.all(symbols.map(fetchYahooChart));
+    const validMarkets = markets.filter(Boolean);
 
-    if (!response.ok) {
-      const detail = await response.text();
-      return json({
-        ...fallback,
-        source: "fallback-after-api-error",
-        status: response.status,
-        note: "FMP_API_KEY is present, but FMP rejected the quote request. Check plan permissions, quota, or supported symbols.",
-        detail: detail.slice(0, 240),
-      }, 200);
+    if (!validMarkets.length) {
+      return json({ ...fallback, source: "fallback-after-yahoo-empty" });
     }
 
-    const rows = await response.json();
     return json({
       updatedAt: new Date().toISOString(),
-      source: "Financial Modeling Prep",
-      markets: rows.map((row) => ({
-        region: inferRegion(row.symbol),
-        index: displayName(row.symbol, row.name),
-        symbol: row.symbol,
-        price: row.price,
-        changePct: row.changesPercentage ?? row.changePercentage ?? row.changePercent ?? 0,
-      })),
+      source: "Yahoo Finance Chart API (unofficial, ETF proxies)",
+      markets: validMarkets,
     });
   } catch (error) {
-    return json({ ...fallback, source: "fallback-after-exception", error: error.message }, 200);
+    return json({
+      ...fallback,
+      source: "fallback-after-yahoo-exception",
+      error: error.message,
+    });
   }
 };
 
-function json(body, statusCode = 200) {
-  return {
-    statusCode,
+async function fetchYahooChart(symbol) {
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}?range=5d&interval=1d`;
+  const response = await fetch(url, {
     headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "Cache-Control": "public, max-age=60",
+      "User-Agent": "Mozilla/5.0",
+      "Accept": "application/json",
     },
-    body: JSON.stringify(body),
+  });
+
+  if (!response.ok) return null;
+
+  const payload = await response.json();
+  const result = payload.chart?.result?.[0];
+  if (!result) return null;
+
+  const meta = result.meta || {};
+  const closes = (result.indicators?.quote?.[0]?.close || []).filter((value) => typeof value === "number");
+  const current = meta.regularMarketPrice || closes[closes.length - 1];
+  const previous = closes.length >= 2 ? closes[closes.length - 2] : meta.chartPreviousClose;
+  const changePct = previous ? ((current - previous) / previous) * 100 : 0;
+
+  return {
+    region: inferRegion(symbol),
+    index: displayName(symbol, meta.longName),
+    symbol,
+    price: current,
+    changePct,
   };
 }
 
@@ -83,4 +84,15 @@ function displayName(symbol = "", fallbackName = "") {
     FEZ: "欧洲 Stoxx 50 ETF",
   };
   return names[symbol] || fallbackName || symbol;
+}
+
+function json(body, statusCode = 200) {
+  return {
+    statusCode,
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+      "Cache-Control": "public, max-age=60",
+    },
+    body: JSON.stringify(body),
+  };
 }

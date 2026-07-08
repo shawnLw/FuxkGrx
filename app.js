@@ -371,9 +371,9 @@ async function fetchMarketFromBackend() {
     const response = await fetch("/.netlify/functions/market");
     if (!response.ok) return;
     const payload = await response.json();
-    liveMarketSource = payload.source === "Financial Modeling Prep"
-      ? `Financial Modeling Prep，更新时间：${payload.updatedAt}`
-      : `${payload.source || "fallback"}；${payload.note || "当前未启用 FMP_API_KEY"}`;
+    liveMarketSource = payload.source?.includes("Yahoo")
+      ? `${payload.source}，更新时间：${payload.updatedAt}`
+      : `${payload.source || "fallback"}；当前使用演示数据`;
     (payload.markets || []).forEach((row) => {
       if (!row.symbol || row.price == null) return;
       liveIndexOverrides[row.symbol] = {
