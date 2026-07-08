@@ -4,9 +4,9 @@ const marketBase = {
     subtitle: "沪深市场",
     source: "当前为演示行情结构；实时行情、新闻和政策数据接口已预留，后续可接同花顺/Choice 导出或授权 API。",
     indexes: [
-      { name: "上证指数", symbol: "000001.SS", price: 3528.41, day: 0.42, week: 1.08, ytd: 4.9 },
-      { name: "深证成指", symbol: "399001.SZ", price: 10764.82, day: 0.73, week: 1.92, ytd: 6.8 },
-      { name: "创业板指", symbol: "399006.SZ", price: 2248.17, day: 1.36, week: 2.86, ytd: 8.7 },
+      { name: "上证指数", symbol: "000001.SS", proxySymbol: "ASHR", price: 3528.41, day: 0.42, week: 1.08, ytd: 4.9 },
+      { name: "深证成指", symbol: "399001.SZ", proxySymbol: "MCHI", price: 10764.82, day: 0.73, week: 1.92, ytd: 6.8 },
+      { name: "创业板指", symbol: "399006.SZ", proxySymbol: "MCHI", price: 2248.17, day: 1.36, week: 2.86, ytd: 8.7 },
       { name: "科创50", symbol: "000688.SS", price: 985.26, day: 1.08, week: 3.24, ytd: 12.6 },
     ],
     sectors: [
@@ -25,9 +25,9 @@ const marketBase = {
     subtitle: "美国市场",
     source: "当前为演示行情结构；实时行情、新闻和政策数据接口已预留，后续可接公开行情源或授权 API。",
     indexes: [
-      { name: "标普500", symbol: "^GSPC", price: 6327.18, day: 0.68, week: 1.74, ytd: 13.2 },
-      { name: "纳斯达克", symbol: "^IXIC", price: 21102.34, day: 1.12, week: 2.48, ytd: 18.5 },
-      { name: "道琼斯", symbol: "^DJI", price: 44902.51, day: 0.21, week: 0.62, ytd: 6.8 },
+      { name: "标普500", symbol: "^GSPC", proxySymbol: "SPY", price: 6327.18, day: 0.68, week: 1.74, ytd: 13.2 },
+      { name: "纳斯达克", symbol: "^IXIC", proxySymbol: "QQQ", price: 21102.34, day: 1.12, week: 2.48, ytd: 18.5 },
+      { name: "道琼斯", symbol: "^DJI", proxySymbol: "DIA", price: 44902.51, day: 0.21, week: 0.62, ytd: 6.8 },
       { name: "费城半导体", symbol: "^SOX", price: 6128.42, day: 1.94, week: 4.36, ytd: 26.2 },
     ],
     sectors: [
@@ -46,9 +46,9 @@ const marketBase = {
     subtitle: "香港市场",
     source: "当前为演示行情结构；实时行情、新闻和政策数据接口已预留，后续可接港交所、公开新闻源或授权 API。",
     indexes: [
-      { name: "恒生指数", symbol: "^HSI", price: 24218.07, day: 0.76, week: 1.84, ytd: 5.7 },
-      { name: "恒生科技", symbol: "3033.HK", price: 5298.22, day: 1.68, week: 4.26, ytd: 14.8 },
-      { name: "国企指数", symbol: "^HSCE", price: 8725.64, day: 0.94, week: 2.38, ytd: 7.9 },
+      { name: "恒生指数", symbol: "^HSI", proxySymbol: "EWH", price: 24218.07, day: 0.76, week: 1.84, ytd: 5.7 },
+      { name: "恒生科技", symbol: "3033.HK", proxySymbol: "EWH", price: 5298.22, day: 1.68, week: 4.26, ytd: 14.8 },
+      { name: "国企指数", symbol: "^HSCE", proxySymbol: "EWH", price: 8725.64, day: 0.94, week: 2.38, ytd: 7.9 },
       { name: "红筹指数", symbol: "^HSCC", price: 4216.31, day: 0.28, week: 0.86, ytd: 4.2 },
     ],
     sectors: [
@@ -67,9 +67,9 @@ const marketBase = {
     subtitle: "欧洲市场",
     source: "当前为演示行情结构；实时行情、新闻和政策数据接口已预留，后续可接授权 API 或交易所公开数据。",
     indexes: [
-      { name: "欧洲 Stoxx 50", symbol: "^STOXX50E", price: 5438.12, day: -0.18, week: 0.34, ytd: 6.2 },
-      { name: "德国 DAX", symbol: "^GDAXI", price: 24612.45, day: 0.22, week: 0.71, ytd: 8.9 },
-      { name: "英国 FTSE", symbol: "^FTSE", price: 8954.18, day: -0.31, week: -0.12, ytd: 5.1 },
+      { name: "欧洲 Stoxx 50", symbol: "^STOXX50E", proxySymbol: "FEZ", price: 5438.12, day: -0.18, week: 0.34, ytd: 6.2 },
+      { name: "德国 DAX", symbol: "^GDAXI", proxySymbol: "FEZ", price: 24612.45, day: 0.22, week: 0.71, ytd: 8.9 },
+      { name: "英国 FTSE", symbol: "^FTSE", proxySymbol: "FEZ", price: 8954.18, day: -0.31, week: -0.12, ytd: 5.1 },
       { name: "法国 CAC40", symbol: "^FCHI", price: 7818.62, day: -0.08, week: 0.42, ytd: 3.7 },
     ],
     sectors: [
@@ -88,8 +88,8 @@ const marketBase = {
     subtitle: "日本市场",
     source: "当前为演示行情结构；实时行情、新闻和政策数据接口已预留，后续可接授权 API 或交易所公开数据。",
     indexes: [
-      { name: "日经225", symbol: "^N225", price: 40942.28, day: 0.36, week: 1.08, ytd: 9.6 },
-      { name: "东证指数", symbol: "^TOPX", price: 2878.44, day: 0.21, week: 0.76, ytd: 7.4 },
+      { name: "日经225", symbol: "^N225", proxySymbol: "EWJ", price: 40942.28, day: 0.36, week: 1.08, ytd: 9.6 },
+      { name: "东证指数", symbol: "^TOPX", proxySymbol: "EWJ", price: 2878.44, day: 0.21, week: 0.76, ytd: 7.4 },
       { name: "JPX日经400", symbol: "1599.T", price: 26980.0, day: 0.18, week: 0.62, ytd: 6.9 },
       { name: "日经半导体", symbol: "200A.T", price: 1942.5, day: 1.12, week: 2.44, ytd: 18.1 },
     ],
@@ -252,7 +252,7 @@ function getMarketData() {
     volumeLabel: base.volume[(shift + 1) % base.volume.length],
     styleLabel: base.style[(shift + 2) % base.style.length],
     indexes: base.indexes.map((row) => {
-      const live = liveIndexOverrides[row.symbol];
+      const live = liveIndexOverrides[row.symbol] || liveIndexOverrides[row.proxySymbol];
       return {
         ...row,
         price: live?.price ?? vary(row.price, `${row.name}-price`, row.price * 0.006),
@@ -260,6 +260,7 @@ function getMarketData() {
         week: vary(row.week, `${row.name}-week`, 1.1),
         ytd: vary(row.ytd, `${row.name}-ytd`, 2.8),
         live: Boolean(live),
+        liveSymbol: live?.symbol,
       };
     }),
     sectors: base.sectors.map((row) => ({
@@ -306,7 +307,7 @@ function renderBars(container, rows, activePeriod) {
 function renderIndexStrip(indexes) {
   document.getElementById("index-strip").innerHTML = indexes.map((item) => `
     <article class="glass-panel index-card">
-      <span>${item.name} · ${item.live ? "FMP" : "演示"}</span>
+      <span>${item.name} · ${item.live ? `FMP代理 ${item.liveSymbol || ""}` : "演示"}</span>
       <strong>${formatPrice(item.price)}</strong>
       <small class="${item.day >= 0 ? "up" : "down"}">${formatPct(item.day)} · ${item.symbol}</small>
     </article>
@@ -376,6 +377,7 @@ async function fetchMarketFromBackend() {
     (payload.markets || []).forEach((row) => {
       if (!row.symbol || row.price == null) return;
       liveIndexOverrides[row.symbol] = {
+        symbol: row.symbol,
         price: row.price,
         day: row.changePct || 0,
       };

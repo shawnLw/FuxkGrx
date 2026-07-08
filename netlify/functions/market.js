@@ -19,7 +19,7 @@ exports.handler = async function handler() {
   }
 
   try {
-    const symbols = ["^GSPC", "^IXIC", "^DJI", "^HSI", "^N225", "^GDAXI", "^FTSE"];
+    const symbols = ["SPY", "QQQ", "DIA", "ASHR", "MCHI", "EWH", "EWJ", "FEZ"];
     const url = `https://financialmodelingprep.com/stable/quote?symbol=${encodeURIComponent(symbols.join(","))}&apikey=${apiKey}`;
     const response = await fetch(url);
 
@@ -40,7 +40,7 @@ exports.handler = async function handler() {
       source: "Financial Modeling Prep",
       markets: rows.map((row) => ({
         region: inferRegion(row.symbol),
-        index: row.name || row.symbol,
+        index: displayName(row.symbol, row.name),
         symbol: row.symbol,
         price: row.price,
         changePct: row.changesPercentage ?? row.changePercentage ?? row.changePercent ?? 0,
@@ -63,9 +63,24 @@ function json(body, statusCode = 200) {
 }
 
 function inferRegion(symbol = "") {
-  if (["^GSPC", "^IXIC", "^DJI"].includes(symbol)) return "美股";
-  if (symbol === "^HSI") return "港股";
-  if (symbol === "^N225") return "日本";
-  if (["^GDAXI", "^FTSE"].includes(symbol)) return "欧洲";
+  if (["SPY", "QQQ", "DIA"].includes(symbol)) return "美股";
+  if (["ASHR", "MCHI"].includes(symbol)) return "A股";
+  if (symbol === "EWH") return "港股";
+  if (symbol === "EWJ") return "日本";
+  if (symbol === "FEZ") return "欧洲";
   return "全球";
+}
+
+function displayName(symbol = "", fallbackName = "") {
+  const names = {
+    SPY: "标普500 ETF",
+    QQQ: "纳斯达克100 ETF",
+    DIA: "道琼斯 ETF",
+    ASHR: "沪深300 ETF",
+    MCHI: "中国股票 ETF",
+    EWH: "香港 ETF",
+    EWJ: "日本 ETF",
+    FEZ: "欧洲 Stoxx 50 ETF",
+  };
+  return names[symbol] || fallbackName || symbol;
 }
