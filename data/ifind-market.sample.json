@@ -1,0 +1,33 @@
+{
+  "updatedAt": "2026-07-08T14:30:00+08:00",
+  "source": "iFinD sample data; replace with data/ifind-market.json generated locally",
+  "markets": [
+    {
+      "region": "A股",
+      "index": "上证指数",
+      "symbol": "000001.SH",
+      "price": 3528.41,
+      "changePct": 0.42,
+      "weekPct": 1.08,
+      "ytdPct": 4.9
+    },
+    {
+      "region": "A股",
+      "index": "深证成指",
+      "symbol": "399001.SZ",
+      "price": 10764.82,
+      "changePct": 0.73,
+      "weekPct": 1.92,
+      "ytdPct": 6.8
+    },
+    {
+      "region": "A股",
+      "index": "创业板指",
+      "symbol": "399006.SZ",
+      "price": 2248.17,
+      "changePct": 1.36,
+      "weekPct": 2.86,
+      "ytdPct": 8.7
+    }
+  ]
+}

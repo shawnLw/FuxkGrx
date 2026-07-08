@@ -257,8 +257,8 @@ function getMarketData() {
         ...row,
         price: live?.price ?? vary(row.price, `${row.name}-price`, row.price * 0.006),
         day: live?.day ?? vary(row.day, `${row.name}-day`, 0.42),
-        week: vary(row.week, `${row.name}-week`, 1.1),
-        ytd: vary(row.ytd, `${row.name}-ytd`, 2.8),
+        week: live?.week ?? vary(row.week, `${row.name}-week`, 1.1),
+        ytd: live?.ytd ?? vary(row.ytd, `${row.name}-ytd`, 2.8),
         live: Boolean(live),
         liveSymbol: live?.symbol,
       };
@@ -307,7 +307,7 @@ function renderBars(container, rows, activePeriod) {
 function renderIndexStrip(indexes) {
   document.getElementById("index-strip").innerHTML = indexes.map((item) => `
     <article class="glass-panel index-card">
-      <span>${item.name} · ${item.live ? `FMP代理 ${item.liveSymbol || ""}` : "演示"}</span>
+      <span>${item.name} · ${item.live ? `实时 ${item.liveSymbol || ""}` : "演示"}</span>
       <strong>${formatPrice(item.price)}</strong>
       <small class="${item.day >= 0 ? "up" : "down"}">${formatPct(item.day)} · ${item.symbol}</small>
     </article>
@@ -380,11 +380,36 @@ async function fetchMarketFromBackend() {
         symbol: row.symbol,
         price: row.price,
         day: row.changePct || 0,
+        week: row.weekPct,
+        ytd: row.ytdPct,
       };
     });
     renderMarket();
   } catch (error) {
     liveMarketSource = "本地静态预览无法调用 Netlify Function；部署后可自动请求 FMP。";
+  }
+}
+
+async function fetchLocalIfindSnapshot() {
+  try {
+    const response = await fetch("/data/ifind-market.json", { cache: "no-store" });
+    if (!response.ok) return false;
+    const payload = await response.json();
+    liveMarketSource = `${payload.source || "同花顺 iFinD"}，更新时间：${payload.updatedAt || "--"}`;
+    (payload.markets || []).forEach((row) => {
+      if (!row.symbol || row.price == null) return;
+      liveIndexOverrides[row.symbol] = {
+        symbol: row.symbol,
+        price: row.price,
+        day: row.changePct || 0,
+        week: row.weekPct,
+        ytd: row.ytdPct,
+      };
+    });
+    renderMarket();
+    return true;
+  } catch (error) {
+    return false;
   }
 }
 
@@ -488,7 +513,9 @@ function init() {
   renderMarket();
   renderIndustry();
   renderBook();
-  fetchMarketFromBackend();
+  fetchLocalIfindSnapshot().then((hasIfindSnapshot) => {
+    if (!hasIfindSnapshot) fetchMarketFromBackend();
+  });
 }
 
 init();
