@@ -676,14 +676,13 @@ function renderList(container, items, activeName, onClick) {
 }
 
 function renderIndustryDirectory(industry) {
-  const container = document.getElementById("industry-list");
+  const container = document.querySelector(".industry-feature .feature-copy");
+  container.classList.add("report-toc-panel");
   container.innerHTML = `
-    <label class="report-picker">
-      <span>切换行业报告</span>
-      <select id="industry-report-select">
-        ${industryData.map((item) => `<option value="${item.name}" ${item.name === industry.name ? "selected" : ""}>${item.name}</option>`).join("")}
-      </select>
-    </label>
+    <p class="eyebrow">Industry Lens</p>
+    <h2>${industry.name}</h2>
+    <span class="update-badge">数据更新：2026-07-08</span>
+    <p>${industry.summary}</p>
     <div class="toc-list">
       ${industry.pages.map((page, index) => `
         <button class="toc-card ${index === industryPage ? "active" : ""}" data-page="${index}">
@@ -692,16 +691,24 @@ function renderIndustryDirectory(industry) {
         </button>
       `).join("")}
     </div>
+    <div class="page-switcher">
+      <button class="mini-btn" id="industry-prev-inline">上一页</button>
+      <span>${industryPage + 1} / ${industry.pages.length}</span>
+      <button class="mini-btn" id="industry-next-inline">下一页</button>
+    </div>
   `;
-  document.getElementById("industry-report-select").addEventListener("change", (event) => {
-    selectedIndustry = event.target.value;
-    industryPage = 0;
-    renderIndustry();
-  });
   container.querySelectorAll(".toc-card").forEach((button) => button.addEventListener("click", () => {
     industryPage = Number(button.dataset.page);
     renderIndustry();
   }));
+  document.getElementById("industry-prev-inline").addEventListener("click", () => {
+    industryPage = Math.max(0, industryPage - 1);
+    renderIndustry();
+  });
+  document.getElementById("industry-next-inline").addEventListener("click", () => {
+    industryPage = Math.min(industry.pages.length - 1, industryPage + 1);
+    renderIndustry();
+  });
 }
 
 function renderBars(container, rows, activePeriod) {
@@ -1038,12 +1045,54 @@ function renderKnowledgeVisual(page, topic) {
   visual.dataset.visual = page.diagram || "default";
   visual.innerHTML = `
     <div class="lesson-visual">
-      <span>${code}</span>
+      <div class="lesson-comic">
+        <div class="speech-bubble">${code}</div>
+        <div class="comic-person"></div>
+        <div class="comic-counter"></div>
+      </div>
       <strong>${title}</strong>
       <p>${subtitle}</p>
       <div class="visual-nodes">
         ${nodes.map((item) => `<i>${item}</i>`).join("")}
       </div>
+    </div>
+  `;
+}
+
+function renderNarrativeGraphic(type) {
+  const scenes = {
+    "ai-chain": ["城市灯亮", "算力工厂", "应用收费"],
+    "ai-map": ["电力进场", "服务器开工", "网络联机"],
+    "train-infer": ["建模型", "跑请求", "降成本"],
+    bottleneck: ["芯片排队", "网络拥堵", "电力吃紧"],
+    "profit-pool": ["订单流入", "成本分摊", "利润留下"],
+    "cn-hk-map": ["A股硬件", "港股平台", "业绩验证"],
+    financials: ["收入上台阶", "存货报警", "现金落袋"],
+    valuation: ["成长尺", "周期尺", "壁垒尺"],
+    risk: ["开支刹车", "降价压力", "路线变化"],
+    tracker: ["看订单", "看毛利", "看现金"],
+    inflation: ["成本推车", "价格上牌", "钱包变轻"],
+    indicator: ["CPI篮子", "PPI工厂", "核心温度"],
+    market: ["股票估值", "债券利率", "汇率跷板"],
+    checklist: ["看方向", "拆结构", "猜政策"],
+    questions: ["查同比", "比PPI", "想央行"],
+    rate: ["央行挂牌", "银行报价", "企业借钱"],
+    discount: ["未来利润", "折现漏斗", "今日估值"],
+    "rate-watch": ["短端水位", "长端坡度", "信用温差"],
+    fx: ["货币天平", "资本脚步", "价格重估"],
+    "fx-watch": ["利差吸力", "通胀压力", "贸易水流"],
+  };
+  const labels = scenes[type] || ["现象", "机制", "结果"];
+  return `
+    <div class="story-board">
+      ${labels.map((label, index) => `
+        <div class="story-frame">
+          <div class="sketch-scene sketch-${(index % 3) + 1}">
+            <span></span><i></i><b></b>
+          </div>
+          <strong>${label}</strong>
+        </div>
+      `).join("")}
     </div>
   `;
 }
@@ -1055,6 +1104,7 @@ function renderStudyPage(page) {
         ${page.kicker ? `<span>${page.kicker}</span>` : ""}
         <h3>${page.title}</h3>
       </div>
+      ${renderNarrativeGraphic(page.diagram)}
       ${renderConceptDiagram(page.diagram)}
       <ul>${page.bullets.map((item) => `<li>${item}</li>`).join("")}</ul>
       <div class="mini-grid">${(page.stats || []).map(([label, value]) => `<div class="mini-stat"><strong>${value}</strong><span>${label}</span></div>`).join("")}</div>
@@ -1067,11 +1117,12 @@ function renderIndustry() {
   const industry = industryData.find((item) => item.name === selectedIndustry) || industryData[0];
   industryPage = Math.min(industryPage, industry.pages.length - 1);
   const page = industry.pages[industryPage];
+  renderList(document.getElementById("industry-list"), industryData, selectedIndustry, (name) => {
+    selectedIndustry = name;
+    industryPage = 0;
+    renderIndustry();
+  });
   renderIndustryDirectory(industry);
-  document.getElementById("industry-title").textContent = industry.name;
-  document.getElementById("industry-updated").textContent = "数据更新：2026-07-08";
-  document.getElementById("industry-summary").textContent = industry.summary;
-  document.getElementById("industry-page-label").textContent = `${industryPage + 1} / ${industry.pages.length}`;
   document.getElementById("industry-page-body").innerHTML = renderStudyPage(page);
 }
 
@@ -1112,6 +1163,15 @@ async function shareSite() {
   }
 }
 
+function updateAmbientPointer(event) {
+  const shell = document.getElementById("app-shell");
+  const point = event.touches?.[0] || event;
+  const x = Math.round((point.clientX / window.innerWidth) * 100);
+  const y = Math.round((point.clientY / window.innerHeight) * 100);
+  shell.style.setProperty("--mx", `${x}%`);
+  shell.style.setProperty("--my", `${y}%`);
+}
+
 function switchPanel(panelName) {
   const meta = {
     market: ["Daily Market Review", "把市场噪声整理成可阅读的线索。", "聚合全球重要指数、行业表现、基本面新闻、政策线索和宏观数据日历。"],
@@ -1119,6 +1179,9 @@ function switchPanel(panelName) {
     learning: ["Daily Finance Lesson", "每天拆开一个金融知识点，让概念变成能看懂市场的工具。", "用生活场景、指标地图和资产影响图，理解通胀、利率、汇率、信用、估值这些关键词。"],
   };
   document.getElementById("app-shell").dataset.panel = panelName;
+  document.getElementById("app-shell").classList.remove("panel-pulse");
+  void document.getElementById("app-shell").offsetWidth;
+  document.getElementById("app-shell").classList.add("panel-pulse");
   document.getElementById("panel-kicker").textContent = meta[panelName][0];
   document.getElementById("page-title").textContent = meta[panelName][1];
   document.getElementById("page-subtitle").textContent = meta[panelName][2];
@@ -1131,6 +1194,8 @@ function switchPanel(panelName) {
 function init() {
   document.querySelectorAll(".nav-pill[data-panel]").forEach((button) => button.addEventListener("click", () => switchPanel(button.dataset.panel)));
   document.getElementById("share-site").addEventListener("click", shareSite);
+  window.addEventListener("pointermove", updateAmbientPointer, { passive: true });
+  window.addEventListener("touchmove", updateAmbientPointer, { passive: true });
   document.querySelectorAll(".period-tab").forEach((button) => {
     button.addEventListener("click", () => {
       const chart = button.dataset.chart;
