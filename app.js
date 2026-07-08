@@ -210,15 +210,64 @@ const industryData = [
 
 const bookData = [
   {
-    name: "日本蜡烛图技术",
-    author: "史蒂夫·尼森",
-    summary: "基于你提供的 PDF 提取目录结构，网页中展示学习摘要和图解，不公开整本书原文。",
+    name: "通货膨胀",
+    subtitle: "今天的金融知识",
+    summary: "通货膨胀不是一个抽象名词，它就是同样的钱，能买到的东西变少了。今天先学会看 CPI、PPI、核心 CPI、工资和利率这几根温度计。",
     pages: [
-      { title: "第一页：目录地图", bullets: ["引论与历史背景。", "基础知识：蜡烛图绘制方法、反转形态、星线、持续形态、十字线。", "多技术共同参照：趋势线、回撤、均线、摆动指数、交易量和价格目标。"] },
-      { title: "第二页：蜡烛图为什么有用", bullets: ["蜡烛图把开盘、收盘、最高、最低放在一个图形里，能快速表达多空力量。", "单根 K 线不应孤立使用，位置、趋势和成交量同样重要。", "学习重点不是背形态，而是理解形态背后的供需变化。"] },
-      { title: "第三页：反转形态", bullets: ["锤子线、上吊线、吞没形态、乌云盖顶、刺透形态都属于反转观察工具。", "反转不是预测立刻反向，而是提醒原趋势可能衰竭。", "确认信号通常来自后续价格行为或其他技术指标共振。"] },
-      { title: "第四页：星线与十字线", bullets: ["启明星和黄昏星强调趋势末端的情绪转折。", "十字线代表开收盘接近，常意味着多空暂时均衡。", "在关键支撑阻力位出现时，信号更值得重视。"] },
-      { title: "第五页：如何实践", bullets: ["先判断趋势和位置，再识别形态。", "把蜡烛图与均线、成交量、回撤位结合，而不是只看单一图形。", "用复盘表记录形态出现后的 1 日、3 日、5 日表现，逐步建立自己的统计感。"] },
+      {
+        title: "第一幕：一杯咖啡为什么越来越贵",
+        diagram: "inflation",
+        bullets: [
+          "把经济想成一家很大的咖啡店：咖啡豆、房租、人工、物流、电费都在涨，老板就会把一部分成本放进售价里。你看到的价格上涨，就是通胀在生活里的样子。",
+          "通胀不是所有东西一起涨，也不是涨一次就叫长期通胀。真正需要警惕的是价格上涨从少数商品扩散到服务、工资、房租和预期里。",
+          "所以看通胀，不能只问今天猪肉涨没涨、油价涨没涨，而要问：涨价是不是越来越广，持续时间是不是越来越长。"
+        ],
+        stats: [["核心问题", "钱的购买力"], ["生活体感", "同钱少买"], ["市场关注", "持续性"]],
+      },
+      {
+        title: "第二幕：要看哪几个指标",
+        diagram: "indicator",
+        bullets: [
+          "CPI 是居民消费价格指数，像一只生活购物篮，装着食品、交通、居住、教育、医疗等项目。它回答的是：普通人买东西的价格整体涨了多少。",
+          "PPI 是工业生产者出厂价格指数，更靠近工厂和上游原材料。PPI 先涨，可能说明企业成本压力上升；但它不一定完全传导到 CPI，因为企业可能自己消化一部分。",
+          "核心 CPI 通常剔除食品和能源，因为这两类价格波动很大。它更适合观察通胀的底层黏性，也更容易影响央行对利率的判断。"
+        ],
+        stats: [["CPI", "居民购物篮"], ["PPI", "工厂成本"], ["核心CPI", "底层黏性"]],
+      },
+      {
+        title: "第三幕：它怎么影响股债汇",
+        diagram: "market",
+        bullets: [
+          "温和通胀通常代表需求还可以，企业收入容易增长；但高通胀会挤压居民消费，也会逼迫央行提高利率，估值就容易承压。",
+          "债券最怕通胀上行。因为债券利息是固定的，物价涨得越快，未来收到的钱越不值钱，债券价格往往会下跌、收益率上行。",
+          "汇率要看相对通胀和相对利率。如果一个国家通胀高、利率也高，短期可能吸引资金；但如果通胀失控、信用受损，货币反而会承压。"
+        ],
+        stats: [["股票", "看盈利+估值"], ["债券", "怕高通胀"], ["汇率", "看相对利率"]],
+      },
+      {
+        title: "第四幕：投资者怎么用",
+        diagram: "checklist",
+        bullets: [
+          "第一步看方向：CPI、核心 CPI、PPI 是上行还是下行。第二步看结构：是食品能源带动，还是服务和工资也在涨。第三步看政策：央行会不会因此加息或降息。",
+          "如果通胀上行但经济也强，周期、资源、金融可能相对占优；如果通胀上行而经济转弱，就是滞胀压力，权益资产会更难受。",
+          "如果通胀持续下行，市场会交易降息预期，成长股和债券可能受益；但如果下行来自需求太弱，企业盈利也可能一起变差。"
+        ],
+        stats: [["第一步", "看方向"], ["第二步", "看结构"], ["第三步", "看政策"]],
+      },
+      {
+        title: "第五幕：今天的复盘问题",
+        diagram: "questions",
+        bullets: [
+          "看一眼最近一次 CPI：同比是多少，环比是多少，核心 CPI 是升还是降？",
+          "再看 PPI：它比 CPI 更强还是更弱？这说明成本压力在上游还是消费端？",
+          "最后问自己一句：这组通胀数据会让央行更想降息、更想加息，还是继续观察？这就是金融知识真正落到投资判断里的地方。"
+        ],
+        stats: [["复盘1", "同比/环比"], ["复盘2", "CPI vs PPI"], ["复盘3", "央行反应"]],
+        sources: [
+          ["国家统计局数据", "https://www.stats.gov.cn/sj/"],
+          ["中国人民银行货币政策", "https://www.pbc.gov.cn/zhengcehuobisi/125207/index.html"],
+        ],
+      },
     ],
   },
 ];
@@ -229,7 +278,7 @@ let selectedDate = document.getElementById("report-date").value;
 let selectedMacroDate = document.getElementById("macro-date").value;
 let selectedMacroCountry = "all";
 let selectedPeriods = { index: "day", sector: "day" };
-let selectedIndustry = industryData[0].name;
+let selectedIndustry = "";
 let industryPage = 0;
 let selectedBook = bookData[0].name;
 let bookPage = 0;
@@ -359,6 +408,142 @@ industryData.unshift({
     },
   ],
 });
+
+industryData.unshift({
+  name: "AI算力基础设施",
+  ytd: 31.5,
+  subtitle: "热门行业深度",
+  summary: "这是一篇报告式行业拆解：AI算力不是只买GPU，而是一条从电力、土地、数据中心、服务器、GPU/HBM、光模块、交换机、云厂商到应用收费的长链条。研究重点不是谁的故事最大，而是谁在真实资本开支里拿到订单、形成利润、穿越价格竞争。",
+  pages: [
+    {
+      title: "封面结论：AI算力是一座新型发电厂",
+      kicker: "一句话结论",
+      diagram: "ai-chain",
+      bullets: [
+        "如果把AI应用比作城市里的灯，算力基础设施就是背后的发电厂、输电网和变电站。模型越大、推理越多，越需要GPU、HBM、服务器、光模块、交换机、液冷、电力和数据中心协同扩张。",
+        "这个行业最容易误读的地方是：市场总喜欢盯着一个环节，比如GPU或光模块；但真正的投资框架应该看整条链条的瓶颈在哪里、利润留在哪里、订单传导到哪里。",
+        "目前更值得跟踪的是三条线：云厂商资本开支是否继续扩张，AI服务器与网络互联订单是否兑现，电力和散热是否成为下一轮基础设施约束。"
+      ],
+      stats: [["核心矛盾", "需求快于供给"], ["研究方法", "沿订单追利润"], ["关键风险", "资本开支放缓"]],
+      sources: [["NVIDIA投资者关系", "https://investor.nvidia.com/"], ["Microsoft投资者关系", "https://www.microsoft.com/en-us/Investor/"], ["Google投资者关系", "https://abc.xyz/investor/"]],
+    },
+    {
+      title: "产业地图：从一度电到一次回答",
+      kicker: "产业链总览",
+      diagram: "ai-map",
+      bullets: [
+        "第一层是资源层：电力、土地、机房、冷却、水资源和并网能力。AI数据中心不是普通机房，它对单机柜功率密度、供电稳定性和散热效率提出更高要求。",
+        "第二层是硬件层：GPU/ASIC、HBM、CPU、主板、电源、连接器、PCB、服务器整机。这里决定单台服务器的算力密度，也决定供应链的主要成本。",
+        "第三层是网络层：光模块、交换机、光芯片、DSP、光纤连接。AI训练不是一张卡单打独斗，而是成千上万张卡组成集群，网络质量会直接影响训练效率。",
+        "第四层是平台层：云厂商、模型公司和应用公司。最终能不能赚钱，要看算力成本是否能被订阅、API调用、广告、电商、办公软件和企业服务吸收。"
+      ],
+      stats: [["资源层", "电力/机房"], ["硬件层", "GPU/HBM"], ["网络层", "光模块/交换机"]],
+      sources: [["Uptime Institute", "https://uptimeinstitute.com/"], ["Dell投资者关系", "https://investors.delltechnologies.com/"]],
+    },
+    {
+      title: "需求逻辑：训练是建厂，推理是开店",
+      kicker: "需求从哪里来",
+      diagram: "train-infer",
+      bullets: [
+        "训练需求像建一座工厂：前期投入巨大，集中采购高端GPU、存储、网络和电力资源。大模型参数越多、数据越多，训练集群越复杂。",
+        "推理需求像开连锁店：每一次用户提问、生成图片、写代码、调用智能体，都会消耗算力。推理的特点是频率高、持续发生、对成本更敏感。",
+        "行业从训练驱动走向训练与推理共同驱动后，投资重点会从单纯的高端GPU，扩散到低成本推理芯片、液冷、边缘算力、网络优化和软件调度。"
+      ],
+      stats: [["训练", "一次性大投入"], ["推理", "高频持续消耗"], ["瓶颈", "成本/能效"]],
+      sources: [["OpenAI API文档", "https://platform.openai.com/docs/"], ["Meta投资者关系", "https://investor.fb.com/"]],
+    },
+    {
+      title: "供给瓶颈：不是只有芯片不够",
+      kicker: "瓶颈拆解",
+      diagram: "bottleneck",
+      bullets: [
+        "第一类瓶颈是先进芯片和先进封装。GPU需要高端制程、CoWoS等先进封装和HBM配合，任何一个环节紧张，都会影响整机交付。",
+        "第二类瓶颈是网络互联。集群规模越大，卡与卡之间的数据交换越重要，光模块、交换机、连接器和高速PCB的价值量会提升。",
+        "第三类瓶颈是电力和散热。高功率机柜会让传统风冷接近极限，液冷、电源模块、配电设备和数据中心选址成为基础设施投资重点。"
+      ],
+      stats: [["芯片瓶颈", "制程+封装"], ["网络瓶颈", "高速互联"], ["机房瓶颈", "电力+散热"]],
+      sources: [["TSMC投资者关系", "https://investor.tsmc.com/"], ["SK hynix投资者关系", "https://www.skhynix.com/ir/index.jsp"]],
+    },
+    {
+      title: "利润分配：钱不一定留在最热的地方",
+      kicker: "商业模式",
+      diagram: "profit-pool",
+      bullets: [
+        "芯片龙头掌握核心稀缺性，通常拿走产业链中最厚的一层利润；但它的估值也最容易提前反映未来增长。",
+        "服务器整机和代工环节收入规模大，但毛利率通常较薄，研究时要看客户结构、交付节奏、库存风险和现金流，而不是只看收入增长。",
+        "光模块、液冷、电源、连接器等环节可能在阶段性瓶颈中获得超额利润，但一旦供给扩张和价格竞争加剧，毛利率会承压。",
+        "云厂商承担巨额资本开支，最终能否赚钱取决于算力利用率、模型收费能力、企业客户渗透率和单位推理成本下降速度。"
+      ],
+      stats: [["厚利润", "核心芯片"], ["薄利润", "整机制造"], ["弹性环节", "瓶颈零部件"]],
+      sources: [["Amazon投资者关系", "https://ir.aboutamazon.com/"], ["Arista投资者关系", "https://investors.arista.com/"]],
+    },
+    {
+      title: "A股与港股怎么映射",
+      kicker: "上市公司观察",
+      diagram: "cn-hk-map",
+      bullets: [
+        "A股通常更容易映射到服务器、电源、PCB、连接器、液冷、光模块、工业富联类制造链、半导体设备材料和数据中心配套。研究要重点看真实订单、客户认证和毛利率变化。",
+        "港股通常更容易映射到云厂商、互联网平台、运营商、数据中心资产和应用生态。研究要看资本开支、云收入、AI产品商业化和广告/电商/游戏等业务效率改善。",
+        "不要把所有AI公司放进一个篮子。上游硬件看订单和交付，中游云平台看资本开支和利用率，下游应用看付费转化和留存。"
+      ],
+      stats: [["A股映射", "硬件/制造"], ["港股映射", "云/平台"], ["共同验证", "订单+利润"]],
+      sources: [["港交所披露易", "https://www1.hkexnews.hk/search/titlesearch.xhtml"], ["巨潮资讯", "http://www.cninfo.com.cn/"]],
+    },
+    {
+      title: "财务指标：一眼看穿真假景气",
+      kicker: "财报读法",
+      diagram: "financials",
+      bullets: [
+        "收入增长要拆成量、价、客户和产品结构。只要收入高增但毛利率持续下滑，就要问是不是价格竞争已经开始。",
+        "存货和应收账款是AI硬件链的预警器。存货快速上升可能代表备货，也可能代表订单不及预期；应收账款拉长说明客户回款压力变大。",
+        "资本开支是云厂商的投票器。微软、谷歌、亚马逊、Meta等巨头如果持续提高AI相关资本开支，硬件链订单更有支撑；反之则要警惕景气预期回落。",
+        "自由现金流决定长期质量。一个行业再热门，如果公司把利润都压在库存、设备和应收账款里，股东真正拿到的现金未必漂亮。"
+      ],
+      stats: [["收入", "量价结构"], ["存货", "景气预警"], ["现金流", "质量验证"]],
+      sources: [["SEC公司披露", "https://www.sec.gov/edgar/search/"], ["东方财富财报", "https://data.eastmoney.com/bbsj/"]],
+    },
+    {
+      title: "估值框架：用三把尺子量同一家公司",
+      kicker: "估值方法",
+      diagram: "valuation",
+      bullets: [
+        "第一把尺子是成长：未来两三年收入和利润能不能持续高增。适合看芯片、光模块、液冷、电源等订单弹性强的公司。",
+        "第二把尺子是周期：景气从低谷修复到高位时，估值往往先涨，业绩后兑现；一旦景气见顶，估值会先收缩。",
+        "第三把尺子是壁垒：客户认证、技术路线、规模效应、软件生态和供应链掌控力决定公司能不能把增长变成长期利润。",
+        "热门行业最危险的阶段，是所有公司都被按龙头逻辑估值。真正做研究，要把公司分成核心稀缺、阶段瓶颈、制造放量、主题跟随四类。"
+      ],
+      stats: [["成长尺", "收入/利润"], ["周期尺", "景气位置"], ["壁垒尺", "利润留存"]],
+      sources: [["Nasdaq财报日历", "https://www.nasdaq.com/market-activity/earnings"], ["中证指数", "https://www.csindex.com.cn/"]],
+    },
+    {
+      title: "风险清单：热闹背后的五个刹车",
+      kicker: "风险管理",
+      diagram: "risk",
+      bullets: [
+        "第一，资本开支放缓。如果云厂商发现AI收入不能覆盖投入，硬件订单会首先降温。",
+        "第二，价格竞争。光模块、服务器、液冷等环节一旦供给快速扩张，毛利率可能比收入更早见顶。",
+        "第三，技术路线变化。自研芯片、低成本推理、模型压缩和软件优化，都可能改变硬件需求结构。",
+        "第四，出口管制与供应链限制。先进芯片、HBM、设备材料和海外客户都可能受到政策影响。",
+        "第五，电力约束。电价、并网速度、能耗指标和水资源，会限制数据中心扩张速度。"
+      ],
+      stats: [["风险1", "Capex放缓"], ["风险2", "价格竞争"], ["风险3", "技术变化"]],
+      sources: [["美国商务部BIS", "https://www.bis.gov/"], ["IEA数据中心与能源", "https://www.iea.org/"]],
+    },
+    {
+      title: "每日跟踪表：用十个问题复盘",
+      kicker: "跟踪体系",
+      diagram: "tracker",
+      bullets: [
+        "一看云厂商资本开支，二看GPU/HBM交付，三看先进封装产能，四看光模块价格，五看交换机与网络设备订单。",
+        "六看液冷渗透率，七看数据中心电力指标，八看服务器厂商存货，九看应用端付费转化，十看龙头公司业绩指引。",
+        "如果十个问题里，上游订单强、毛利率稳、下游收入能兑现，行业仍在健康扩张；如果只有主题热度，没有财务验证，就要降低预期。"
+      ],
+      stats: [["跟踪频率", "月度/季度"], ["核心线索", "订单到利润"], ["最终验证", "现金流"]],
+      sources: [["公司公告检索", "http://www.cninfo.com.cn/"], ["港股公告检索", "https://www1.hkexnews.hk/search/titlesearch.xhtml"], ["SEC披露", "https://www.sec.gov/edgar/search/"]],
+    },
+  ],
+});
+selectedIndustry = industryData[0].name;
 
 function setLiveIndexOverride(row) {
   if (!row.symbol || row.price == null) return;
@@ -596,6 +781,129 @@ function setHistoricalIndexOverride(date, row) {
   if (alias) historyMarketSnapshots[date][alias] = payload;
 }
 
+function renderSourceLinks(sources = []) {
+  if (!sources.length) return "";
+  return `
+    <div class="source-links">
+      ${sources.map(([label, url]) => `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`).join("")}
+    </div>
+  `;
+}
+
+function renderConceptDiagram(type) {
+  const diagrams = {
+    "ai-chain": [
+      ["电力", "土地机房", "AI服务器", "GPU/HBM", "光模块", "云平台", "AI应用"],
+    ],
+    "ai-map": [
+      ["资源层", "电力/水/土地"],
+      ["硬件层", "GPU/HBM/服务器"],
+      ["网络层", "光模块/交换机"],
+      ["平台层", "云/模型/应用"],
+    ],
+    "train-infer": [
+      ["训练", "一次性大集群投入"],
+      ["推理", "每天持续消耗算力"],
+      ["优化", "把单位成本打下来"],
+    ],
+    bottleneck: [
+      ["芯片", "制程+封装"],
+      ["网络", "高速互联"],
+      ["机房", "电力+散热"],
+    ],
+    "profit-pool": [
+      ["厚利润", "核心芯片"],
+      ["弹性", "瓶颈零部件"],
+      ["规模", "服务器整机"],
+      ["终局", "云与应用收费"],
+    ],
+    "cn-hk-map": [
+      ["A股", "硬件制造链"],
+      ["港股", "平台与云"],
+      ["验证", "订单+毛利+现金流"],
+    ],
+    financials: [
+      ["收入", "量价结构"],
+      ["毛利率", "竞争强度"],
+      ["存货", "景气预警"],
+      ["现金流", "质量验证"],
+    ],
+    valuation: [
+      ["成长", "收入利润"],
+      ["周期", "景气位置"],
+      ["壁垒", "利润留存"],
+    ],
+    risk: [
+      ["Capex", "放缓"],
+      ["价格", "竞争"],
+      ["路线", "变化"],
+      ["政策", "限制"],
+      ["电力", "约束"],
+    ],
+    tracker: [
+      ["云厂商", "资本开支"],
+      ["硬件链", "交付订单"],
+      ["应用端", "付费转化"],
+      ["财务端", "现金流"],
+    ],
+    inflation: [
+      ["成本上涨", "原料/工资/物流"],
+      ["价格传导", "商品与服务涨价"],
+      ["购买力下降", "同样的钱买得更少"],
+    ],
+    indicator: [
+      ["CPI", "居民购物篮"],
+      ["PPI", "工厂出厂价"],
+      ["核心CPI", "剔除食品能源"],
+    ],
+    market: [
+      ["股票", "盈利与估值"],
+      ["债券", "利率与实际收益"],
+      ["汇率", "相对通胀与利率"],
+    ],
+    checklist: [
+      ["方向", "升还是降"],
+      ["结构", "谁在涨"],
+      ["政策", "央行怎么反应"],
+    ],
+    questions: [
+      ["同比/环比", "看趋势"],
+      ["CPI/PPI", "看传导"],
+      ["央行反应", "看资产影响"],
+    ],
+  };
+  const rows = diagrams[type];
+  if (!rows) return "";
+  const isFlow = rows.length === 1;
+  const nodes = isFlow ? rows[0].map((label) => [label, ""]) : rows;
+  return `
+    <div class="concept-diagram ${isFlow ? "flow-diagram" : ""}">
+      ${nodes.map(([label, value], index) => `
+        <div class="diagram-node">
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <strong>${label}</strong>
+          ${value ? `<em>${value}</em>` : ""}
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderStudyPage(page) {
+  return `
+    <div class="report-page">
+      <div class="report-heading">
+        ${page.kicker ? `<span>${page.kicker}</span>` : ""}
+        <h3>${page.title}</h3>
+      </div>
+      ${renderConceptDiagram(page.diagram)}
+      <ul>${page.bullets.map((item) => `<li>${item}</li>`).join("")}</ul>
+      <div class="mini-grid">${(page.stats || []).map(([label, value]) => `<div class="mini-stat"><strong>${value}</strong><span>${label}</span></div>`).join("")}</div>
+      ${renderSourceLinks(page.sources)}
+    </div>
+  `;
+}
+
 function renderIndustry() {
   const industry = industryData.find((item) => item.name === selectedIndustry) || industryData[0];
   industryPage = Math.min(industryPage, industry.pages.length - 1);
@@ -609,11 +917,7 @@ function renderIndustry() {
   document.getElementById("industry-updated").textContent = "数据更新：2026-07-08";
   document.getElementById("industry-summary").textContent = industry.summary;
   document.getElementById("industry-page-label").textContent = `${industryPage + 1} / ${industry.pages.length}`;
-  document.getElementById("industry-page-body").innerHTML = `
-    <h3>${page.title}</h3>
-    <ul>${page.bullets.map((item) => `<li>${item}</li>`).join("")}</ul>
-    <div class="mini-grid">${(page.stats || []).map(([label, value]) => `<div class="mini-stat"><strong>${value}</strong><span>${label}</span></div>`).join("")}</div>
-  `;
+  document.getElementById("industry-page-body").innerHTML = renderStudyPage(page);
 }
 
 function renderBook() {
@@ -628,14 +932,14 @@ function renderBook() {
   document.getElementById("book-title").textContent = book.name;
   document.getElementById("book-summary").textContent = book.summary;
   document.getElementById("book-page-label").textContent = `${bookPage + 1} / ${book.pages.length}`;
-  document.getElementById("book-page-body").innerHTML = `<h3>${page.title}</h3><ul>${page.bullets.map((item) => `<li>${item}</li>`).join("")}</ul>`;
+  document.getElementById("book-page-body").innerHTML = renderStudyPage(page);
 }
 
 function switchPanel(panelName) {
   const meta = {
     market: ["Daily Market Review", "把市场噪声整理成可阅读的线索。", "聚合全球重要指数、行业表现、基本面新闻、政策线索和宏观数据日历。"],
     industry: ["Industry Deep Dive", "每天拆开一个行业，看见价格背后的结构。", "从概览、上市公司、估值表现，到政策、逻辑和竞争力逐页展开。"],
-    learning: ["Investment Knowledge", "把经典书变成可以翻阅的投资训练卡。", "先从《日本蜡烛图技术》开始，用目录、摘要和图解建立交易语言。"],
+    learning: ["Daily Finance Lesson", "每天拆开一个金融知识点，让概念变成能看懂市场的工具。", "用生活场景、指标地图和资产影响图，理解通胀、利率、汇率、信用、估值这些关键词。"],
   };
   document.getElementById("app-shell").dataset.panel = panelName;
   document.getElementById("panel-kicker").textContent = meta[panelName][0];

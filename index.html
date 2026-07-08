@@ -24,7 +24,7 @@
         <nav class="top-nav" aria-label="主要板块">
           <button class="nav-pill active" data-panel="market">每日市场</button>
           <button class="nav-pill" data-panel="industry">每日行业</button>
-          <button class="nav-pill" data-panel="learning">知识精进</button>
+          <button class="nav-pill" data-panel="learning">每日金融知识</button>
         </nav>
       </header>
 
@@ -185,20 +185,24 @@
           <div class="reading-layout">
             <aside class="glass-panel side-selector">
               <div class="section-title">
-                <span>图书选择</span>
-                <small>Books</small>
+                <span>知识主题</span>
+                <small>Daily</small>
               </div>
               <div class="book-list" id="book-list"></div>
             </aside>
 
             <article class="glass-panel book-reader">
-              <div class="book-cover">
-                <img src="./assets/candle-cover.svg" alt="日本蜡烛图技术学习封面" />
+              <div class="book-cover knowledge-visual" aria-hidden="true">
+                <div class="inflation-meter">
+                  <span>CPI</span>
+                  <strong>物价温度计</strong>
+                  <i></i>
+                </div>
               </div>
               <div class="book-content">
-                <p class="eyebrow">Reading Notes</p>
-                <h2 id="book-title">日本蜡烛图技术</h2>
-                <p id="book-summary">以目录结构和学习摘要的方式阅读蜡烛图技术，避免直接公开整本书原文。</p>
+                <p class="eyebrow">Daily Finance Lesson</p>
+                <h2 id="book-title">通货膨胀</h2>
+                <p id="book-summary">每天用一张图和一个生活场景，拆开一个金融概念。</p>
                 <div class="page-switcher">
                   <button class="mini-btn" id="book-prev">上一页</button>
                   <span id="book-page-label">1 / 5</span>
