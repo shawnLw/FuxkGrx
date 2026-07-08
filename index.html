@@ -6,190 +6,185 @@
     <title>ShawnLW 投资辅助网站</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <div class="app-shell">
+    <div class="app-shell" id="app-shell">
+      <div class="ambient-bg" aria-hidden="true"></div>
       <header class="site-header">
         <div class="brand">
-          <span class="brand-mark">S</span>
+          <span class="brand-mark">SL</span>
           <div>
             <strong>这个是 ShawnLW 的自制投资辅助网站</strong>
-            <span>Daily Investment Brief</span>
+            <span>Market · Industry · Knowledge</span>
           </div>
         </div>
 
-        <nav class="note-tabs" aria-label="主要板块">
-          <button class="note-tab active" data-panel="market">
-            <strong>每日市场回顾</strong>
-            <span>全球市场、新闻和涨跌幅</span>
-          </button>
-          <button class="note-tab" data-panel="industry">
-            <strong>每日了解一个行业</strong>
-            <span>行业排序、逻辑和观察点</span>
-          </button>
-          <button class="note-tab" data-panel="learning">
-            <strong>投资知识精进</strong>
-            <span>书籍精读和实践问题</span>
-          </button>
+        <nav class="top-nav" aria-label="主要板块">
+          <button class="nav-pill active" data-panel="market">每日市场</button>
+          <button class="nav-pill" data-panel="industry">每日行业</button>
+          <button class="nav-pill" data-panel="learning">知识精进</button>
         </nav>
       </header>
 
       <main class="workspace">
-        <div class="topbar">
-          <div>
-            <p class="eyebrow">Market Desk</p>
-            <h1 id="page-title">每日市场回顾</h1>
+        <section class="hero-band">
+          <div class="hero-copy">
+            <p class="eyebrow" id="panel-kicker">Daily Market Review</p>
+            <h1 id="page-title">把市场噪声整理成可阅读的线索。</h1>
+            <p id="page-subtitle">聚合全球重要指数、行业表现、基本面新闻、政策线索和宏观数据日历。</p>
           </div>
           <label class="date-field">
             <span>日期</span>
             <input id="report-date" type="date" value="2026-07-08" />
           </label>
-        </div>
-
-        <section class="panel-grid panel-visible" id="market-panel">
-          <aside class="selector-column">
-            <div class="section-title">
-              <span>市场</span>
-              <small>Global</small>
-            </div>
-            <div class="market-list" id="market-list"></div>
-          </aside>
-
-          <section class="content-area">
-            <div class="summary-row">
-              <article class="metric-card">
-                <span>风险偏好</span>
-                <strong id="risk-label">中性偏暖</strong>
-              </article>
-              <article class="metric-card">
-                <span>成交活跃度</span>
-                <strong id="volume-label">温和放量</strong>
-              </article>
-              <article class="metric-card">
-                <span>主线风格</span>
-                <strong id="style-label">成长占优</strong>
-              </article>
-            </div>
-
-            <section class="chart-block">
-              <div class="block-header chart-header">
-                <div>
-                  <h2>指数涨跌幅</h2>
-                  <span id="market-name">A股</span>
-                </div>
-                <div class="period-tabs" aria-label="指数图表视角">
-                  <button class="period-tab active" data-chart="index" data-period="day">单日</button>
-                  <button class="period-tab" data-chart="index" data-period="week">较上周</button>
-                  <button class="period-tab" data-chart="index" data-period="ytd">较年初</button>
-                </div>
-              </div>
-              <div class="multi-bar-chart" id="index-chart"></div>
-            </section>
-
-            <section class="chart-block">
-              <div class="block-header chart-header">
-                <div>
-                  <h2>行业涨跌幅</h2>
-                  <span>Top movers</span>
-                </div>
-                <div class="period-tabs" aria-label="行业图表视角">
-                  <button class="period-tab active" data-chart="sector" data-period="day">单日</button>
-                  <button class="period-tab" data-chart="sector" data-period="week">较上周</button>
-                  <button class="period-tab" data-chart="sector" data-period="ytd">较年初</button>
-                </div>
-              </div>
-              <div class="multi-bar-chart" id="sector-chart"></div>
-            </section>
-
-            <div class="news-grid">
-              <section class="news-block">
-                <div class="block-header">
-                  <h2>基本面新闻</h2>
-                  <span>Fundamental</span>
-                </div>
-                <ul id="fundamental-news"></ul>
-              </section>
-
-              <section class="news-block">
-                <div class="block-header">
-                  <h2>政策面新闻</h2>
-                  <span>Policy</span>
-                </div>
-                <ul id="policy-news"></ul>
-              </section>
-            </div>
-          </section>
         </section>
 
-        <section class="panel-grid" id="industry-panel">
-          <aside class="selector-column">
-            <div class="section-title">
-              <span>行业排序</span>
-              <small>YTD</small>
+        <section class="panel panel-visible" id="market-panel">
+          <div class="market-layout">
+            <aside class="glass-panel side-selector">
+              <div class="section-title">
+                <span>市场选择</span>
+                <small>Global</small>
+              </div>
+              <div class="market-list" id="market-list"></div>
+            </aside>
+
+            <div class="content-stack">
+              <section class="index-strip" id="index-strip"></section>
+
+              <div class="summary-row">
+                <article class="glass-panel metric-card">
+                  <span>风险偏好</span>
+                  <strong id="risk-label">中性偏暖</strong>
+                </article>
+                <article class="glass-panel metric-card">
+                  <span>成交活跃度</span>
+                  <strong id="volume-label">温和放量</strong>
+                </article>
+                <article class="glass-panel metric-card">
+                  <span>主线风格</span>
+                  <strong id="style-label">成长占优</strong>
+                </article>
+              </div>
+
+              <section class="glass-panel chart-block">
+                <div class="block-header chart-header">
+                  <div>
+                    <h2>指数涨跌幅</h2>
+                    <span id="market-name">A股 · 2026-07-08</span>
+                  </div>
+                  <div class="period-tabs" aria-label="指数图表视角">
+                    <button class="period-tab active" data-chart="index" data-period="day">单日</button>
+                    <button class="period-tab" data-chart="index" data-period="week">较上周</button>
+                    <button class="period-tab" data-chart="index" data-period="ytd">较年初</button>
+                  </div>
+                </div>
+                <div class="multi-bar-chart" id="index-chart"></div>
+              </section>
+
+              <section class="glass-panel chart-block">
+                <div class="block-header chart-header">
+                  <div>
+                    <h2>行业涨跌幅</h2>
+                    <span>Top movers</span>
+                  </div>
+                  <div class="period-tabs" aria-label="行业图表视角">
+                    <button class="period-tab active" data-chart="sector" data-period="day">单日</button>
+                    <button class="period-tab" data-chart="sector" data-period="week">较上周</button>
+                    <button class="period-tab" data-chart="sector" data-period="ytd">较年初</button>
+                  </div>
+                </div>
+                <div class="multi-bar-chart" id="sector-chart"></div>
+              </section>
+
+              <section class="glass-panel macro-calendar">
+                <div class="block-header">
+                  <h2>宏观数据公布日历</h2>
+                  <span>参照经济数据日历结构</span>
+                </div>
+                <div class="calendar-days" id="calendar-days"></div>
+                <div class="macro-list" id="macro-list"></div>
+              </section>
+
+              <div class="news-grid">
+                <section class="glass-panel news-block">
+                  <div class="block-header">
+                    <h2>基本面新闻</h2>
+                    <span>Fundamental</span>
+                  </div>
+                  <ul id="fundamental-news"></ul>
+                </section>
+
+                <section class="glass-panel news-block">
+                  <div class="block-header">
+                    <h2>政策面新闻</h2>
+                    <span>Policy</span>
+                  </div>
+                  <ul id="policy-news"></ul>
+                </section>
+              </div>
+
+              <p class="source-line" id="market-source">数据源：当前 UI 使用示例行情结构；实时数据接口位已预留。</p>
             </div>
-            <div class="industry-list" id="industry-list"></div>
-          </aside>
-
-          <section class="content-area">
-            <section class="detail-hero">
-              <p class="eyebrow">Industry Lens</p>
-              <h2 id="industry-title">半导体</h2>
-              <p id="industry-summary">受益于 AI 算力需求扩张、国产替代推进与库存周期改善，行业年内表现领先。</p>
-            </section>
-
-            <section class="chart-block">
-              <div class="block-header">
-                <h2>今年以来行业涨跌幅</h2>
-                <span>YTD ranking</span>
-              </div>
-              <div class="multi-bar-chart ranking" id="industry-chart"></div>
-            </section>
-
-            <section class="news-block">
-              <div class="block-header">
-                <h2>观察要点</h2>
-                <span>Checklist</span>
-              </div>
-              <ul id="industry-points"></ul>
-            </section>
-          </section>
+          </div>
         </section>
 
-        <section class="panel-grid" id="learning-panel">
-          <aside class="selector-column">
-            <div class="section-title">
-              <span>热门书籍</span>
-              <small>Books</small>
-            </div>
-            <div class="book-list" id="book-list"></div>
-          </aside>
+        <section class="panel" id="industry-panel">
+          <div class="reading-layout">
+            <aside class="glass-panel side-selector">
+              <div class="section-title">
+                <span>行业排序</span>
+                <small>YTD</small>
+              </div>
+              <div class="industry-list" id="industry-list"></div>
+            </aside>
 
-          <section class="content-area">
-            <section class="detail-hero">
-              <p class="eyebrow">Investment Learning</p>
-              <h2 id="book-title">聪明的投资者</h2>
-              <p id="book-summary">价值投资的经典入口，重点建立安全边际、市场先生和企业所有权视角。</p>
-            </section>
+            <article class="glass-panel feature-page industry-feature">
+              <div class="feature-art semiconductor-art" aria-hidden="true"></div>
+              <div class="feature-copy">
+                <p class="eyebrow">Industry Lens</p>
+                <h2 id="industry-title">半导体</h2>
+                <p id="industry-summary">受益于 AI 算力需求扩张、国产替代推进与库存周期改善，行业年内表现领先。</p>
+                <div class="page-switcher">
+                  <button class="mini-btn" id="industry-prev">上一页</button>
+                  <span id="industry-page-label">1 / 4</span>
+                  <button class="mini-btn" id="industry-next">下一页</button>
+                </div>
+              </div>
+              <div class="feature-body" id="industry-page-body"></div>
+            </article>
+          </div>
+        </section>
 
-            <div class="news-grid">
-              <section class="news-block">
-                <div class="block-header">
-                  <h2>今日精读</h2>
-                  <span>Notes</span>
+        <section class="panel" id="learning-panel">
+          <div class="reading-layout">
+            <aside class="glass-panel side-selector">
+              <div class="section-title">
+                <span>图书选择</span>
+                <small>Books</small>
+              </div>
+              <div class="book-list" id="book-list"></div>
+            </aside>
+
+            <article class="glass-panel book-reader">
+              <div class="book-cover">
+                <img src="./assets/candle-cover.svg" alt="日本蜡烛图技术学习封面" />
+              </div>
+              <div class="book-content">
+                <p class="eyebrow">Reading Notes</p>
+                <h2 id="book-title">日本蜡烛图技术</h2>
+                <p id="book-summary">以目录结构和学习摘要的方式阅读蜡烛图技术，避免直接公开整本书原文。</p>
+                <div class="page-switcher">
+                  <button class="mini-btn" id="book-prev">上一页</button>
+                  <span id="book-page-label">1 / 5</span>
+                  <button class="mini-btn" id="book-next">下一页</button>
                 </div>
-                <ul id="book-notes"></ul>
-              </section>
-              <section class="news-block">
-                <div class="block-header">
-                  <h2>可实践问题</h2>
-                  <span>Prompts</span>
-                </div>
-                <ul id="book-prompts"></ul>
-              </section>
-            </div>
-          </section>
+                <div class="book-page" id="book-page-body"></div>
+              </div>
+            </article>
+          </div>
         </section>
       </main>
     </div>
