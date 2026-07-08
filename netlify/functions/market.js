@@ -20,11 +20,18 @@ exports.handler = async function handler() {
 
   try {
     const symbols = ["^GSPC", "^IXIC", "^DJI", "^HSI", "^N225", "^GDAXI", "^FTSE"];
-    const url = `https://financialmodelingprep.com/stable/batch-quote?symbols=${encodeURIComponent(symbols.join(","))}&apikey=${apiKey}`;
+    const url = `https://financialmodelingprep.com/stable/quote?symbol=${encodeURIComponent(symbols.join(","))}&apikey=${apiKey}`;
     const response = await fetch(url);
 
     if (!response.ok) {
-      return json({ ...fallback, source: "fallback-after-api-error", status: response.status }, 200);
+      const detail = await response.text();
+      return json({
+        ...fallback,
+        source: "fallback-after-api-error",
+        status: response.status,
+        note: "FMP_API_KEY is present, but FMP rejected the quote request. Check plan permissions, quota, or supported symbols.",
+        detail: detail.slice(0, 240),
+      }, 200);
     }
 
     const rows = await response.json();
