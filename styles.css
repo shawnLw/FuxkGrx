@@ -336,31 +336,6 @@ h3 {
   min-width: 0;
 }
 
-.global-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.global-card {
-  min-height: 132px;
-  padding: 17px;
-}
-
-.global-card h3 {
-  margin-bottom: 12px;
-}
-
-.global-card .global-line {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 7px 0;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 12px;
-}
-
 .index-strip {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -806,8 +781,7 @@ h3 {
     justify-self: start;
   }
 
-  .index-strip,
-  .global-strip {
+  .index-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
@@ -833,8 +807,7 @@ h3 {
 
   .summary-row,
   .news-grid,
-  .index-strip,
-  .global-strip {
+  .index-strip {
     grid-template-columns: 1fr;
   }
 

@@ -62,6 +62,48 @@ const marketBase = {
     volume: ["低位回升", "南向活跃", "成交改善", "缩量等待"],
     style: ["互联网反弹", "高股息托底", "汽车活跃", "内房承压"],
   },
+  eu: {
+    name: "欧洲",
+    subtitle: "欧洲市场",
+    source: "当前为演示行情结构；实时行情、新闻和政策数据接口已预留，后续可接授权 API 或交易所公开数据。",
+    indexes: [
+      { name: "欧洲 Stoxx 50", symbol: "^STOXX50E", price: 5438.12, day: -0.18, week: 0.34, ytd: 6.2 },
+      { name: "德国 DAX", symbol: "^GDAXI", price: 24612.45, day: 0.22, week: 0.71, ytd: 8.9 },
+      { name: "英国 FTSE", symbol: "^FTSE", price: 8954.18, day: -0.31, week: -0.12, ytd: 5.1 },
+      { name: "法国 CAC40", symbol: "^FCHI", price: 7818.62, day: -0.08, week: 0.42, ytd: 3.7 },
+    ],
+    sectors: [
+      { name: "奢侈品", day: 0.38, week: 1.16, ytd: 4.8 },
+      { name: "银行", day: 0.26, week: 0.82, ytd: 9.3 },
+      { name: "工业", day: -0.18, week: 0.24, ytd: 6.4 },
+      { name: "能源", day: -0.52, week: -0.86, ytd: 2.6 },
+      { name: "医疗", day: 0.12, week: 0.44, ytd: 5.8 },
+    ],
+    risk: ["温和震荡", "等待利率信号", "价值占优", "防守偏强"],
+    volume: ["成交平稳", "资金分散", "结构轮动", "低波运行"],
+    style: ["金融托底", "工业修复", "高股息防守", "消费分化"],
+  },
+  jp: {
+    name: "日本",
+    subtitle: "日本市场",
+    source: "当前为演示行情结构；实时行情、新闻和政策数据接口已预留，后续可接授权 API 或交易所公开数据。",
+    indexes: [
+      { name: "日经225", symbol: "^N225", price: 40942.28, day: 0.36, week: 1.08, ytd: 9.6 },
+      { name: "东证指数", symbol: "^TOPX", price: 2878.44, day: 0.21, week: 0.76, ytd: 7.4 },
+      { name: "JPX日经400", symbol: "1599.T", price: 26980.0, day: 0.18, week: 0.62, ytd: 6.9 },
+      { name: "日经半导体", symbol: "200A.T", price: 1942.5, day: 1.12, week: 2.44, ytd: 18.1 },
+    ],
+    sectors: [
+      { name: "半导体设备", day: 1.42, week: 3.22, ytd: 20.7 },
+      { name: "汽车", day: 0.48, week: 0.96, ytd: 8.2 },
+      { name: "银行", day: 0.24, week: 0.88, ytd: 12.3 },
+      { name: "消费电子", day: -0.16, week: 0.34, ytd: 5.4 },
+      { name: "地产", day: -0.38, week: -0.72, ytd: 2.1 },
+    ],
+    risk: ["偏积极", "资金回流", "科技带动", "汇率扰动"],
+    volume: ["温和放量", "外资活跃", "结构集中", "波动抬升"],
+    style: ["半导体领涨", "金融修复", "出口链活跃", "价值重估"],
+  },
 };
 
 const newsLibrary = {
@@ -79,14 +121,6 @@ const newsLibrary = {
   },
 };
 
-const globalMarkets = [
-  { name: "A股", indexes: ["上证指数", "深证成指", "创业板指"], day: 0.64, source: "同花顺/Choice/交易所待接入" },
-  { name: "美股", indexes: ["标普500", "纳斯达克", "道琼斯"], day: 0.79, source: "授权行情 API 待接入" },
-  { name: "港股", indexes: ["恒生指数", "恒生科技", "国企指数"], day: 0.92, source: "港交所/授权行情 API 待接入" },
-  { name: "欧洲", indexes: ["欧洲 Stoxx 50", "德国 DAX", "英国 FTSE"], day: -0.18, source: "授权行情 API 待接入" },
-  { name: "日本", indexes: ["日经225", "东证指数"], day: 0.36, source: "授权行情 API 待接入" },
-];
-
 const macroEvents = [
   { date: "2026-07-09", time: "09:30", country: "中国", title: "6月 CPI 同比", actual: "--", forecast: "1.1%", previous: "1.2%", source: "国家统计局/公开经济日历" },
   { date: "2026-07-09", time: "09:30", country: "中国", title: "6月 PPI 同比", actual: "--", forecast: "4.1%", previous: "3.9%", source: "国家统计局/公开经济日历" },
@@ -103,10 +137,14 @@ const industryData = [
     ytd: 28.6,
     summary: "从浅层看，半导体是芯片制造链；往深处看，它是算力、设备、材料、制造工艺和终端需求共同驱动的资本密集型行业。",
     pages: [
-      { title: "第一页：行业概括", bullets: ["核心链条包括设计、制造、封测、设备、材料和下游应用。", "AI 算力、国产替代和库存周期是近期最重要的三条线索。", "行业波动大，投资上要同时看景气度、估值和订单能见度。"], stats: [["年初至今", "+28.6%"], ["估值观察", "偏高"], ["景气阶段", "修复期"]] },
-      { title: "第二页：上市公司结构", bullets: ["设计公司更轻资产，但受产品周期和客户集中度影响明显。", "制造与封测更资本密集，稼动率和资本开支决定利润弹性。", "设备材料公司受国产替代推动，但验证周期和客户认证很关键。"], stats: [["设计", "弹性高"], ["制造", "重资产"], ["设备材料", "国产化"]] },
-      { title: "第三页：市场与政策逻辑", bullets: ["先进制程、先进封装和高带宽存储是 AI 链条的重要方向。", "政策支持通常体现在产业基金、税收、采购和研发补贴。", "政策利好不等于立刻兑现利润，需要跟踪订单、毛利率和现金流。"], stats: [["政策", "强支持"], ["订单", "需验证"], ["风险", "高波动"]] },
-      { title: "第四页：竞争力分析", bullets: ["真正的壁垒来自技术迭代、客户认证、工艺经验和供应链协同。", "观察公司时优先看研发费用率、核心客户、产品良率和产能利用率。", "避免只因为概念热度买入，最好能落到具体产品和利润贡献。"], stats: [["壁垒", "认证+工艺"], ["核心指标", "良率"], ["投资要点", "兑现"]] },
+      { title: "第一页：行业概括", bullets: ["半导体产业链可以拆成设计、制造、封测、设备、材料、EDA/IP 与下游应用。不同环节的商业模式差异很大，不能只用一个估值框架覆盖全部公司。", "短期行情通常由库存周期、下游需求、价格变化和订单预期驱动；中长期空间则来自 AI 算力、汽车电子、工业控制、国产替代和先进封装。", "研究时先判断公司处在哪个环节，再看它受益的是量增、价格、国产替代、份额提升还是周期修复。"], stats: [["年初至今", "+28.6%"], ["估值观察", "偏高"], ["景气阶段", "修复期"]] },
+      { title: "第二页：产业链地图", bullets: ["上游：硅片、光刻胶、电子气体、靶材、湿电子化学品、CMP 材料，以及光刻、刻蚀、薄膜沉积、检测量测等设备。", "中游：晶圆制造、封装测试、先进封装。制造端看稼动率、资本开支和制程平台；封测端看订单结构和产能利用率。", "下游：消费电子、数据中心、汽车、通信、工业、军工等。下游越分散，公司抗单一需求波动的能力越强。"], stats: [["上游", "材料/设备"], ["中游", "制造/封测"], ["下游", "AI/车/工控"]] },
+      { title: "第三页：市场空间与需求", bullets: ["AI 数据中心推动 GPU、HBM、先进封装、服务器电源管理和高速互联需求，是近年半导体最重要的增量线索。", "汽车电子提升单车芯片价值量，功率半导体、MCU、传感器和模拟芯片受益，但整车价格战会影响部分环节议价能力。", "消费电子是传统大盘，库存周期改善时弹性明显，但长期增速低于 AI 和汽车电子。"], stats: [["AI 算力", "高景气"], ["汽车电子", "结构成长"], ["消费电子", "周期修复"]] },
+      { title: "第四页：上市公司分层", bullets: ["设计公司：重点看产品线、客户集中度、研发效率和新产品放量节奏。轻资产带来利润弹性，但也更受价格竞争影响。", "制造/封测公司：重点看稼动率、资本开支、折旧压力、先进制程/先进封装能力，以及大客户订单稳定性。", "设备材料公司：重点看国产替代率、客户验证进度、单台价值量、耗材属性和海外限制变化。"], stats: [["设计", "产品周期"], ["制造封测", "产能利用"], ["设备材料", "验证壁垒"]] },
+      { title: "第五页：财务指标怎么读", bullets: ["收入增速要拆分为行业景气、份额提升和新品放量，不能只看同比高低。", "毛利率变化通常反映产品结构、价格竞争、稼动率和良率；设备材料公司还要看规模效应。", "现金流和存货很重要。库存上升可能代表备货，也可能代表需求转弱，需要结合订单、客户和价格判断。"], stats: [["毛利率", "结构+良率"], ["存货", "周期信号"], ["现金流", "质量验证"]] },
+      { title: "第六页：政策与产业逻辑", bullets: ["半导体政策重点通常围绕自主可控、产业基金、税收优惠、设备材料突破和高端人才。", "政策支持可以提高长期确定性，但短期股价仍要看订单和业绩兑现。政策主题和公司利润之间经常存在时间差。", "外部限制会带来国产替代机会，也会增加供应链不确定性，尤其是先进设备、EDA 和高端制造环节。"], stats: [["政策", "长期支持"], ["兑现", "订单验证"], ["约束", "供应链"]] },
+      { title: "第七页：风险清单", bullets: ["估值风险：热门环节容易提前透支数年增长，一旦订单不及预期，回撤会很快。", "技术风险：制程、良率、客户验证和产品迭代失败，会直接影响收入和毛利率。", "周期风险：半导体有明显库存周期，错误地把周期修复当成永久成长，会导致估值误判。"], stats: [["估值", "高敏感"], ["技术", "验证风险"], ["周期", "库存波动"]] },
+      { title: "第八页：跟踪清单与来源", bullets: ["每月跟踪：台积电月度营收、存储价格、北美半导体设备出货、重点公司订单和库存。", "每季跟踪：上市公司收入、毛利率、存货周转、资本开支、客户结构和研发费用率。", "公开资料来源建议：SIA/WSTS 行业数据、SEMI 设备数据、公司年报与公告、交易所问询回复、券商公开研报摘要、产业链公司业绩会纪要。"], stats: [["频率", "月度/季度"], ["来源", "公开资料"], ["重点", "订单+毛利"]] },
     ],
   },
   {
@@ -274,17 +312,6 @@ function renderIndexStrip(indexes) {
   `).join("");
 }
 
-function renderGlobalStrip() {
-  document.getElementById("global-strip").innerHTML = globalMarkets.map((market) => `
-    <article class="glass-panel global-card">
-      <h3>${market.name}</h3>
-      <div class="global-line"><span>核心指数</span><strong>${market.indexes.join(" / ")}</strong></div>
-      <div class="global-line"><span>市场表现</span><strong class="${market.day >= 0 ? "up" : "down"}">${formatPct(market.day)}</strong></div>
-      <div class="global-line"><span>来源</span><strong>${market.source}</strong></div>
-    </article>
-  `).join("");
-}
-
 function renderNews(container, rows) {
   container.innerHTML = rows.map((item) => `<li>${item}</li>`).join("");
 }
@@ -328,7 +355,6 @@ function renderMarket() {
   document.getElementById("risk-label").textContent = data.riskLabel;
   document.getElementById("volume-label").textContent = data.volumeLabel;
   document.getElementById("style-label").textContent = data.styleLabel;
-  renderGlobalStrip();
   renderIndexStrip(data.indexes);
   renderBars(document.getElementById("index-chart"), data.indexes, selectedPeriods.index);
   renderBars(document.getElementById("sector-chart"), data.sectors, selectedPeriods.sector);
@@ -409,6 +435,13 @@ function init() {
     selectedMacroCountry = event.target.value;
     renderMacroCalendar();
   });
+  document.getElementById("macro-prev-week").addEventListener("click", () => shiftMacroWeek(-7));
+  document.getElementById("macro-this-week").addEventListener("click", () => {
+    selectedMacroDate = selectedDate;
+    document.getElementById("macro-date").value = selectedMacroDate;
+    renderMacroCalendar();
+  });
+  document.getElementById("macro-next-week").addEventListener("click", () => shiftMacroWeek(7));
   document.getElementById("industry-prev").addEventListener("click", () => {
     industryPage = Math.max(0, industryPage - 1);
     renderIndustry();
@@ -434,3 +467,11 @@ function init() {
 }
 
 init();
+
+function shiftMacroWeek(days) {
+  const date = new Date(`${selectedMacroDate}T00:00:00`);
+  date.setDate(date.getDate() + days);
+  selectedMacroDate = date.toISOString().slice(0, 10);
+  document.getElementById("macro-date").value = selectedMacroDate;
+  renderMacroCalendar();
+}
