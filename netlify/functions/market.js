@@ -20,7 +20,7 @@ exports.handler = async function handler() {
 
   try {
     const symbols = ["SPY", "QQQ", "DIA", "ASHR", "MCHI", "EWH", "EWJ", "FEZ"];
-    const url = `https://financialmodelingprep.com/stable/quote?symbol=${encodeURIComponent(symbols.join(","))}&apikey=${apiKey}`;
+    const url = `https://financialmodelingprep.com/api/v3/quote/${encodeURIComponent(symbols.join(","))}?apikey=${apiKey}`;
     const response = await fetch(url);
 
     if (!response.ok) {
