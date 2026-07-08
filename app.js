@@ -270,6 +270,70 @@ const bookData = [
       },
     ],
   },
+  {
+    name: "利率",
+    subtitle: "知识库积累",
+    summary: "利率是资金的价格。它影响房贷、企业融资、债券价格、股票估值，也影响市场愿意为未来增长付多少钱。",
+    pages: [
+      {
+        title: "第一页：钱也有价格",
+        diagram: "rate",
+        bullets: [
+          "利率可以理解为借钱的价格。你今天借到一笔钱，未来要多还的那部分，就是资金使用的成本。",
+          "经济强、融资需求旺时，利率往往有上行压力；经济弱、需求不足时，央行可能通过降息降低融资成本。",
+          "投资里最重要的一句话是：利率越高，未来现金流折现到今天就越不值钱。"
+        ],
+        stats: [["本质", "资金价格"], ["影响", "融资成本"], ["资产", "估值折现"]],
+      },
+      {
+        title: "第二页：为什么利率影响股票估值",
+        diagram: "discount",
+        bullets: [
+          "股票价格本质上是未来现金流的折现。利率上升，相当于折现率上升，远期利润的现值会下降。",
+          "成长股的利润更偏未来，因此通常更怕利率快速上行；高股息和现金流稳定的公司相对更抗压。",
+          "但利率上升有时也代表经济强，企业盈利改善。因此不能只看利率方向，还要看利率为什么变。"
+        ],
+        stats: [["成长股", "怕折现率"], ["高股息", "重现金流"], ["关键", "利率原因"]],
+      },
+      {
+        title: "第三页：每天怎么跟踪",
+        diagram: "rate-watch",
+        bullets: [
+          "看央行政策利率、银行间资金利率、国债收益率曲线，以及信用债利差。",
+          "如果短端利率上升，说明流动性可能偏紧；如果长端利率上升，说明增长或通胀预期可能升温。",
+          "利率不是孤立指标，要和通胀、就业、信用、汇率一起看。"
+        ],
+        stats: [["短端", "流动性"], ["长端", "增长/通胀"], ["利差", "信用风险"]],
+      },
+    ],
+  },
+  {
+    name: "汇率",
+    subtitle: "知识库积累",
+    summary: "汇率是一国货币和另一国货币的交换比例。它背后是利率、通胀、贸易、资本流动和市场预期的合力。",
+    pages: [
+      {
+        title: "第一页：汇率是一张国家报价单",
+        diagram: "fx",
+        bullets: [
+          "汇率上涨或下跌，本质上是在重新给一国资产和商品定价。",
+          "本币贬值有利于出口价格竞争力，但会推高进口成本；本币升值有利于进口和海外消费，但出口企业可能承压。",
+          "股票投资里，汇率会影响外资流向、企业汇兑损益和市场风险偏好。"
+        ],
+        stats: [["出口", "看价格竞争"], ["进口", "看成本"], ["资产", "看资金流"]],
+      },
+      {
+        title: "第二页：看汇率要看什么",
+        diagram: "fx-watch",
+        bullets: [
+          "第一看利差：谁的利率更高，短期资金更容易流向哪里。",
+          "第二看通胀：高通胀会削弱购买力，长期会影响货币信用。",
+          "第三看贸易和资本流动：顺差、外资流入、企业结汇都会影响供需。"
+        ],
+        stats: [["利差", "短期资金"], ["通胀", "购买力"], ["贸易", "货币供需"]],
+      },
+    ],
+  },
 ];
 
 const periodLabels = { day: "单日", week: "较上周", ytd: "较年初" };
@@ -611,6 +675,35 @@ function renderList(container, items, activeName, onClick) {
   container.querySelectorAll(".select-card").forEach((button) => button.addEventListener("click", () => onClick(button.dataset.name)));
 }
 
+function renderIndustryDirectory(industry) {
+  const container = document.getElementById("industry-list");
+  container.innerHTML = `
+    <label class="report-picker">
+      <span>切换行业报告</span>
+      <select id="industry-report-select">
+        ${industryData.map((item) => `<option value="${item.name}" ${item.name === industry.name ? "selected" : ""}>${item.name}</option>`).join("")}
+      </select>
+    </label>
+    <div class="toc-list">
+      ${industry.pages.map((page, index) => `
+        <button class="toc-card ${index === industryPage ? "active" : ""}" data-page="${index}">
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          <strong>${page.title.replace(/^第.页：/, "").replace(/^第..页：/, "")}</strong>
+        </button>
+      `).join("")}
+    </div>
+  `;
+  document.getElementById("industry-report-select").addEventListener("change", (event) => {
+    selectedIndustry = event.target.value;
+    industryPage = 0;
+    renderIndustry();
+  });
+  container.querySelectorAll(".toc-card").forEach((button) => button.addEventListener("click", () => {
+    industryPage = Number(button.dataset.page);
+    renderIndustry();
+  }));
+}
+
 function renderBars(container, rows, activePeriod) {
   const max = Math.max(...rows.map((row) => Math.abs(row[activePeriod])), 1);
   container.innerHTML = rows.map((row) => {
@@ -871,6 +964,32 @@ function renderConceptDiagram(type) {
       ["CPI/PPI", "看传导"],
       ["央行反应", "看资产影响"],
     ],
+    rate: [
+      ["央行", "政策利率"],
+      ["银行", "贷款报价"],
+      ["企业", "融资成本"],
+      ["资产", "估值折现"],
+    ],
+    discount: [
+      ["未来利润", "现金流"],
+      ["折现率", "利率+风险"],
+      ["今天价值", "估值"],
+    ],
+    "rate-watch": [
+      ["短端利率", "流动性"],
+      ["长端利率", "增长预期"],
+      ["信用利差", "风险偏好"],
+    ],
+    fx: [
+      ["本币", "资产报价"],
+      ["外币", "全球比较"],
+      ["资本流动", "买卖力量"],
+    ],
+    "fx-watch": [
+      ["利差", "资金去向"],
+      ["通胀", "购买力"],
+      ["贸易", "货币供需"],
+    ],
   };
   const rows = diagrams[type];
   if (!rows) return "";
@@ -885,6 +1004,46 @@ function renderConceptDiagram(type) {
           ${value ? `<em>${value}</em>` : ""}
         </div>
       `).join("")}
+    </div>
+  `;
+}
+
+function renderKnowledgeVisual(page, topic) {
+  const visual = document.getElementById("knowledge-visual");
+  const visualMeta = {
+    inflation: ["CPI", "物价温度计", "同样的钱，能买到的东西变少了"],
+    indicator: ["CPI/PPI", "指标仪表盘", "一个看生活价格，一个看工厂成本"],
+    market: ["股债汇", "资产传导图", "通胀会沿着利率影响各类资产"],
+    checklist: ["三步法", "投资检查表", "方向、结构、政策反应一起看"],
+    questions: ["复盘", "今日三问", "把概念落到每天的数据里"],
+    rate: ["RATE", "资金价格牌", "利率越高，借钱越贵"],
+    discount: ["DCF", "估值折现器", "未来的钱要折回今天看"],
+    "rate-watch": ["YIELD", "利率曲线", "短端看流动性，长端看预期"],
+    fx: ["FX", "货币天平", "汇率是两个经济体的相对报价"],
+    "fx-watch": ["FLOW", "资金流向图", "利差、通胀、贸易一起决定方向"],
+  };
+  const [code, title, subtitle] = visualMeta[page.diagram] || [topic.name, page.title, topic.summary];
+  const nodes = {
+    inflation: ["成本", "售价", "购买力"],
+    indicator: ["CPI", "PPI", "核心CPI"],
+    market: ["股票", "债券", "汇率"],
+    checklist: ["方向", "结构", "政策"],
+    questions: ["同比", "传导", "央行"],
+    rate: ["央行", "银行", "企业", "资产"],
+    discount: ["现金流", "折现率", "现值"],
+    "rate-watch": ["短端", "长端", "利差"],
+    fx: ["利率", "通胀", "资金"],
+    "fx-watch": ["利差", "贸易", "预期"],
+  }[page.diagram] || ["概念", "指标", "影响"];
+  visual.dataset.visual = page.diagram || "default";
+  visual.innerHTML = `
+    <div class="lesson-visual">
+      <span>${code}</span>
+      <strong>${title}</strong>
+      <p>${subtitle}</p>
+      <div class="visual-nodes">
+        ${nodes.map((item) => `<i>${item}</i>`).join("")}
+      </div>
     </div>
   `;
 }
@@ -908,11 +1067,7 @@ function renderIndustry() {
   const industry = industryData.find((item) => item.name === selectedIndustry) || industryData[0];
   industryPage = Math.min(industryPage, industry.pages.length - 1);
   const page = industry.pages[industryPage];
-  renderList(document.getElementById("industry-list"), industryData, selectedIndustry, (name) => {
-    selectedIndustry = name;
-    industryPage = 0;
-    renderIndustry();
-  });
+  renderIndustryDirectory(industry);
   document.getElementById("industry-title").textContent = industry.name;
   document.getElementById("industry-updated").textContent = "数据更新：2026-07-08";
   document.getElementById("industry-summary").textContent = industry.summary;
@@ -932,7 +1087,29 @@ function renderBook() {
   document.getElementById("book-title").textContent = book.name;
   document.getElementById("book-summary").textContent = book.summary;
   document.getElementById("book-page-label").textContent = `${bookPage + 1} / ${book.pages.length}`;
+  renderKnowledgeVisual(page, book);
   document.getElementById("book-page-body").innerHTML = renderStudyPage(page);
+}
+
+async function shareSite() {
+  const shareData = {
+    title: "ShawnLW 投资辅助网站",
+    text: "每日市场、行业研究和金融知识学习。",
+    url: window.location.href,
+  };
+  const button = document.getElementById("share-site");
+  try {
+    if (navigator.share) {
+      await navigator.share(shareData);
+      return;
+    }
+    await navigator.clipboard.writeText(shareData.url);
+    const oldText = button.textContent;
+    button.textContent = "已复制链接";
+    window.setTimeout(() => { button.textContent = oldText; }, 1800);
+  } catch (error) {
+    if (navigator.clipboard) await navigator.clipboard.writeText(shareData.url);
+  }
 }
 
 function switchPanel(panelName) {
@@ -947,10 +1124,13 @@ function switchPanel(panelName) {
   document.getElementById("page-subtitle").textContent = meta[panelName][2];
   document.querySelectorAll(".nav-pill").forEach((item) => item.classList.toggle("active", item.dataset.panel === panelName));
   document.querySelectorAll(".panel").forEach((panel) => panel.classList.toggle("panel-visible", panel.id === `${panelName}-panel`));
+  if (panelName === "industry") renderIndustry();
+  if (panelName === "learning") renderBook();
 }
 
 function init() {
-  document.querySelectorAll(".nav-pill").forEach((button) => button.addEventListener("click", () => switchPanel(button.dataset.panel)));
+  document.querySelectorAll(".nav-pill[data-panel]").forEach((button) => button.addEventListener("click", () => switchPanel(button.dataset.panel)));
+  document.getElementById("share-site").addEventListener("click", shareSite);
   document.querySelectorAll(".period-tab").forEach((button) => {
     button.addEventListener("click", () => {
       const chart = button.dataset.chart;
