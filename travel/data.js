@@ -2,6 +2,7 @@ const PLACES = {
   hkg: { name: '香港国际机场', kind: '交通', address: '香港新界大屿山赤鱲角', area: true, description: '去程 HB322、回程 HB323。请以电子机票和航司通知核对航站楼。', query: 'Hong Kong International Airport' },
   nrt: { name: '成田机场 T2', kind: '交通', address: '千葉県成田市古込', area: true, description: '去程抵达与回程出发的机场。N\'EX 车站位于航站楼地下。', query: 'Narita International Airport Terminal 2' },
   yokohamaStation: { name: '横滨站', kind: '交通', address: '神奈川県横浜市西区高島2丁目', area: true, description: 'N\'EX、东海道线与市内交通换乘点。', query: '横浜駅' },
+  hadanoStation: { name: '秦野站南口', kind: '交通', address: '神奈川県秦野市尾尻931', description: '《重启人生》秦野取景地步行线的起点。横滨出发可经海老名换乘小田急线，实际车次请当天查询。', query: '秦野駅 南口', source: 'https://hiyori.cc/article/brushuplife_ntv' },
   shimodaStation: { name: '伊豆急下田站', kind: '交通', address: '静岡県下田市東本郷1丁目', area: true, description: '踊り子号终点。站前可换乘东海巴士或酒店接驳。', query: '伊豆急下田駅' },
   naganoStation: { name: '长野站', kind: '交通', address: '長野県長野市栗田', area: true, description: '长野段交通枢纽，白马与户隐巴士也从这里出发。', query: '長野駅' },
   hakubaBus: { name: '白马八方巴士总站', kind: '交通', address: '長野県北安曇郡白馬村北城', area: true, description: '长野往返白马的特急巴士停靠点。', query: '白馬八方バスターミナル', source: 'https://www.alpico.co.jp/traffic/express/nagano_hakuba/' },
@@ -20,6 +21,18 @@ const PLACES = {
   irozaki: { name: '石廊崎海洋公园', kind: '景点', address: '静岡県賀茂郡南伊豆町石廊崎546-5', description: '伊豆半岛南端的海岬。可从园区步行至灯塔与石室神社。', query: '石廊崎オーシャンパーク', source: 'https://irou-ocean.or.jp/access' },
   omuro: { name: '大室山缆车', kind: '景点', address: '静岡県伊東市池672-2', description: '登山缆车上火山口，晴天可沿山顶环步道看伊豆海岸。运营受风雨影响。', query: '大室山登山リフト', source: 'https://itospa.com/spot/detail_54003.html' },
   jogasaki: { name: '城崎海岸 · 门胁吊桥', kind: '景点', address: '静岡県伊東市富戸', area: true, description: '火山熔岩形成的断崖海岸，门胁吊桥是最便于短时间打卡的一段。', query: '城ヶ崎海岸 門脇つり橋', source: 'https://itospa.com/spot/detail_54002.html' },
+  kadowakiParking: { name: '伊东市门胁停车场 / 步道入口', kind: '交通', address: '静岡県伊東市富戸', area: true, description: '门胁灯台和吊桥的短走入口；不开车可从城崎海岸站步行约 35 分钟，或在站前乘出租车。', query: '伊東市門脇駐車場', source: 'https://itospa.com/spot/detail_54002.html' },
+  kadowakiBridge: { name: '门胁吊桥', kind: '景点', address: '静岡県伊東市富戸 城ヶ崎海岸', area: true, description: '城崎海岸的招牌景点：长约 48 米、高约 23 米。站在桥上看熔岩断崖，强风雨天不要勉强通行。', query: '門脇つり橋 城ヶ崎海岸', source: 'https://itospa.com/spot/detail_54002.html' },
+  kadowakiLighthouse: { name: '门胁埼灯台', kind: '景点', address: '静岡県伊東市富戸842', description: '吊桥旁的白色灯台，展望台可望向伊豆七岛；开放情况以现场公告为准。', query: '門脇埼灯台', source: 'https://www.kaiho.mlit.go.jp/soshiki/koutsuu/toudai/oasis/3-kadowaki.html' },
+  sakuranosato: { name: '樱之里 · 大室山山脚', kind: '景点', address: '静岡県伊東市富戸1317-4', description: '大室山脚下的开阔草地，适合缆车排队较长时短暂停留。秋季不以樱花为主。', query: 'さくらの里 伊東', source: 'https://itospa.com/spot/detail_54002.html' },
+  hadanoBridge: { name: '鹤卷桥', kind: '取景地', address: '神奈川県秦野市尾尻367 付近', area: true, description: '剧中反复出现的上学路小桥，桥上可看室川与小田急线方向。请只在人行公共区域拍照。', mapQuery: '35.366766,139.228558', scene: '麻美与朋友们反复经过的上学路', source: 'https://hiyori.cc/article/brushuplife_ntv' },
+  hadanoStationSteps: { name: '秦野站南口阶梯', kind: '取景地', address: '神奈川県秦野市大秦町1 秦野駅南口', area: true, description: '麻美与真里相遇的车站阶梯。抵达秦野后即可顺路打卡，不额外绕路。', query: '秦野駅 南口 階段', scene: '车站阶梯上的相遇', source: 'https://timessemibold.hatenablog.com/entry/2023/03/25/112525' },
+  hadanoOzakiBridge: { name: '尾崎桥', kind: '取景地', address: '神奈川県秦野市尾尻167 付近', area: true, description: '与鹤卷桥距离不远，剧中梦境追逐场景曾在此拍摄。桥面通行时不要停留挡路。', mapQuery: '35.366779,139.227753', scene: '梦境里的桥上追逐', source: 'https://location.la.coocan.jp/brushuplife.html' },
+  hadanoTunnel: { name: '小田急线下通学隧道', kind: '取景地', address: '神奈川県秦野市尾尻368 付近', area: true, description: '鹤卷桥旁的铁路下穿通道，也是四人同行的经典画面。留意自行车与行人通行。', mapQuery: '35.366844,139.228958', scene: '不同人生周目里，朋友们一起走过的隧道', source: 'https://hiyori.cc/article/brushuplife_ntv' },
+  hadanoPark: { name: 'おじりつるまきざか公园', kind: '取景地', address: '神奈川県秦野市尾尻338 付近', area: true, description: '三人交换贴纸的小公园。位于安静住宅区，拍照时请勿对着民宅或制造噪音。', query: 'おじりつるまきざか公園', scene: '小时候交换贴纸的公园', source: 'https://hiyori.cc/article/brushuplife_ntv' },
+  hadanoStairs: { name: '今泉台二丁目长阶梯', kind: '取景地', address: '神奈川県秦野市今泉台2丁目1番と2番の間', area: true, description: '麻美夜间奔走、后来与真里练体力的长阶梯。电话亭是拍摄道具，现场并不存在。', mapQuery: '35.364632,139.221153', scene: '深夜奔向电话亭，以及后来的体能训练', source: 'https://hiyori.cc/article/brushuplife_ntv' },
+  yumeanHadano: { name: '梦庵 秦野インター店', kind: '餐厅', address: '神奈川県秦野市西大竹25-1', description: '麻美为了改变玲奈的相遇而久坐等待的家庭餐厅。适合巡礼终点兼午餐；营业以门店当天公告为准。', query: '夢庵 秦野インター店', scene: '麻美等待玲奈与宫冈彻的餐厅', source: 'https://store-info.skylark.co.jp/yumean/map/130137/' },
+  hadanoCulturePark: { name: '秦野市文化公园野餐广场', kind: '取景地', address: '神奈川県秦野市平沢148', area: true, description: '剧中电话亭场景的拍摄区域；电话亭是道具，现场没有。离秦野站南口步行主线较远，仅作加映备选。', query: '秦野市カルチャーパーク ピクニック広場', scene: '夜间电话亭的拍摄区域（道具已撤）', source: 'https://www.city.hadano.kanagawa.jp/soshiki/9/1062/1/3755.html' },
   zenkoji: { name: '善光寺', kind: '景点', address: '長野県長野市元善町491-イ', description: '长野的标志性古寺。从长野站可沿中央通慢行到门前町。', query: '善光寺 長野', source: 'https://en.nagano-cvb.or.jp/modules/sightseeing/page/1' },
   obuse: { name: '小布施 · 北斋馆', kind: '景点', address: '長野県上高井郡小布施町小布施485', description: '可选绕行：看葛饰北斋晚年作品，顺路逛栗子点心街。', query: '北斎館 小布施', source: 'https://www.obusekanko.jp/spot/hokusaikan' },
   iwatake: { name: '白马岩岳缆车', kind: '景点', address: '長野県北安曇郡白馬村北城12056', description: '从山麓乘缆车上山，出发前查看当天风况与运营公告。', query: '白馬岩岳マウンテンリゾート ゴンドラ', source: 'https://iwatake-mountain-resort.com/green' },
@@ -52,6 +65,26 @@ const PLACES = {
   obuseSweet: { name: '桜井甘精堂 本店', kind: '餐厅', address: '長野県上高井郡小布施町小布施774', description: '小布施栗菓子老铺，适合小布施支线中短暂停留。', query: '桜井甘精堂 本店', source: 'https://www.obusekanko.jp/spot/kanseidohonten' }
 };
 
+const HADANO_SCENES = [
+  { place: 'hadanoStationSteps', number: '01', shot: '车站阶梯的相遇', detail: '一出秦野站南口即可看到，不耽误转场。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
+  { place: 'hadanoBridge', number: '02', shot: '放学路上的小桥', detail: '从车站往室川上的鹤卷桥走。桥和旁边的隧道几乎连在一起，是这趟巡礼最值得认真拍的一组画面。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
+  { place: 'hadanoTunnel', number: '03', shot: '一起穿过的隧道', detail: '从桥边转入小田急线下的通道。可以试着在通道口拍“走向光亮”的构图，但不要挡住通勤者。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
+  { place: 'hadanoOzakiBridge', number: '04', shot: '梦境里的另一座桥', detail: '沿室川再走一小段，看麻美的梦境追逐画面取景处。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
+  { place: 'hadanoPark', number: '05', shot: '交换贴纸的小公园', detail: '公园不大，更像住宅区里的小展望处。这里适合拍一张朋友并肩坐着的合影。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
+  { place: 'hadanoStairs', number: '06', shot: '奔跑与练体力的长阶梯', detail: '这里的坡度比镜头里更有存在感。阶梯旁不存在剧中的电话亭，不要白找。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
+  { place: 'yumeanHadano', number: '07', shot: '麻美守候的家庭餐厅', detail: '最后到真实营业的梦庵吃午饭。这里与桥、隧道不在同一小圈内，建议把它放在巡礼收尾。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
+  { place: 'hadanoCulturePark', number: '+', shot: '加映：电话亭场景', detail: '文化公园离主线较远，只有提早到达、余力充足才去。道具电话亭已撤，不要按剧照寻找实体电话亭。', still: 'https://www.ntv.co.jp/brushup-life/story/' }
+];
+
+const IZU_HIGHLIGHTS = [
+  { place: 'shirahama', day: 'D03', priority: '白沙海岸', tip: '上午光线好，先看海色。' },
+  { place: 'ryugu', day: 'D03', priority: '海蚀洞', tip: '走到高处再看天然天窗。' },
+  { place: 'irozaki', day: 'D03', priority: '半岛最南端', tip: '留出巴士接驳与步行时间。' },
+  { place: 'omuro', day: 'D04', priority: '火山口', tip: '缆车受风影响，早上先确认运营。' },
+  { place: 'kadowakiLighthouse', day: 'D04', priority: '白色灯塔', tip: '与门胁吊桥相邻，可一起走。' },
+  { place: 'kadowakiBridge', day: 'D04', priority: '海上吊桥', tip: '从门胁停车场短走最省力。' }
+];
+
 const step = (time, place, note = '') => ({ time, place, note });
 const DAYS = [
   {
@@ -82,12 +115,12 @@ const DAYS = [
     }
   },
   {
-    id: 'd4', date: '9月30日', week: '周三', area: '伊豆高原 · 稻取', title: '把海景带进温泉旅馆', subtitle: '大室山、城崎海岸和稻取之夜。', hotel: 'inatoriso', stay: '9/30 入住 · 10/1 退房', food: ['inatoriDinner'],
-    note: '今天退房换酒店。大室山缆车受天气影响，稻取庄已含晚餐，请先确认最晚入住与用餐时间。',
+    id: 'd4', date: '9月30日', week: '周三', area: '伊豆高原 · 稻取', title: '大室山与门胁吊桥', subtitle: '火山口、灯塔、海上吊桥，再回温泉旅馆。', hotel: 'inatoriso', stay: '9/30 入住 · 10/1 退房', food: ['inatoriDinner'],
+    note: '今天带行李换酒店。A 方案跨越下田、伊东和稻取，建议包车或出租车分段接驳，并先与旅馆确认晚餐最晚到达时间；公交慢或天气差就选 B/C。',
     plans: {
-      A: { name: '原定路线', mood: '火山口 · 海岸 · 温泉', stops: [step('09:00', 'shimodaHotel', '退房出发'), step('11:30', 'omuro', '缆车与火山口'), step('13:30', 'jogasaki', '门胁吊桥短走'), step('16:30', 'inatoriso', '入住、温泉'), step('18:30', 'inatoriDinner', '旅馆晚餐')] },
-      B: { name: '泡汤优先', mood: '只走大室山，早到稻取', stops: [step('09:30', 'shimodaHotel'), step('11:30', 'omuro'), step('15:00', 'inatoriso', '早些办理入住'), step('18:00', 'inatoriDinner')] },
-      C: { name: '天气不佳', mood: '直达旅馆，保留海景', stops: [step('10:00', 'shimodaHotel'), step('13:30', 'inatoriso', '确认寄存与入住时间'), step('18:00', 'inatoriDinner')] }
+      A: { name: '伊豆必打卡', mood: '大室山 · 灯塔 · 吊桥 · 温泉', stops: [step('08:15', 'shimodaHotel', '退房；建议提前安排接驳'), step('10:15', 'omuro', '乘缆车绕火山口；遇强风改 B'), step('11:30', 'sakuranosato', '山脚短歇，可按时间跳过'), step('13:00', 'kadowakiParking', '抵达门胁短走入口'), step('13:15', 'kadowakiLighthouse', '先看灯塔和海岸线'), step('13:40', 'kadowakiBridge', '走 48 米海上吊桥'), step('16:30', 'inatoriso', '务必赶上晚餐入住'), step('18:30', 'inatoriDinner', '以旅馆确认时间为准')] },
+      B: { name: '公共交通轻量', mood: '只去门胁吊桥，减少折返', stops: [step('08:30', 'shimodaHotel', '退房，坐伊豆急行北上'), step('11:00', 'kadowakiParking', '城崎海岸站步行约 35 分钟或打车'), step('11:15', 'kadowakiLighthouse', '展望台视开放情况'), step('11:40', 'kadowakiBridge', '吊桥与熔岩海岸'), step('14:30', 'inatoriso', '回稻取，提前办理入住或寄存'), step('18:00', 'inatoriDinner')] },
+      C: { name: '风雨与温泉', mood: '取消海边栈道，早回旅馆', stops: [step('09:30', 'shimodaHotel', '退房'), step('12:00', 'inatoriso', '寄存行李，周边散步'), step('15:00', 'inatoriso', '入住、泡汤'), step('18:00', 'inatoriDinner')] }
     }
   },
   {
@@ -118,17 +151,17 @@ const DAYS = [
     }
   },
   {
-    id: 'd8', date: '10月4日', week: '周日', area: '横滨', title: '从山城回到海港', subtitle: '把下午留给横滨的风和夜色。', hotel: 'intercon', stay: '10/4 入住 · 10/6 退房', food: ['oceanterrace', 'bills'],
-    note: '长野—横滨约 2.5–3 小时，仅供转车规划；今天以入住和轻松步行为主。',
+    id: 'd8', date: '10月4日', week: '周日', area: '长野 → 秦野 → 横滨', title: '在回横滨途中，重启人生', subtitle: '长野出发，走过秦野的桥与隧道，傍晚抵达海港。', hotel: 'intercon', stay: '10/4 入住 · 10/6 退房', food: ['yumeanHadano', 'oceanterrace'],
+    note: 'A 方案跨城又步行，须早出发。建议前一天联系长野酒店寄送大件行李至横滨酒店，并确认次日送达；或在秦野站核实寄存柜，柜满则改 B。车次与所需时间请出发前重新查。',
     plans: {
-      A: { name: '原定路线', mood: '入住 · 港未来 · 红砖', stops: [step('09:00', 'jal', '退房'), step('13:00', 'yokohamaStation'), step('14:00', 'intercon', '入住或寄存行李'), step('16:00', 'minatomirai', '海边散步'), step('17:30', 'redbrick', '看傍晚的仓库'), step('19:00', 'oceanterrace', '酒店晚餐可选')] },
-      B: { name: '港景慢游', mood: '酒店与海边即可', stops: [step('09:30', 'jal'), step('13:30', 'yokohamaStation'), step('14:30', 'intercon'), step('17:00', 'minatomirai')] },
-      C: { name: '室内轻逛', mood: '博物馆加酒店', stops: [step('09:00', 'jal'), step('13:00', 'yokohamaStation'), step('14:00', 'intercon'), step('15:00', 'cupmuseum'), step('18:00', 'intercon')] }
+      A: { name: '秦野取景地巡礼', mood: '长野 · 上学路 · 贴纸公园 · 横滨', stops: [step('07:45', 'jal', '退房；大件行李提前寄送或在秦野站寄存'), step('11:30', 'hadanoStation', '东京方向转小田急；到达时间以实际车次为准'), step('11:35', 'hadanoStationSteps', '南口阶梯顺路拍照'), step('11:50', 'hadanoBridge', '站在公共道路取景'), step('12:05', 'hadanoTunnel', '桥边下穿铁路的通学道'), step('12:20', 'hadanoOzakiBridge', '梦境中的另一座桥'), step('12:45', 'hadanoPark', '小公园与贴纸回忆'), step('13:20', 'hadanoStairs', '长阶梯；时间紧可跳过'), step('14:15', 'yumeanHadano', '家庭餐厅午餐'), step('16:00', 'hadanoStation', '转车去横滨'), step('18:00', 'intercon', '办理入住，核对行李送达')] },
+      B: { name: '早到横滨', mood: '省力转车 · 港边散步', stops: [step('09:00', 'jal', '退房'), step('13:00', 'yokohamaStation'), step('14:00', 'intercon', '入住或寄存行李'), step('16:00', 'minatomirai', '海边散步'), step('18:30', 'oceanterrace', '酒店晚餐可选')] },
+      C: { name: '交通延误 / 雨天', mood: '直接入住 · 室内休息', stops: [step('09:30', 'jal', '退房'), step('14:00', 'yokohamaStation', '预留换乘缓冲'), step('15:00', 'intercon', '办理入住'), step('18:00', 'oceanterrace', '酒店内晚餐')] }
     }
   },
   {
     id: 'd9', date: '10月5日', week: '周一', area: '横滨', title: '横滨的一整天', subtitle: '海滨公园、中华街和红砖仓库。', hotel: 'intercon', stay: '续住第 2 晚', food: ['kaseiro', 'bills', 'oceanterrace'],
-    note: '杯面博物馆体验项目有独立预约规则；可把博物馆作为雨天优先项。餐厅营业与节假日情况请行前复核。',
+    note: '前一天若已走秦野，今天适合放慢脚步。杯面博物馆体验项目有独立预约规则；餐厅营业与节假日情况请行前复核。',
     plans: {
       A: { name: '经典海港线', mood: '公园 · 中华街 · 红砖', stops: [step('09:30', 'intercon'), step('10:00', 'yamashita', '沿海岸慢走'), step('11:30', 'chinatown', '逛牌楼与街巷'), step('12:30', 'kaseiro', '中餐午餐'), step('15:00', 'redbrick'), step('16:00', 'marinewalk', '咖啡与购物'), step('19:00', 'intercon')] },
       B: { name: '海边松弛线', mood: '少转场，多坐一会儿', stops: [step('10:00', 'intercon'), step('11:00', 'marinewalk'), step('12:00', 'bills', '海边午餐'), step('14:00', 'redbrick'), step('16:00', 'minatomirai'), step('18:00', 'intercon')] },

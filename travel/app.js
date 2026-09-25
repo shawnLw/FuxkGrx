@@ -35,14 +35,18 @@
   }
   function mapUrl(id) {
     const place = PLACES[id];
-    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${place.query || place.name} ${place.address}`)}`;
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.mapQuery || `${place.query || place.name} ${place.address}`)}`;
   }
   function routeUrl(stops) {
     const points = stops.filter((stop, i, all) => i === 0 || stop.place !== all[i - 1].place).map((stop) => PLACES[stop.place]).filter(Boolean);
-    const mapQuery = (place) => encodeURIComponent(`${place.query || place.name} ${place.address}`);
+    const mapQuery = (place) => encodeURIComponent(place.mapQuery || `${place.query || place.name} ${place.address}`);
     if (points.length < 2) return points.length ? mapUrl(stops[0].place) : 'https://www.google.com/maps';
     const parts = [`api=1`, `origin=${mapQuery(points[0])}`, `destination=${mapQuery(points[points.length - 1])}`];
-    if (points.length > 2) parts.push(`waypoints=${points.slice(1, -1).map(mapQuery).join('%7C')}`);
+    if (points.length > 2) {
+      const middle = points.slice(1, -1);
+      const waypoints = middle.length <= 3 ? middle : [middle[0], middle[Math.floor(middle.length / 2)], middle[middle.length - 1]];
+      parts.push(`waypoints=${waypoints.map(mapQuery).join('%7C')}`);
+    }
     return `https://www.google.com/maps/dir/?${parts.join('&')}`;
   }
   function actionButtons(id) {
@@ -68,6 +72,16 @@
   }
   function renderStays() {
     $('#stays-list').innerHTML = STAYS.map((stay, index) => `<article class="stay-item"><span class="stay-counter">STAY ${String(index + 1).padStart(2, '0')} / 05</span><h3>${safe(PLACES[stay.place].name)}</h3><p class="stay-dates">${safe(stay.dates)} · ${safe(stay.nights)}</p><p>${safe(PLACES[stay.place].address)}</p>${actionButtons(stay.place)}</article>`).join('');
+  }
+  function renderFieldGuides() {
+    $('#hadano-scenes').innerHTML = HADANO_SCENES.map((item) => {
+      const place = PLACES[item.place];
+      return `<article class="scene-item"><div class="scene-mark" aria-hidden="true"><span>SCENE</span><strong>${safe(item.number)}</strong></div><div class="scene-copy"><span class="scene-shot">${safe(item.shot)}</span><h3>${safe(place.name)}</h3><p>${safe(item.detail)}</p><p class="place-address">导航位置 · ${safe(place.address)}</p><div class="scene-links"><a href="${safe(item.still)}" target="_blank" rel="noopener noreferrer">${icon('image')} 官方剧集图文</a><a href="${safe(place.source)}" target="_blank" rel="noopener noreferrer">${icon('images')} 实景照片 / 资料</a></div>${actionButtons(item.place)}</div></article>`;
+    }).join('');
+    $('#izu-highlights').innerHTML = IZU_HIGHLIGHTS.map((item, index) => {
+      const place = PLACES[item.place];
+      return `<article class="izu-stop"><div class="izu-stop-top"><span>${safe(item.day)} · ${String(index + 1).padStart(2, '0')}</span><strong>${safe(item.priority)}</strong></div><h3>${safe(place.name)}</h3><p>${safe(item.tip)}</p><p class="place-address">${safe(place.address)}</p>${actionButtons(item.place)}</article>`;
+    }).join('');
   }
   function renderRailTickets() {
     $('#rail-list').innerHTML = RAIL_TICKETS.map((ticket) => {
@@ -138,6 +152,7 @@
       saveCheckins();
       renderDay();
       renderStays();
+      renderFieldGuides();
       refreshIcons();
       notify(checkins.has(id) ? `已打卡：${PLACES[id].name}` : `已取消打卡：${PLACES[id].name}`);
       return;
@@ -165,6 +180,7 @@
     saveCheckins();
     renderDay();
     renderStays();
+    renderFieldGuides();
     refreshIcons();
     notify('打卡记录已清除。');
   });
@@ -185,6 +201,7 @@
     renderDay();
   });
   renderStays();
+  renderFieldGuides();
   renderRailTickets();
   renderDay();
 })();

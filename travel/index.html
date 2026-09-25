@@ -7,13 +7,15 @@
   <meta name="description" content="ShawnLW 的日本十天九晚旅行手帖：逐日路线、酒店餐厅、地图导航与打卡记录。">
   <title>日本十天九晚 · ShawnLW 旅行手帖</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23eee6d4'/%3E%3Ccircle cx='43' cy='20' r='9' fill='%23d95135'/%3E%3Cpath d='M4 55c12-19 18-15 27-10 9-14 15-11 29 10' fill='none' stroke='%23213c50' stroke-width='5'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v=20260925c">
 </head>
 <body>
   <header class="site-header">
     <a class="brand" href="#top" aria-label="返回行程首页"><span class="brand-mark">旅</span><span>SHAWNLW <em>/</em> TRAVEL NOTES</span></a>
     <nav class="site-nav" aria-label="页面导航">
       <a href="#itinerary">每日行程</a>
+      <a href="#hadano-guide">秦野取景地</a>
+      <a href="#izu-guide">伊豆必打卡</a>
       <a href="#rail-tickets">车票与取票</a>
       <a href="#stay-guide">酒店清单</a>
       <a href="#travel-notes">出行提醒</a>
@@ -23,7 +25,7 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <img class="hero-art" src="./hero.png" alt="日本海港、伊豆海岸、白马群山和长野街巷的复古拼贴画">
+      <img class="hero-art" src="./hero.jpg" width="1672" height="941" fetchpriority="high" alt="日本海港、伊豆海岸、白马群山和长野街巷的复古拼贴画">
       <div class="hero-veil"></div>
       <div class="hero-copy">
         <p class="eyebrow">A PERSONAL JAPAN FIELD GUIDE <span class="eyebrow-line"></span> 2026.09.27 — 10.06</p>
@@ -69,14 +71,27 @@
       </div>
     </section>
 
-    <section id="rail-tickets" class="rail-section" aria-labelledby="rail-title"><div class="section-heading"><div><span class="section-index">02 / RAIL TICKETS</span><h2 id="rail-title">两张列车订单</h2><p>车次、座位和取票码放在一起，出发前请再核对 JR 原始订单。</p></div></div><div id="rail-list" class="rail-list"></div><p class="rail-privacy"><i data-lucide="info" aria-hidden="true"></i> 此网页公开。取票信息虽需点击展开，但任何访问者都能看到，不具备隐私保护作用；纸票以 JR 原始订单和现场出票结果为准。</p></section>
-    <section id="stay-guide" class="stays-section" aria-labelledby="stays-title"><div class="section-heading"><div><span class="section-index">03 / STAY</span><h2 id="stays-title">九晚落脚处</h2><p>每家酒店的地址和导航，放在一处方便查找。</p></div></div><div id="stays-list" class="stays-list"></div></section>
-    <section id="travel-notes" class="notes-section" aria-labelledby="notes-title"><div class="notes-inner"><span class="section-index">04 / BEFORE YOU GO</span><h2 id="notes-title">带着一点余量，走得更尽兴。</h2><div class="note-columns"><p><strong>车次与开放时间</strong><br>航班、N'EX、踊り子号以订单和运营方当日公告为准；白马缆车、石廊崎和户隐巴士请出发前再核对天气、营业和预订要求。</p><p><strong>导航与打卡</strong><br>点击地点的「Google 地图」会在新页面搜索日文名称与地址。已打卡记录仅保存在这台设备的浏览器，不会同步到别人的手机。</p><p><strong>路线的用法</strong><br>A 贴近原定行程，B 留更多休息时间，C 针对天气或交通变化。时间为规划参考，不代表已订车次，除非当天提示明确写明。</p></div></div></section>
+    <section id="hadano-guide" class="field-guide hadano-guide" aria-labelledby="hadano-title">
+      <div class="section-heading"><div><span class="section-index">02 / SCENE WALK</span><h2 id="hadano-title">秦野 · 重启人生取景地</h2><p>10 月 4 日从长野回横滨的 A 方案：经秦野重走麻美的上学路，最后到梦庵吃午饭。</p></div><a class="guide-shortcut" href="?day=d8&plan=A#itinerary">查看当天 A 路线 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+      <div class="guide-intro"><span class="guide-intro-number">07+1</span><p>七处顺路的公共取景点，加一处需绕行的文化公园，逐一附导航和打卡。桥、隧道、公园与阶梯都靠近居民区，请轻声步行；剧中的麻美家是有人居住的私人住宅，不列入导航。</p></div>
+      <div id="hadano-scenes" class="scene-list"></div>
+      <p class="guide-credit">剧照与节目画面的版权属于制作方，本站不转载。每站的“官方剧集图文”打开日本电视台页面，“实景照片 / 资料”打开取景地实访或场所信息；这些外部页面可能随时调整。</p>
+    </section>
+
+    <section id="izu-guide" class="field-guide izu-guide" aria-labelledby="izu-title">
+      <div class="section-heading"><div><span class="section-index">03 / IZU FIELD NOTES</span><h2 id="izu-title">伊豆，别错过这六站</h2><p>南伊豆的白沙和海蚀洞，东伊豆的火山口、灯塔与门胁吊桥，分在两天走更从容。</p></div><a class="guide-shortcut" href="?day=d4&plan=A#itinerary">查看 9/30 A 路线 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
+      <div id="izu-highlights" class="izu-highlights"></div>
+      <div class="izu-advice"><strong>9/30 交通判断</strong><p>下田退房后绕大室山和城崎海岸，再回稻取吃旅馆晚餐，公共交通会很紧。A 方案建议提前约车或分段打车；只想稳稳看门胁吊桥选 B，风雨天选 C。城崎海岸站至吊桥一带步行约 35 分钟，门胁停车场至吊桥约 2–3 分钟。</p><a href="https://itospa.com/spot/detail_54002.html" target="_blank" rel="noopener noreferrer">伊东观光官方路线与图片 <i data-lucide="external-link" aria-hidden="true"></i></a></div>
+    </section>
+
+    <section id="rail-tickets" class="rail-section" aria-labelledby="rail-title"><div class="section-heading"><div><span class="section-index">04 / RAIL TICKETS</span><h2 id="rail-title">两张列车订单</h2><p>车次、座位和取票码放在一起，出发前请再核对 JR 原始订单。</p></div></div><div id="rail-list" class="rail-list"></div><p class="rail-privacy"><i data-lucide="info" aria-hidden="true"></i> 此网页公开。取票信息虽需点击展开，但任何访问者都能看到，不具备隐私保护作用；纸票以 JR 原始订单和现场出票结果为准。</p></section>
+    <section id="stay-guide" class="stays-section" aria-labelledby="stays-title"><div class="section-heading"><div><span class="section-index">05 / STAY</span><h2 id="stays-title">九晚落脚处</h2><p>每家酒店的地址和导航，放在一处方便查找。</p></div></div><div id="stays-list" class="stays-list"></div></section>
+    <section id="travel-notes" class="notes-section" aria-labelledby="notes-title"><div class="notes-inner"><span class="section-index">06 / BEFORE YOU GO</span><h2 id="notes-title">带着一点余量，走得更尽兴。</h2><div class="note-columns"><p><strong>车次与开放时间</strong><br>航班、N'EX、踊り子号以订单和运营方当日公告为准；白马缆车、石廊崎和户隐巴士请出发前再核对天气、营业和预订要求。</p><p><strong>导航与打卡</strong><br>点击地点的「Google 地图」会在新页面搜索日文名称与地址。已打卡记录仅保存在这台设备的浏览器，不会同步到别人的手机。</p><p><strong>路线的用法</strong><br>A 是推荐主线，B 是替代或省力线，C 针对天气或交通变化。时间为规划参考，不代表已订车次，除非当天提示明确写明。</p></div></div></section>
   </main>
   <footer class="site-footer"><span>SHAWNLW / JAPAN FIELD NOTES</span><span>2026 · 香港到日本，海边到山里</span></footer>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
-  <script src="./data.js" defer></script>
-  <script src="./app.js" defer></script>
+  <script src="./lucide.min.js?v=20260925c" defer></script>
+  <script src="./data.js?v=20260925c" defer></script>
+  <script src="./app.js?v=20260925c" defer></script>
 </body>
 </html>
