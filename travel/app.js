@@ -43,7 +43,7 @@
     if (points.length < 2) return points.length ? mapUrl(stops[0].place) : 'https://www.google.com/maps';
     const parts = [`api=1`, `origin=${mapQuery(points[0])}`, `destination=${mapQuery(points[points.length - 1])}`];
     if (points.length > 2) {
-      const middle = points.slice(1, -1);
+      const middle = points.slice(1, -1).filter((place, index, all) => all.findIndex((item) => mapQuery(item) === mapQuery(place)) === index);
       const waypoints = middle.length <= 3 ? middle : [middle[0], middle[Math.floor(middle.length / 2)], middle[middle.length - 1]];
       parts.push(`waypoints=${waypoints.map(mapQuery).join('%7C')}`);
     }
