@@ -4,8 +4,7 @@ const PLACES = {
   yokohamaStation: { name: '横滨站', kind: '交通', address: '神奈川県横浜市西区高島2丁目', area: true, description: 'N\'EX、东海道线与市内交通换乘点。', query: '横浜駅' },
   hadanoStation: { name: '秦野站南口', kind: '交通', address: '神奈川県秦野市尾尻931', description: '《重启人生》秦野取景地步行线的起点。横滨出发可经海老名换乘小田急线，实际车次请当天查询。', query: '秦野駅 南口', source: 'https://hiyori.cc/article/brushuplife_ntv' },
   shimodaStation: { name: '伊豆急下田站', kind: '交通', address: '静岡県下田市東本郷1丁目', area: true, description: '踊り子号终点。站前可换乘东海巴士或酒店接驳。', query: '伊豆急下田駅' },
-  naganoStation: { name: '长野站', kind: '交通', address: '長野県長野市栗田', area: true, description: '长野段交通枢纽，白马与户隐巴士也从这里出发。', query: '長野駅' },
-  hakubaBus: { name: '白马八方巴士总站', kind: '交通', address: '長野県北安曇郡白馬村北城', area: true, description: '长野往返白马的特急巴士停靠点。', query: '白馬八方バスターミナル', source: 'https://www.alpico.co.jp/traffic/express/nagano_hakuba/' },
+  naganoStation: { name: '长野站', kind: '交通', address: '長野県長野市栗田', area: true, description: '长野段交通枢纽；小布施电车、松本方向列车及户隐巴士在这里换乘。', query: '長野駅' },
 
   fresa: { name: '相铁 FRESA INN 横滨站东口', kind: '酒店', address: '神奈川県横浜市神奈川区金港町5-10', description: '已订 9/27 一晚。横滨站北东口 A 步行约 2 分钟，适合晚抵达后直接休息。', query: '相鉄フレッサイン 横浜駅東口', source: 'https://sotetsu-hotels.com/fresa-inn/yokohama-higashiguchi/' },
   shimodaHotel: { name: '下田东急酒店', kind: '酒店', address: '静岡県下田市5-12-1', description: '已订 9/28–9/30 两晚。面向大浦海湾，可向酒店确认伊豆急下田站接驳。', query: '下田東急ホテル', source: 'https://www.tokyuhotels.co.jp/en/shimoda-h/information/index.html' },
@@ -31,12 +30,18 @@ const PLACES = {
   hadanoTunnel: { name: '小田急线下通学隧道', kind: '取景地', address: '神奈川県秦野市尾尻368 付近', area: true, description: '鹤卷桥旁的铁路下穿通道，也是四人同行的经典画面。留意自行车与行人通行。', mapQuery: '35.366844,139.228958', scene: '不同人生周目里，朋友们一起走过的隧道', source: 'https://hiyori.cc/article/brushuplife_ntv' },
   hadanoPark: { name: 'おじりつるまきざか公园', kind: '取景地', address: '神奈川県秦野市尾尻338 付近', area: true, description: '三人交换贴纸的小公园。位于安静住宅区，拍照时请勿对着民宅或制造噪音。', query: 'おじりつるまきざか公園', scene: '小时候交换贴纸的公园', source: 'https://hiyori.cc/article/brushuplife_ntv' },
   hadanoStairs: { name: '今泉台二丁目长阶梯', kind: '取景地', address: '神奈川県秦野市今泉台2丁目1番と2番の間', area: true, description: '麻美夜间奔走、后来与真里练体力的长阶梯。电话亭是拍摄道具，现场并不存在。', mapQuery: '35.364632,139.221153', scene: '深夜奔向电话亭，以及后来的体能训练', source: 'https://hiyori.cc/article/brushuplife_ntv' },
-  yumeanHadano: { name: '梦庵 秦野インター店', kind: '餐厅', address: '神奈川県秦野市西大竹25-1', description: '麻美为了改变玲奈的相遇而久坐等待的家庭餐厅。适合巡礼终点兼午餐；营业以门店当天公告为准。', query: '夢庵 秦野インター店', scene: '麻美等待玲奈与宫冈彻的餐厅', source: 'https://store-info.skylark.co.jp/yumean/map/130137/' },
+  yumeanHadano: { name: '梦庵 秦野インター店', kind: '餐厅', address: '神奈川県秦野市西大竹25-1', description: '麻美为了改变玲奈的相遇而久坐等待的家庭餐厅。适合巡礼终点稍早晚餐；营业以门店当天公告为准。', query: '夢庵 秦野インター店', scene: '麻美等待玲奈与宫冈彻的餐厅', source: 'https://store-info.skylark.co.jp/yumean/map/130137/' },
   hadanoCulturePark: { name: '秦野市文化公园野餐广场', kind: '取景地', address: '神奈川県秦野市平沢148', area: true, description: '剧中电话亭场景的拍摄区域；电话亭是道具，现场没有。离秦野站南口步行主线较远，仅作加映备选。', query: '秦野市カルチャーパーク ピクニック広場', scene: '夜间电话亭的拍摄区域（道具已撤）', source: 'https://www.city.hadano.kanagawa.jp/soshiki/9/1062/1/3755.html' },
   zenkoji: { name: '善光寺', kind: '景点', address: '長野県長野市元善町491-イ', description: '长野的标志性古寺。从长野站可沿中央通慢行到门前町。', query: '善光寺 長野', source: 'https://en.nagano-cvb.or.jp/modules/sightseeing/page/1' },
-  obuse: { name: '小布施 · 北斋馆', kind: '景点', address: '長野県上高井郡小布施町小布施485', description: '可选绕行：看葛饰北斋晚年作品，顺路逛栗子点心街。', query: '北斎館 小布施', source: 'https://www.obusekanko.jp/spot/hokusaikan' },
-  iwatake: { name: '白马岩岳缆车', kind: '景点', address: '長野県北安曇郡白馬村北城12056', description: '从山麓乘缆车上山，出发前查看当天风况与运营公告。', query: '白馬岩岳マウンテンリゾート ゴンドラ', source: 'https://iwatake-mountain-resort.com/green' },
-  harbor: { name: 'HAKUBA MOUNTAIN HARBOR', kind: '景点', address: '長野県北安曇郡白馬村北城12056', description: '山顶露台正对北阿尔卑斯山，白马段最值得慢坐的一站。', query: 'HAKUBA MOUNTAIN HARBOR', source: 'https://iwatake-mountain-resort.com/hmh' },
+  obuseStation: { name: '小布施站', kind: '交通', address: '長野県上高井郡小布施町小布施', area: true, description: '从长野站乘长野电铁前往小布施；北斋馆步行约 10–15 分钟。', query: '小布施駅', source: 'https://www.go-nagano.net/en/trip-idea/day-trips-from-nagano-city' },
+  obuse: { name: '小布施 · 北斋馆', kind: '景点', address: '長野県上高井郡小布施町小布施485', description: '看葛饰北斋晚年作品和祭屋台天井画；展品与开放时间以馆方公告为准。', query: '北斎館 小布施', source: 'https://www.obusekanko.jp/spot/hokusaikan' },
+  obuseStreet: { name: '小布施栗子街与旧街区', kind: '景点', address: '長野県上高井郡小布施町小布施', area: true, description: '北斋馆周边的旧街巷、栗菓子店与咖啡馆，适合慢逛和午餐。', query: '小布施 栗の小径', source: 'https://www.go-nagano.net/en/trip-idea/day-trips-from-nagano-city' },
+  ganshoin: { name: '岩松院', kind: '景点', address: '長野県上高井郡小布施町雁田615', description: '看北斋的凤凰天井画；从小布施中心步行约 30 分钟，也可按运营情况乘当地接驳或打车。', query: '岩松院 小布施', source: 'https://www.go-nagano.net/en/trip-idea/4-days-of-history-and-culture-around-nagano-city' },
+  matsumotoStation: { name: '松本站', kind: '交通', address: '長野県松本市深志1丁目', area: true, description: '长野出发可乘特急信浓或普通列车前往，具体时刻以 JR 当日查询为准。', query: '松本駅', source: 'https://www.go-nagano.net/en/trip-idea/day-trips-from-nagano-city' },
+  matsumotoCastle: { name: '松本城', kind: '景点', address: '長野県松本市丸の内4-1', description: '黑色天守与护城河是松本的代表景观；入天守需爬陡楼梯，排队时间另留余量。', query: '松本城', source: 'https://www.matsumoto-castle.jp/' },
+  nawate: { name: '绳手通', kind: '景点', address: '長野県松本市大手4丁目', area: true, description: '松本城附近的商店街，河畔小店和街景适合午后慢走。', query: 'なわて通り 松本', source: 'https://visitmatsumoto.com/en/course/detail_30.html' },
+  nakamachi: { name: '中町通', kind: '景点', address: '長野県松本市中央2丁目', area: true, description: '保留仓房风貌的街道，可与绳手通连成轻松步行线。', query: '中町通り 松本', source: 'https://visitmatsumoto.com/en/' },
+  naganoArtMuseum: { name: '长野县立美术馆', kind: '景点', address: '長野県長野市箱清水1-4-4', description: '善光寺东侧的美术馆，通常 9:00–17:00 开放；临时展与休馆以馆方公告为准。', query: '長野県立美術館', source: 'https://nagano.art.museum/english' },
   togakushiStart: { name: '户隐奥社参道入口', kind: '景点', address: '長野県長野市戸隠奥社入口', area: true, description: '从巴士站进入奥社参道；往返全程步行量较大，穿防滑鞋。', query: '戸隠神社 奥社参道入口', source: 'https://togakushi-21.jp/kodo/' },
   zuishinmon: { name: '随神门 · 杉木参道', kind: '景点', address: '長野県長野市戸隠 奥社参道', area: true, description: '参道中途的朱红色门楼，门后是高大杉木成列的步道。', query: '戸隠神社 随神門', source: 'https://togakushi-21.jp/kodo/' },
   togakushiOkusha: { name: '户隐神社奥社', kind: '景点', address: '長野県長野市戸隠3506', description: '参道深处的奥社。建议按天气、体力和返程巴士决定是否走到底。', query: '戸隠神社 奥社', source: 'https://togakushi-21.jp/spot/346/' },
@@ -55,14 +60,61 @@ const PLACES = {
   inatoriDinner: { name: '稻取庄旅馆晚餐', kind: '餐厅', address: '静岡県賀茂郡東伊豆町稲取1531', description: '原行程已含晚餐，以预订套餐和上菜时间为准。入住后先确认用餐时段。', query: 'いなとり荘', source: 'https://inatoriso.com/p-1536/' },
   kitanoya: { name: 'そば処 北野家', kind: '餐厅', address: '長野県長野市東之門町393', description: '善光寺东参道的百年荞麦面店，适合参拜后坐下来吃一碗。', query: 'そば処 北野家', source: 'https://www.nagano-cvb.or.jp/modules/sightseeing/page/186' },
   daimarusoba: { name: 'かどの大丸', kind: '餐厅', address: '長野県長野市大門町504', description: '善光寺门前老店，店外可看到荞麦面制作；适合作为白天加餐。', query: 'かどの大丸 善光寺', source: 'https://www.nagano-cvb.or.jp/modules/member/page/398' },
-  citybakery: { name: 'THE CITY BAKERY 白马', kind: '餐厅', address: '長野県北安曇郡白馬村北城12056', description: '山顶露台旁喝咖啡、吃面包，把午餐与山景合在一起。', query: 'THE CITY BAKERY 白馬マウンテンハーバー', source: 'https://iwatake-mountain-resort.com/hmh' },
   uzuraya: { name: 'うずら家', kind: '餐厅', address: '長野県長野市戸隠3229', description: '户隐荞麦面代表店之一，常有等位，建议把午餐留出机动时间。', query: 'うずら家 戸隠', source: 'https://en.nagano-cvb.or.jp/modules/sightseeing/page/196' },
   ymaguchiya: { name: '戸隠そば 山口屋', kind: '餐厅', address: '長野県長野市戸隠3423', description: '户隐中社区域的另一家荞麦面选择，适合与中社路线配合。', query: '戸隠そば 山口屋', source: 'https://www.nagano-cvb.or.jp/modules/member/page/408' },
   oceanterrace: { name: 'Ocean Terrace', kind: '餐厅', address: '神奈川県横浜市西区みなとみらい1-1-1 1F', description: '横滨洲际酒店内的自助餐厅，回城后不想再转车时很方便。', query: 'オーシャンテラス ヨコハマ グランド インターコンチネンタル', source: 'https://www.icyokohama-grand.com/en/restaurant/' },
   bills: { name: 'bills 横滨红砖仓库', kind: '餐厅', address: '神奈川県横浜市中区新港1-1-2 横浜赤レンガ倉庫2号館', description: '海边步行线上的轻食与咖啡，适合把午餐安排在红砖仓库一带。', query: 'bills 横浜赤レンガ倉庫', source: 'https://www.yokohamajapan.com/things-to-do/detail.php?id=14' },
   kaseiro: { name: '華正樓 本店', kind: '餐厅', address: '神奈川県横浜市中区山下町186', description: '中华街老牌餐厅，以上海、北京菜和海鲜料理见长。', query: '華正樓 本店 横浜中華街', source: 'https://www.yokohamajapan.com/things-to-do/detail.php?id=486' },
   araiya: { name: '荒井屋 SOGO 横滨店', kind: '餐厅', address: '神奈川県横浜市西区高島2-18-1 そごう横浜店10F', description: '横滨牛锅料理，适合回程前想吃一顿本地特色正餐时预约。', query: '荒井屋 そごう横浜店', source: 'https://www.yokohamajapan.com/things-to-do/detail.php?id=508' },
-  obuseSweet: { name: '桜井甘精堂 本店', kind: '餐厅', address: '長野県上高井郡小布施町小布施774', description: '小布施栗菓子老铺，适合小布施支线中短暂停留。', query: '桜井甘精堂 本店', source: 'https://www.obusekanko.jp/spot/kanseidohonten' }
+  obuseSweet: { name: '桜井甘精堂 本店', kind: '餐厅', address: '長野県上高井郡小布施町小布施774', description: '小布施栗菓子老铺，适合小布施支线中短暂停留。', query: '桜井甘精堂 本店', source: 'https://www.obusekanko.jp/spot/kanseidohonten' },
+  hokusaitei: { name: '桜井甘精堂 北斋亭', kind: '餐厅', address: '長野県上高井郡小布施町大字小布施810-3', description: '北斋馆旁的栗子料理店，可吃栗おこわ御膳和当地食材；营业时间以店铺当天公告为准。', query: '桜井甘精堂 北斎亭', source: 'https://www.obusekanko.jp/spot/hokusaitei' }
+};
+
+const PHOTO_ASSETS = {
+  hkg: { file: 'hongkong-airport.jpg', label: '香港机场实景', title: 'File:Hong Kong International Airport Terminal 2.jpg' },
+  airport: { file: 'airport.jpg', label: '成田机场车站实景', title: 'File:Airport Terminal 2 Station (Tokyo-Narita Airport).jpg' },
+  yokohama: { file: 'yokohama-bay.jpg', label: '横滨港周边景观', title: 'File:Minato Mirai 21 Mid View.JPG' },
+  hadanoStation: { file: 'hadano-station.jpg', label: '秦野站南口实景', title: 'File:Hadano-sta02-minamiguchi.jpg' },
+  hadanoCity: { file: 'hadano-city.jpg', label: '秦野市周边景观', title: 'File:櫟山から秦野市街 2010-02-09 - Hadano City from Kunugiyama - panoramio.jpg' },
+  hadanoBridge: { file: 'hadano-bridge.svg', label: '场景示意 · 非现场照片' },
+  hadanoBridgeTwo: { file: 'hadano-bridge-two.svg', label: '场景示意 · 非现场照片' },
+  hadanoTunnel: { file: 'hadano-tunnel.svg', label: '场景示意 · 非现场照片' },
+  hadanoPark: { file: 'hadano-park.svg', label: '场景示意 · 非现场照片' },
+  hadanoStairs: { file: 'hadano-stairs.svg', label: '场景示意 · 非现场照片' },
+  hadanoDiner: { file: 'hadano-diner.svg', label: '场景示意 · 非现场照片' },
+  shimoda: { file: 'shimoda-bay.jpg', label: '下田湾周边景观', title: 'File:Shimoda bay 下田湾 (2625322448).jpg' },
+  shimodaStation: { file: 'shimoda-station.jpg', label: '伊豆急下田站实景', title: 'File:Izukyu-Shimoda-Sta.JPG' },
+  perry: { file: 'perry-road.jpg', label: '佩里之路实景', title: 'File:Perry Road, Shimoda, Shizuoka, Japan.JPG' },
+  shirahama: { file: 'shirahama.jpg', label: '白滨海岸实景', title: 'File:Shirahama Beach, Shimoda 2008-08-15 (2779944645).jpg' },
+  ryugu: { file: 'ryugu.jpg', label: '龙宫窟实景', title: 'File:Shimoda Ryugu-Seehöhle am Abend 02.jpg' },
+  irozaki: { file: 'irozaki.jpg', label: '石廊崎实景', title: 'File:Cape Irozaki.jpg' },
+  omuro: { file: 'omuro.jpg', label: '大室山实景', title: 'File:Mount Ōmuro (Izu Peninsula) & Mt.Fuji.jpg' },
+  kadowaki: { file: 'kadowaki.jpg', label: '门胁吊桥周边实景', title: 'File:Ito Jogasaki-Küste Kadowaki-tsuki 1.jpg' },
+  inatori: { file: 'inatori.jpg', label: '稻取温泉周边景观', title: 'File:Inatori Onsen 20100601.jpg' },
+  naganoStation: { file: 'nagano-station.jpg', label: '长野站实景', title: 'File:Nagano Station March 2015.jpg' },
+  zenkoji: { file: 'zenkoji.jpg', label: '善光寺实景', title: 'File:Zenkoji-Nagano.JPG' },
+  obuse: { file: 'obuse-hokusai.jpg', label: '小布施周边景观', title: 'File:Obuse Town Hokusai Hall.jpg' },
+  obuseStreet: { file: 'obuse-street.jpg', label: '小布施栗木步道实景', title: 'File:Chestnut wood block pavement at Obuse (Scenery).jpg' },
+  kanseido: { file: 'kanseido.jpg', label: '桜井甘精堂本店实景', title: 'File:Sakurai Kanseido ac.jpg' },
+  ganshoin: { file: 'ganshoin.jpg', label: '岩松院实景', title: 'File:Ganshoin Hondo 01.jpg' },
+  matsumotoCastle: { file: 'matsumoto-castle.jpg', label: '松本城实景', title: 'File:Matsumoto Castle05s5s4592.jpg' },
+  matsumotoStreet: { file: 'matsumoto-street.jpg', label: '松本旧街实景', title: 'File:130608 Nawate shop street Matsumoto Nagano pref Japan02n.jpg' },
+  naganoArt: { file: 'nagano-art.jpg', label: '长野县立美术馆实景', title: 'File:Nagano Prefectural Art Museum 2021-12 1.jpg' },
+  togakushi: { file: 'togakushi.jpg', label: '户隐杉木参道实景', title: 'File:Row of Japanese cedar to Togakushi Shrine Okusha.jpg' },
+  redbrick: { file: 'redbrick.jpg', label: '横滨红砖仓库实景', title: 'File:Yokohama Red Brick Warehouse 2012.JPG' },
+  chinatown: { file: 'chinatown.jpg', label: '横滨中华街实景', title: 'File:Yokohama Chinatown 4.jpg' }
+};
+
+const PLACE_PHOTOS = {
+  hkg: 'hkg', nrt: 'airport', yokohamaStation: 'yokohama', hadanoStation: 'hadanoStation', shimodaStation: 'shimodaStation', naganoStation: 'naganoStation',
+  fresa: 'yokohama', shimodaHotel: 'shimoda', inatoriso: 'inatori', jal: 'zenkoji', intercon: 'yokohama',
+  perry: 'perry', ryosenji: 'perry', shimodaPort: 'shimoda', shirahama: 'shirahama', ryugu: 'ryugu', irozaki: 'irozaki', omuro: 'omuro',
+  jogasaki: 'kadowaki', kadowakiParking: 'kadowaki', kadowakiBridge: 'kadowaki', kadowakiLighthouse: 'kadowaki', sakuranosato: 'omuro',
+  hadanoBridge: 'hadanoBridge', hadanoStationSteps: 'hadanoStation', hadanoOzakiBridge: 'hadanoBridgeTwo', hadanoTunnel: 'hadanoTunnel', hadanoPark: 'hadanoPark', hadanoStairs: 'hadanoStairs', yumeanHadano: 'hadanoDiner', hadanoCulturePark: 'hadanoPark',
+  zenkoji: 'zenkoji', obuseStation: 'obuseStreet', obuse: 'obuse', obuseStreet: 'obuseStreet', ganshoin: 'ganshoin', matsumotoStation: 'matsumotoStreet', matsumotoCastle: 'matsumotoCastle', nawate: 'matsumotoStreet', nakamachi: 'matsumotoStreet', naganoArtMuseum: 'naganoArt',
+  togakushiStart: 'togakushi', zuishinmon: 'togakushi', togakushiOkusha: 'togakushi', togakushiChusha: 'togakushi',
+  minatomirai: 'yokohama', redbrick: 'redbrick', yamashita: 'yokohama', chinatown: 'chinatown', marinewalk: 'yokohama', cupmuseum: 'yokohama',
+  kiyoken: 'yokohama', kinmeya: 'shimodaStation', sakanadonya: 'shimoda', shinden: 'perry', inatoriDinner: 'inatori', kitanoya: 'zenkoji', daimarusoba: 'zenkoji', uzuraya: 'togakushi', ymaguchiya: 'togakushi', oceanterrace: 'yokohama', bills: 'redbrick', kaseiro: 'chinatown', araiya: 'yokohama', obuseSweet: 'kanseido', hokusaitei: 'obuse'
 };
 
 const HADANO_SCENES = [
@@ -72,7 +124,7 @@ const HADANO_SCENES = [
   { place: 'hadanoOzakiBridge', number: '04', shot: '梦境里的另一座桥', detail: '沿室川再走一小段，看麻美的梦境追逐画面取景处。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
   { place: 'hadanoPark', number: '05', shot: '交换贴纸的小公园', detail: '公园不大，更像住宅区里的小展望处。这里适合拍一张朋友并肩坐着的合影。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
   { place: 'hadanoStairs', number: '06', shot: '奔跑与练体力的长阶梯', detail: '这里的坡度比镜头里更有存在感。阶梯旁不存在剧中的电话亭，不要白找。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
-  { place: 'yumeanHadano', number: '07', shot: '麻美守候的家庭餐厅', detail: '最后到真实营业的梦庵吃午饭。这里与桥、隧道不在同一小圈内，建议把它放在巡礼收尾。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
+  { place: 'yumeanHadano', number: '07', shot: '麻美守候的家庭餐厅', detail: '最后到真实营业的梦庵吃稍早晚餐。这里与桥、隧道不在同一小圈内，建议把它放在巡礼收尾。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
   { place: 'hadanoCulturePark', number: '+', shot: '加映：电话亭场景', detail: '文化公园离主线较远，只有提早到达、余力充足才去。道具电话亭已撤，不要按剧照寻找实体电话亭。', still: 'https://www.ntv.co.jp/brushup-life/story/' }
 ];
 
@@ -124,21 +176,21 @@ const DAYS = [
     }
   },
   {
-    id: 'd5', date: '10月1日', week: '周四', area: '长野', title: '从海边向山城移动', subtitle: '今天留给列车、善光寺和一碗荞麦面。', hotel: 'jal', stay: '10/1 入住 · 10/4 退房', food: ['kitanoya', 'daimarusoba', 'obuseSweet'],
-    note: '稻取到长野为长距离转乘，原行程估计约 4–4.5 小时。小布施支线仅在到达够早、体力允许时考虑。',
+    id: 'd5', date: '10月1日', week: '周四', area: '长野', title: '从海边向山城移动', subtitle: '今天留给列车、善光寺和一碗荞麦面。', hotel: 'jal', stay: '10/1 入住 · 10/4 退房', food: ['kitanoya', 'daimarusoba'],
+    note: '稻取到长野是长距离换乘；具体抵达时间以实际车次为准。小布施完整行程留到次日，不在抵达日赶路。',
     plans: {
       A: { name: '原定路线', mood: '抵达长野后短游', stops: [step('08:30', 'inatoriso', '退房'), step('14:30', 'naganoStation', '抵达长野'), step('15:00', 'jal', '办理入住'), step('16:00', 'zenkoji', '门前町散步'), step('18:00', 'kitanoya', '荞麦面晚餐')] },
       B: { name: '转车省力', mood: '酒店周边休息', stops: [step('09:00', 'inatoriso'), step('15:00', 'naganoStation'), step('15:30', 'jal', '休整行李'), step('18:00', 'kitanoya')] },
-      C: { name: '小布施支线', mood: '只在到达够早时选', stops: [step('08:00', 'inatoriso'), step('13:30', 'naganoStation'), step('14:30', 'obuse', '北斋馆'), step('15:30', 'obuseSweet', '栗子点心'), step('18:00', 'jal', '返回长野入住')] }
+      C: { name: '雨天美术线', mood: '先入住，去善光寺旁看展', stops: [step('08:00', 'inatoriso'), step('13:30', 'naganoStation'), step('14:15', 'jal', '入住和放行李'), step('15:15', 'naganoArtMuseum', '如到达太晚可跳过'), step('17:00', 'zenkoji', '门前町短走'), step('18:00', 'kitanoya')] }
     }
   },
   {
-    id: 'd6', date: '10月2日', week: '周五', area: '白马', title: '上山看白马三山', subtitle: '山顶露台、咖啡和不着急的下午。', hotel: 'jal', stay: '续住第 2 晚', food: ['citybakery', 'kitanoya'],
-    note: '长野—白马特急巴士春夏秋班次与岩岳缆车 2026 运营期已在运营方官网公布；当天仍需看风况、巴士班次。',
+    id: 'd6', date: '10月2日', week: '周五', area: '小布施 / 长野', title: '北斋与栗子的山城日', subtitle: '小布施的艺术、旧街和栗子，刚好走一整天。', hotel: 'jal', stay: '续住第 2 晚', food: ['hokusaitei', 'obuseSweet', 'kitanoya'],
+    note: 'A 是车程较短的小布施主线；B 的松本为一日往返，车程更长；C 留在长野市内。岩松院至小布施中心有一段步行，可按实际接驳情况打车。',
     plans: {
-      A: { name: '山景完整版', mood: '巴士 · 缆车 · 山顶露台', stops: [step('08:00', 'jal'), step('09:40', 'hakubaBus', '转山麓交通'), step('10:30', 'iwatake', '乘缆车'), step('11:00', 'harbor', '看北阿尔卑斯山'), step('12:30', 'citybakery', '咖啡与面包'), step('17:30', 'jal', '返回长野')] },
-      B: { name: '山顶慢坐', mood: '只去露台，不加徒步', stops: [step('09:00', 'jal'), step('11:00', 'iwatake'), step('11:30', 'harbor'), step('12:30', 'citybakery'), step('16:30', 'jal')] },
-      C: { name: '缆车停运', mood: '留在长野市区', stops: [step('10:00', 'jal'), step('11:00', 'zenkoji'), step('12:30', 'daimarusoba'), step('15:00', 'jal', '城市慢行')] }
+      A: { name: '小布施艺术线', mood: '北斋馆 · 栗子旧街 · 岩松院', stops: [step('08:45', 'jal', '早餐后去长野站'), step('09:10', 'naganoStation', '乘长野电铁；查当天车次'), step('09:50', 'obuseStation', '步行进入小镇'), step('10:10', 'obuse', '看北斋作品'), step('11:45', 'obuseStreet', '栗子街散步'), step('12:15', 'hokusaitei', '栗おこわ午餐'), step('13:15', 'obuseSweet', '栗菓子与伴手礼'), step('14:15', 'ganshoin', '凤凰天井画；步行或打车'), step('17:30', 'jal', '返回长野休息')] },
+      B: { name: '松本城一日游', mood: '黑色天守 · 河畔旧街', stops: [step('08:00', 'jal'), step('08:30', 'naganoStation', '乘列车前往松本'), step('09:45', 'matsumotoStation', '步行或市内巴士'), step('10:30', 'matsumotoCastle', '天守排队时间留弹性'), step('13:00', 'nawate', '街边午餐'), step('14:30', 'nakamachi', '仓房旧街'), step('16:30', 'matsumotoStation', '乘车回长野'), step('18:00', 'jal')] },
+      C: { name: '长野城下慢行', mood: '美术馆 · 善光寺 · 荞麦面', stops: [step('09:30', 'jal'), step('10:00', 'naganoArtMuseum', '按当期展览安排'), step('12:00', 'zenkoji', '寺院与门前町'), step('13:00', 'daimarusoba', '荞麦面午餐'), step('15:00', 'jal', '慢行或回酒店休息')] }
     }
   },
   {
@@ -151,10 +203,10 @@ const DAYS = [
     }
   },
   {
-    id: 'd8', date: '10月4日', week: '周日', area: '长野 → 秦野 → 横滨', title: '在回横滨途中，重启人生', subtitle: '长野出发，走过秦野的桥与隧道，傍晚抵达海港。', hotel: 'intercon', stay: '10/4 入住 · 10/6 退房', food: ['yumeanHadano', 'oceanterrace'],
-    note: 'A 方案跨城又步行，须早出发。建议前一天联系长野酒店寄送大件行李至横滨酒店，并确认次日送达；或在秦野站核实寄存柜，柜满则改 B。车次与所需时间请出发前重新查。',
+    id: 'd8', date: '10月4日', week: '周日', area: '长野 → 横滨 → 秦野', title: '放好行李，再去重启人生', subtitle: '先回横滨酒店寄存行李，再轻装去秦野巡礼。', hotel: 'intercon', stay: '10/4 入住 · 10/6 退房', food: ['yumeanHadano', 'oceanterrace'],
+    note: 'A 方案必须先到横滨洲际酒店寄存行李；若房间已准备好再办理入住，不能预设提前入住。长野到横滨、横滨到秦野都需换乘，时间仅作规划参考；晚点时缩短秦野步行点。',
     plans: {
-      A: { name: '秦野取景地巡礼', mood: '长野 · 上学路 · 贴纸公园 · 横滨', stops: [step('07:45', 'jal', '退房；大件行李提前寄送或在秦野站寄存'), step('11:30', 'hadanoStation', '东京方向转小田急；到达时间以实际车次为准'), step('11:35', 'hadanoStationSteps', '南口阶梯顺路拍照'), step('11:50', 'hadanoBridge', '站在公共道路取景'), step('12:05', 'hadanoTunnel', '桥边下穿铁路的通学道'), step('12:20', 'hadanoOzakiBridge', '梦境中的另一座桥'), step('12:45', 'hadanoPark', '小公园与贴纸回忆'), step('13:20', 'hadanoStairs', '长阶梯；时间紧可跳过'), step('14:15', 'yumeanHadano', '家庭餐厅午餐'), step('16:00', 'hadanoStation', '转车去横滨'), step('18:00', 'intercon', '办理入住，核对行李送达')] },
+      A: { name: '秦野取景地巡礼', mood: '横滨先放行李 · 秦野轻装步行', stops: [step('07:30', 'jal', '退房；乘新干线向横滨'), step('10:45', 'yokohamaStation', '换乘到港未来；时间以实际车次为准'), step('11:15', 'intercon', '先寄存行李；房间已就绪才办理入住'), step('12:00', 'yokohamaStation', '轻装前往秦野，建议经海老名换乘'), step('13:15', 'hadanoStation', '秦野站南口开始巡礼'), step('13:20', 'hadanoStationSteps', '南口阶梯顺路拍照'), step('13:45', 'hadanoBridge', '公共道路取景'), step('14:00', 'hadanoTunnel', '桥边下穿铁路的通学道'), step('14:15', 'hadanoOzakiBridge', '梦境中的另一座桥'), step('14:40', 'hadanoPark', '住宅区安静参观'), step('15:15', 'hadanoStairs', '长阶梯；时间紧可跳过'), step('16:15', 'yumeanHadano', '稍早晚餐；跨区可打车'), step('17:45', 'hadanoStation', '转车回横滨'), step('19:15', 'intercon', '返回酒店，办理入住或取行李')] },
       B: { name: '早到横滨', mood: '省力转车 · 港边散步', stops: [step('09:00', 'jal', '退房'), step('13:00', 'yokohamaStation'), step('14:00', 'intercon', '入住或寄存行李'), step('16:00', 'minatomirai', '海边散步'), step('18:30', 'oceanterrace', '酒店晚餐可选')] },
       C: { name: '交通延误 / 雨天', mood: '直接入住 · 室内休息', stops: [step('09:30', 'jal', '退房'), step('14:00', 'yokohamaStation', '预留换乘缓冲'), step('15:00', 'intercon', '办理入住'), step('18:00', 'oceanterrace', '酒店内晚餐')] }
     }

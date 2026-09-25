@@ -54,6 +54,12 @@
     const checked = checkins.has(id);
     return `<div class="place-actions"><a href="${mapUrl(id)}" target="_blank" rel="noopener noreferrer" aria-label="在 Google 地图中查找${safe(place.name)}">${icon('navigation')} Google 地图</a>${place.source ? `<a href="${safe(place.source)}" target="_blank" rel="noopener noreferrer" aria-label="查看${safe(place.name)}的官方或旅游资料">${icon('external-link')} 资料</a>` : ''}<button type="button" class="check-button ${checked ? 'is-checked' : ''}" data-checkin="${safe(id)}" aria-pressed="${checked}">${icon(checked ? 'check-circle-2' : 'circle')} ${checked ? '已打卡' : '打卡'}</button></div>`;
   }
+  function placePhoto(id, className = 'place-photo') {
+    const photo = PHOTO_ASSETS[PLACE_PHOTOS[id]];
+    if (!photo) return '';
+    const credit = photo.title ? `<a href="https://commons.wikimedia.org/wiki/${encodeURIComponent(photo.title).replace(/%3A/i, ':')}" target="_blank" rel="noopener noreferrer" aria-label="查看${safe(photo.label)}的图片来源">图源</a>` : '';
+    return `<figure class="${className}"><img src="./photos/${safe(photo.file)}" alt="${safe(photo.label)}" width="500" height="320" loading="lazy" decoding="async"><figcaption>${safe(photo.label)}${credit}</figcaption></figure>`;
+  }
   function renderDayStrip() {
     $('#day-strip').innerHTML = DAYS.map((day, i) => `<button type="button" class="day-tab" role="tab" data-day="${day.id}" aria-selected="${day.id === selectedDay}" aria-label="第${i + 1}天，${day.date}，${safe(day.area)}"><span class="day-tab-top">${safe(day.date)}</span><span class="day-tab-bottom">D${String(i + 1).padStart(2, '0')} · ${safe(day.area)}</span></button>`).join('');
   }
@@ -62,7 +68,7 @@
       const place = PLACES[stop.place];
       if (!place) return '';
       const marker = place.kind === '酒店' ? 'bed-double' : place.kind === '餐厅' ? 'utensils' : place.kind === '交通' ? 'train-front' : 'map-pin';
-      return `<li class="timeline-item"><div class="timeline-time">${safe(stop.time)}</div><div class="timeline-dot">${icon(marker)}</div><div class="timeline-content"><div class="timeline-topline"><h4>${safe(place.name)}</h4><span class="timeline-kind">${safe(place.kind)}</span></div>${stop.note ? `<p class="timeline-note">${safe(stop.note)}</p>` : ''}<p class="timeline-description">${safe(place.description)}</p><p class="timeline-address">${place.area ? '区域 · ' : '地址 · '}${safe(place.address)}</p>${actionButtons(stop.place)}</div></li>`;
+      return `<li class="timeline-item"><div class="timeline-time">${safe(stop.time)}</div><div class="timeline-dot">${icon(marker)}</div><div class="timeline-content"><div class="timeline-topline"><h4>${safe(place.name)}</h4><span class="timeline-kind">${safe(place.kind)}</span></div><div class="timeline-body"><div class="timeline-details">${stop.note ? `<p class="timeline-note">${safe(stop.note)}</p>` : ''}<p class="timeline-description">${safe(place.description)}</p><p class="timeline-address">${place.area ? '区域 · ' : '地址 · '}${safe(place.address)}</p>${actionButtons(stop.place)}</div>${placePhoto(stop.place)}</div></div></li>`;
     }).join('');
   }
   function renderExtra(placeId, meta) {
@@ -76,7 +82,7 @@
   function renderFieldGuides() {
     $('#hadano-scenes').innerHTML = HADANO_SCENES.map((item) => {
       const place = PLACES[item.place];
-      return `<article class="scene-item"><div class="scene-mark" aria-hidden="true"><span>SCENE</span><strong>${safe(item.number)}</strong></div><div class="scene-copy"><span class="scene-shot">${safe(item.shot)}</span><h3>${safe(place.name)}</h3><p>${safe(item.detail)}</p><p class="place-address">导航位置 · ${safe(place.address)}</p><div class="scene-links"><a href="${safe(item.still)}" target="_blank" rel="noopener noreferrer">${icon('image')} 官方剧集图文</a><a href="${safe(place.source)}" target="_blank" rel="noopener noreferrer">${icon('images')} 实景照片 / 资料</a></div>${actionButtons(item.place)}</div></article>`;
+      return `<article class="scene-item"><div class="scene-mark" aria-hidden="true"><span>SCENE</span><strong>${safe(item.number)}</strong></div><div class="scene-copy"><span class="scene-shot">${safe(item.shot)}</span><h3>${safe(place.name)}</h3><p>${safe(item.detail)}</p><p class="place-address">导航位置 · ${safe(place.address)}</p><div class="scene-links"><a href="${safe(item.still)}" target="_blank" rel="noopener noreferrer">${icon('image')} 官方剧集图文</a><a href="${safe(place.source)}" target="_blank" rel="noopener noreferrer">${icon('images')} 实景照片 / 资料</a></div>${actionButtons(item.place)}</div>${placePhoto(item.place, 'scene-photo')}</article>`;
     }).join('');
     $('#izu-highlights').innerHTML = IZU_HIGHLIGHTS.map((item, index) => {
       const place = PLACES[item.place];
@@ -131,7 +137,9 @@
     $('#plan-mood').textContent = plan.mood;
     $('#plan-tabs').innerHTML = ['A', 'B', 'C'].map((option) => `<button type="button" role="tab" class="plan-tab" data-plan="${option}" aria-selected="${option === selectedPlan}" aria-label="方案${option}：${safe(day.plans[option].name)}">${option}</button>`).join('');
     $('#route-names').innerHTML = plan.stops.filter((stop, i, all) => i === 0 || stop.place !== all[i - 1].place).map((stop) => `<span class="route-name">${safe(PLACES[stop.place].name)}</span>`).join('');
-    $('#route-map').href = routeUrl(plan.stops.filter((stop) => stop.place !== 'hkg'));
+    $('#route-map').href = day.id === 'd8' && selectedPlan === 'A'
+      ? routeUrl([{ place: 'jal' }, { place: 'intercon' }, { place: 'hadanoStation' }, { place: 'intercon' }])
+      : routeUrl(plan.stops.filter((stop) => stop.place !== 'hkg'));
     renderTimeline(day, plan);
     $('#hotel-detail').innerHTML = renderExtra(day.hotel, day.stay);
     $('#food-list').innerHTML = day.food.map((id) => renderExtra(id)).join('');

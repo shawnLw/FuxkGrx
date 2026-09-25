@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" role="img" aria-label="秦野住宅区小公园场景示意">
+  <rect width="500" height="320" fill="#dfe9dc"/><path d="M0 147 80 101 167 154 243 86 329 146 416 99 500 154v166H0" fill="#a8bca8"/><path d="M0 203c101-18 190-25 275 5 90 32 160 1 225-10v122H0" fill="#82a97e"/><path d="M0 256c97-34 147-22 251 8 77 23 174 13 249-11v67H0" fill="#b9c9a4"/>
+  <path d="M24 165h112v48H24zM364 165h112v48H364z" fill="#f2eadb"/><path d="M24 156h112v11H24zm340 0h112v11H364" fill="#b86758"/><path d="M47 183h30v19H47zm49 0h23v19H96zm286 0h27v19h-27z" fill="#719798"/>
+  <path d="M205 264V143m0 44 45-44m-45 53-44-48" stroke="#5d755b" stroke-width="18" stroke-linecap="round"/><circle cx="205" cy="128" r="43" fill="#4d866c"/><circle cx="173" cy="145" r="31" fill="#5e9675"/><circle cx="240" cy="151" r="30" fill="#639c76"/><path d="M287 251h85m-72-4v23m59-23v23" stroke="#405e57" stroke-width="8" stroke-linecap="round"/><circle cx="418" cy="65" r="22" fill="#e9b276"/>
+</svg>

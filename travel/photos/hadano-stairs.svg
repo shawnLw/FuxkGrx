@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" role="img" aria-label="秦野住宅区长阶梯场景示意">
+  <rect width="500" height="320" fill="#dee9e0"/><path d="M0 139 97 78 168 141 252 89 334 147 429 99 500 143v177H0" fill="#9eb3a7"/><path d="M0 205 157 132 246 155 353 129 500 206v114H0" fill="#6b8b76"/>
+  <path d="M175 320 224 145h52l49 175" fill="#f2e4ca"/><path d="M179 300h142m-137-24h131m-123-23h117m-109-21h100m-94-18h88m-82-16h76m-72-15h68m-62-13h56" stroke="#b6a68e" stroke-width="7"/><path d="M166 320 216 144m118 176-50-176" stroke="#3b5b5c" stroke-width="8"/>
+  <path d="M20 161h112v82H20zM360 154h110v92H360z" fill="#f6f0e4"/><path d="M20 150h112v15H20zm340-9h110v17H360" fill="#b96554"/><path d="M43 178h28v28H43zm44 0h27v28H87zm301 0h30v32h-30z" fill="#62848d"/><circle cx="398" cy="65" r="22" fill="#eeb67c"/>
+</svg>

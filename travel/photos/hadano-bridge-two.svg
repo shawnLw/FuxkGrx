@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" role="img" aria-label="秦野另一座小桥场景示意">
+  <rect width="500" height="320" fill="#ebdfcb"/><path d="M0 164 67 102 133 149 199 82 270 159 347 99 500 168v152H0" fill="#9eaea0"/><path d="M0 183c130-35 206 22 323-24 74-28 111-17 177 0v161H0" fill="#6d8d7e"/><path d="M0 236c77-32 162-31 250 8 79 36 162 32 250-2v78H0" fill="#83adb1"/>
+  <path d="M0 191h500v17H0z" fill="#e7c0a3"/><path d="M0 181h500v8H0z" fill="#ad6654"/><path d="M35 183v39m75-39v39m75-39v39m75-39v39m75-39v39m75-39v39m75-39v39" stroke="#ae6d57" stroke-width="7"/>
+  <path d="M18 149h93v30H18zM26 127h71v52H26zM392 139h70v41h-70z" fill="#f3ece2"/><path d="M33 147h19v15H33zm29 0h19v15H62zm348 8h29v18h-29z" fill="#557786"/><circle cx="395" cy="57" r="25" fill="#db946c"/>
+</svg>

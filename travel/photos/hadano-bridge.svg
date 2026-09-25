@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" role="img" aria-label="秦野河畔小桥场景示意">
+  <rect width="500" height="320" fill="#dbeadf"/><path d="M0 146 78 86 138 139 215 72 310 148 390 93 500 152V320H0" fill="#92b4a8"/><path d="M0 177c90-31 157-12 229-39 107-40 184 35 271 0v182H0" fill="#587f72"/>
+  <path d="M0 210c96-17 171-6 247 15 81 23 170 11 253-8v103H0" fill="#83b6bd"/><path d="M0 255c98-22 160-18 242 9 91 30 174 12 258-15" fill="none" stroke="#cde7de" stroke-width="7" opacity=".8"/>
+  <path d="M15 192h470v17H15z" fill="#e8d8bf"/><path d="M15 177h470v7H15z" fill="#304e58"/><path d="M34 180v43m65-43v43m65-43v43m65-43v43m65-43v43m65-43v43m65-43v43" stroke="#304e58" stroke-width="7"/><path d="M0 295h500v25H0" fill="#dbc69f"/>
+  <path d="M39 139h76v38H39zM64 117h57v60H64zM356 135h91v42h-91z" fill="#f7f1e5"/><path d="M82 137h19v17H82zm302 12h24v20h-24z" fill="#597b85"/><circle cx="418" cy="66" r="26" fill="#e8a76f"/>
+</svg>
