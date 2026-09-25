@@ -118,14 +118,14 @@ const PLACE_PHOTOS = {
 };
 
 const HADANO_SCENES = [
-  { place: 'hadanoStationSteps', number: '01', shot: '车站阶梯的相遇', detail: '一出秦野站南口即可看到，不耽误转场。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
-  { place: 'hadanoBridge', number: '02', shot: '放学路上的小桥', detail: '从车站往室川上的鹤卷桥走。桥和旁边的隧道几乎连在一起，是这趟巡礼最值得认真拍的一组画面。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
-  { place: 'hadanoTunnel', number: '03', shot: '一起穿过的隧道', detail: '从桥边转入小田急线下的通道。可以试着在通道口拍“走向光亮”的构图，但不要挡住通勤者。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
-  { place: 'hadanoOzakiBridge', number: '04', shot: '梦境里的另一座桥', detail: '沿室川再走一小段，看麻美的梦境追逐画面取景处。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
-  { place: 'hadanoPark', number: '05', shot: '交换贴纸的小公园', detail: '公园不大，更像住宅区里的小展望处。这里适合拍一张朋友并肩坐着的合影。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
-  { place: 'hadanoStairs', number: '06', shot: '奔跑与练体力的长阶梯', detail: '这里的坡度比镜头里更有存在感。阶梯旁不存在剧中的电话亭，不要白找。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
-  { place: 'yumeanHadano', number: '07', shot: '麻美守候的家庭餐厅', detail: '最后到真实营业的梦庵吃稍早晚餐。这里与桥、隧道不在同一小圈内，建议把它放在巡礼收尾。', still: 'https://www.ntv.co.jp/brushup-life/story/' },
-  { place: 'hadanoCulturePark', number: '+', shot: '加映：电话亭场景', detail: '文化公园离主线较远，只有提早到达、余力充足才去。道具电话亭已撤，不要按剧照寻找实体电话亭。', still: 'https://www.ntv.co.jp/brushup-life/story/' }
+  { place: 'hadanoStationSteps', number: '01', shot: '车站阶梯的相遇', detail: '一出秦野站南口即可看到，不耽误转场。', still: 'https://location.la.coocan.jp/brushuplife.html#:~:text=%E7%A7%A6%E9%87%8E%E9%A7%85%E5%8D%97%E5%8F%A3%E3%81%AE%E9%9A%8E%E6%AE%B5', stillLabel: '取景画面对照' },
+  { place: 'hadanoBridge', number: '02', shot: '放学路上的小桥', detail: '从车站往室川上的鹤卷桥走。桥和旁边的隧道几乎连在一起，是这趟巡礼最值得认真拍的一组画面。', still: 'https://www.instagram.com/p/Co4dTpnPQxx/', stillLabel: '官方桥边画面', embed: 'instagram' },
+  { place: 'hadanoTunnel', number: '03', shot: '一起穿过的隧道', detail: '从桥边转入小田急线下的通道。可以试着在通道口拍“走向光亮”的构图，但不要挡住通勤者。', still: 'https://www.instagram.com/p/Co4dTpnPQxx/', stillLabel: '官方隧道画面', embed: 'instagram' },
+  { place: 'hadanoOzakiBridge', number: '04', shot: '梦境里的另一座桥', detail: '沿室川再走一小段，看麻美的梦境追逐画面取景处。', still: 'https://location.la.coocan.jp/brushuplife.html#:~:text=%E5%B0%BE%E5%B0%BB167', stillLabel: '取景画面对照' },
+  { place: 'hadanoPark', number: '05', shot: '交换贴纸的小公园', detail: '公园不大，更像住宅区里的小展望处。这里适合拍一张朋友并肩坐着的合影。', still: 'https://twitter.com/brushuplife_ntv/status/1624775546927468544', stillLabel: '官方贴纸交换画面', embed: 'twitter', embedId: '1624775546927468544' },
+  { place: 'hadanoStairs', number: '06', shot: '奔跑与练体力的长阶梯', detail: '这里的坡度比镜头里更有存在感。阶梯旁不存在剧中的电话亭，不要白找。', still: 'https://hiyori.cc/article/brushuplife_ntv#:~:text=%E5%8D%8A%E5%A4%9C%E6%89%93%E5%85%AC%E5%85%B1%E9%9B%BB%E8%A9%B1%E7%9A%84%E9%9A%8E%E6%A2%AF', stillLabel: '阶梯场景对照' },
+  { place: 'yumeanHadano', number: '07', shot: '麻美守候的家庭餐厅', detail: '最后到真实营业的梦庵吃稍早晚餐。这里与桥、隧道不在同一小圈内，建议把它放在巡礼收尾。', still: 'https://twitter.com/brushuplife_ntv/status/1622234733626425346', stillLabel: '官方梦庵画面', embed: 'twitter', embedId: '1622234733626425346' },
+  { place: 'hadanoCulturePark', number: '+', shot: '加映：电话亭场景', detail: '文化公园离主线较远，只有提早到达、余力充足才去。道具电话亭已撤，不要按剧照寻找实体电话亭。', still: 'https://www.ntv.co.jp/brushup-life/story/01.html', stillLabel: '官方第 1 集图文' }
 ];
 
 const IZU_HIGHLIGHTS = [

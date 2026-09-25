@@ -188,6 +188,23 @@ button:disabled{cursor:not-allowed}
 .scene-mark strong{font-size:68px;line-height:1;color:#b8553d}
 .scene-copy{min-width:0}
 .scene-photo{align-self:start}
+.scene-media-action{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;min-height:34px;margin-top:8px;padding:6px 7px;border:1px solid #86aaa0;border-radius:3px;background:#edf5f0;color:#264f53;font-family:inherit;font-size:11px;font-weight:700;line-height:1.4;text-align:center;text-decoration:none;cursor:pointer}
+.scene-media-action svg{width:14px;height:14px;flex:none}
+.scene-media-action:hover,.scene-media-action:focus-visible{background:#dceee5;border-color:#427e74}
+.scene-dialog{width:min(480px,calc(100vw - 24px));max-height:calc(100dvh - 24px);padding:0;border:1px solid #adc6ba;border-radius:5px;background:#f9f8f2;color:#203d4c;box-shadow:0 24px 70px #10212c66}
+.scene-dialog::backdrop{background:#0c1c24b8}
+.scene-dialog-head{display:flex;justify-content:space-between;align-items:start;gap:12px;padding:14px 16px;border-bottom:1px solid #d4ded5}
+.scene-dialog-head span{font-size:10px;font-weight:800;letter-spacing:.12em;color:#a6533e}
+.scene-dialog-head h2{margin:3px 0 0;font-size:17px;line-height:1.4}
+.scene-dialog-head button{display:grid;place-items:center;flex:none;width:32px;height:32px;padding:0;border:1px solid #c8d7cd;background:#fff;color:#264f53;cursor:pointer}
+.scene-dialog-head svg{width:17px;height:17px}
+.scene-dialog iframe{display:block;width:100%;height:min(64dvh,560px);border:0;background:#fff}
+.scene-dialog-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 16px;font-size:11px;line-height:1.45}
+.scene-dialog-foot p{margin:0;color:#60736c}
+.scene-dialog-foot>div{display:flex;gap:10px;flex-wrap:wrap;justify-content:end}
+.scene-dialog-foot a{display:inline-flex;align-items:center;gap:4px;flex:none;color:#a4513c;font-weight:800;text-decoration:none}
+.scene-dialog-foot svg{width:13px;height:13px}
+@media(max-width:390px){.scene-dialog-foot{display:block}.scene-dialog-foot>div{justify-content:start;margin-top:8px}}
 .scene-shot{color:#ae523d;font-size:11px;font-weight:800;letter-spacing:.08em}
 .scene-copy h3{font-size:clamp(20px,2vw,28px);color:#203d4c;margin:6px 0 8px}
 .scene-copy>p{font-size:13px;line-height:1.8;color:#536a66;margin:0 0 7px}

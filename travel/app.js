@@ -57,8 +57,12 @@
   function placePhoto(id, className = 'place-photo') {
     const photo = PHOTO_ASSETS[PLACE_PHOTOS[id]];
     if (!photo) return '';
+    const scene = HADANO_SCENES.find((item) => item.place === id);
     const credit = photo.title ? `<a href="https://commons.wikimedia.org/wiki/${encodeURIComponent(photo.title).replace(/%3A/i, ':')}" target="_blank" rel="noopener noreferrer" aria-label="查看${safe(photo.label)}的图片来源">图源</a>` : '';
-    return `<figure class="${className}"><img src="./photos/${safe(photo.file)}" alt="${safe(photo.label)}" width="500" height="320" loading="lazy" decoding="async"><figcaption>${safe(photo.label)}${credit}</figcaption></figure>`;
+    const sceneAction = scene ? (scene.embed
+      ? `<button type="button" class="scene-media-action" data-scene-media="${safe(id)}">${icon('image')} ${safe(scene.stillLabel)}</button>`
+      : `<a class="scene-media-action" href="${safe(scene.still)}" target="_blank" rel="noopener noreferrer">${icon('external-link')} ${safe(scene.stillLabel)}</a>`) : '';
+    return `<figure class="${className}"><img src="./photos/${safe(photo.file)}" alt="${safe(photo.label)}" width="500" height="320" loading="lazy" decoding="async"><figcaption>${safe(photo.label)}${credit}</figcaption>${sceneAction}</figure>`;
   }
   function renderDayStrip() {
     $('#day-strip').innerHTML = DAYS.map((day, i) => `<button type="button" class="day-tab" role="tab" data-day="${day.id}" aria-selected="${day.id === selectedDay}" aria-label="第${i + 1}天，${day.date}，${safe(day.area)}"><span class="day-tab-top">${safe(day.date)}</span><span class="day-tab-bottom">D${String(i + 1).padStart(2, '0')} · ${safe(day.area)}</span></button>`).join('');
@@ -82,7 +86,7 @@
   function renderFieldGuides() {
     $('#hadano-scenes').innerHTML = HADANO_SCENES.map((item) => {
       const place = PLACES[item.place];
-      return `<article class="scene-item"><div class="scene-mark" aria-hidden="true"><span>SCENE</span><strong>${safe(item.number)}</strong></div><div class="scene-copy"><span class="scene-shot">${safe(item.shot)}</span><h3>${safe(place.name)}</h3><p>${safe(item.detail)}</p><p class="place-address">导航位置 · ${safe(place.address)}</p><div class="scene-links"><a href="${safe(item.still)}" target="_blank" rel="noopener noreferrer">${icon('image')} 官方剧集图文</a><a href="${safe(place.source)}" target="_blank" rel="noopener noreferrer">${icon('images')} 实景照片 / 资料</a></div>${actionButtons(item.place)}</div>${placePhoto(item.place, 'scene-photo')}</article>`;
+      return `<article class="scene-item"><div class="scene-mark" aria-hidden="true"><span>SCENE</span><strong>${safe(item.number)}</strong></div><div class="scene-copy"><span class="scene-shot">${safe(item.shot)}</span><h3>${safe(place.name)}</h3><p>${safe(item.detail)}</p><p class="place-address">导航位置 · ${safe(place.address)}</p><div class="scene-links"><a href="${safe(place.source)}" target="_blank" rel="noopener noreferrer">${icon('images')} 实景照片 / 资料</a></div>${actionButtons(item.place)}</div>${placePhoto(item.place, 'scene-photo')}</article>`;
     }).join('');
     $('#izu-highlights').innerHTML = IZU_HIGHLIGHTS.map((item, index) => {
       const place = PLACES[item.place];
@@ -149,6 +153,23 @@
   }
 
   document.addEventListener('click', (event) => {
+    const sceneButton = event.target.closest('[data-scene-media]');
+    if (sceneButton) {
+      const scene = HADANO_SCENES.find((item) => item.place === sceneButton.dataset.sceneMedia);
+      if (!scene?.embed) return;
+      const dialog = $('#scene-dialog');
+      const frame = $('#scene-dialog-frame');
+      $('#scene-dialog-title').textContent = `${PLACES[scene.place].name} · ${scene.shot}`;
+      $('#scene-dialog-source').href = scene.still;
+      $('#scene-dialog-reference').href = PLACES[scene.place].source;
+      frame.title = `${PLACES[scene.place].name}的官方发布画面`;
+      frame.src = scene.embed === 'instagram'
+        ? `${scene.still}embed/`
+        : `https://platform.twitter.com/embed/Tweet.html?id=${scene.embedId}&theme=light&dnt=true`;
+      dialog.showModal();
+      return;
+    }
+    if (event.target.closest('[data-close-scene]')) { $('#scene-dialog').close(); return; }
     const dayButton = event.target.closest('[data-day]');
     if (dayButton) { selectedDay = dayButton.dataset.day; selectedPlan = 'A'; renderDay(); return; }
     const planButton = event.target.closest('[data-plan]');
@@ -180,6 +201,10 @@
         .then(() => notify('取票码已复制。'))
         .catch(() => notify('无法自动复制，请长按取票码复制。'));
     }
+  });
+  $('#scene-dialog').addEventListener('close', () => { $('#scene-dialog-frame').src = 'about:blank'; });
+  $('#scene-dialog').addEventListener('click', (event) => {
+    if (event.target === $('#scene-dialog')) $('#scene-dialog').close();
   });
   $('#reset-button').addEventListener('click', () => {
     if (!checkins.size) return notify('还没有打卡记录。');

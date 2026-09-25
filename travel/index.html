@@ -7,7 +7,7 @@
   <meta name="description" content="ShawnLW 的日本十天九晚旅行手帖：逐日路线、酒店餐厅、地图导航与打卡记录。">
   <title>日本十天九晚 · ShawnLW 旅行手帖</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23eee6d4'/%3E%3Ccircle cx='43' cy='20' r='9' fill='%23d95135'/%3E%3Cpath d='M4 55c12-19 18-15 27-10 9-14 15-11 29 10' fill='none' stroke='%23213c50' stroke-width='5'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./style.css?v=20260926b">
+  <link rel="stylesheet" href="./style.css?v=20260926c">
 </head>
 <body>
   <header class="site-header">
@@ -75,7 +75,7 @@
       <div class="section-heading"><div><span class="section-index">02 / SCENE WALK</span><h2 id="hadano-title">秦野 · 重启人生取景地</h2><p>10 月 4 日先回横滨酒店寄存行李，再轻装去秦野重走麻美的上学路，最后到梦庵稍早晚餐。</p></div><a class="guide-shortcut" href="?day=d8&plan=A#itinerary">查看当天 A 路线 <i data-lucide="arrow-up-right" aria-hidden="true"></i></a></div>
       <div class="guide-intro"><span class="guide-intro-number">07+1</span><p>七处顺路的公共取景点，加一处需绕行的文化公园，逐一附导航和打卡。桥、隧道、公园与阶梯都靠近居民区，请轻声步行；剧中的麻美家是有人居住的私人住宅，不列入导航。</p></div>
       <div id="hadano-scenes" class="scene-list"></div>
-      <p class="guide-credit">剧照与节目画面的版权属于制作方，本站不转载。住宅区取景点旁的插画明确是场景示意，不是现场照片；每站的“实景照片 / 资料”可打开取景地实访或场所信息。外部页面可能随时调整。</p>
+      <p class="guide-credit">小图标明“场景示意”的不是现场照片。点击小图下的画面入口，可查看电视台官方社媒发布的对应画面，或打开逐地点的取景对照资料；本站不复制剧照。外部内容可能因网络或平台限制无法加载，此时请使用“在原帖打开”。</p>
     </section>
 
     <section id="izu-guide" class="field-guide izu-guide" aria-labelledby="izu-title">
@@ -90,8 +90,13 @@
   </main>
   <footer class="site-footer"><span>SHAWNLW / JAPAN FIELD NOTES</span><span>2026 · 香港到日本，海边到山里 · <a href="./photo-credits.html">图片来源与许可</a></span></footer>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <dialog id="scene-dialog" class="scene-dialog" aria-labelledby="scene-dialog-title">
+    <div class="scene-dialog-head"><div><span>OFFICIAL SCENE</span><h2 id="scene-dialog-title"></h2></div><button type="button" data-close-scene aria-label="关闭剧中画面"><i data-lucide="x" aria-hidden="true"></i></button></div>
+    <iframe id="scene-dialog-frame" title="官方发布的剧中画面" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <div class="scene-dialog-foot"><p>画面由发布平台提供，可能受网络限制。</p><div><a id="scene-dialog-source" href="#" target="_blank" rel="noopener noreferrer">打开原帖 <i data-lucide="external-link" aria-hidden="true"></i></a><a id="scene-dialog-reference" href="#" target="_blank" rel="noopener noreferrer">现场对照 <i data-lucide="external-link" aria-hidden="true"></i></a></div></div>
+  </dialog>
   <script src="./lucide.min.js?v=20260925c" defer></script>
-  <script src="./data.js?v=20260926b" defer></script>
-  <script src="./app.js?v=20260926b" defer></script>
+  <script src="./data.js?v=20260926c" defer></script>
+  <script src="./app.js?v=20260926c" defer></script>
 </body>
 </html>
